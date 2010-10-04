@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Библиотека пользовательских классов и функций phpMyEngine
+ *
+ * @package phpMyEngine
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
+ *
+ */
 namespace phpMyEngine\Persons;
 
 const PME_RECORDS_COLLECTION = 'persons';

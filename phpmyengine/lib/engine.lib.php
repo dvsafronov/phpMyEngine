@@ -1,14 +1,13 @@
 <?php
-
 /**
  * 
  * Библиотека основных функций и классов phpMyEngine
  * 
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/) 
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010 
  * @version 2010-09-11 15:58 
- * @license Apache License 
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
 namespace phpMyEngine;
@@ -93,10 +92,10 @@ function doRedirect ( $url ) {
  * с использованием AJAX.
  * 
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/) 
- * @version 2010-09-11 15:58 
- * @license Apache License 
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  * 
  * @return bool
  * 
@@ -113,10 +112,10 @@ function isAJAXRequest () {
  * Функция запускает контроллер
  *
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/)
- * @version 2010-09-23 20:38
- * @license Apache License
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  * 
  * @param <type> $name
  */
@@ -148,10 +147,10 @@ function runController () {
  * Класс маршрутизации.
  * 
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/) 
- * @version 2010-09-11 15:58 
- * @license Apache License 
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
 class Route {
@@ -256,10 +255,10 @@ class Route {
  * Набор функций и классов для работы с внутренней файловой системой приложения
  * 
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/) 
- * @version 2010-09-11 15:58 
- * @license Apache License 
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
 namespace phpMyEngine\EngineFileSystem;
@@ -269,10 +268,10 @@ namespace phpMyEngine\EngineFileSystem;
  * Возвращяет массив с отношением виртуальных путей с реальными
  *
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/) 
- * @version 2010-09-11 15:58 
- * @license Apache License 
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
 class Structure {
@@ -332,10 +331,10 @@ class Structure {
  * Производит проверку на существование файла по его виртуальному пути
  * 
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/) 
- * @version 2010-10-02 17:41 GMT+3
- * @license Apache License 
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  * 
  * @param filename $file, path $path
  */
@@ -356,10 +355,10 @@ function getRealFilePath ( $file, $path ) {
  * Библиотека работы с конфигурацией phpMyEngine
  * 
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/) 
- * @version 2010-09-11 15:58 
- * @license Apache License 
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
 namespace phpMyEngine\Config;
@@ -664,10 +663,10 @@ class Render {
  * Библиотека для обеспечения работы драйверов баз данных phpMyEngine
  *
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/)
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
  * @version 2010-09-11 15:58
- * @license Apache License
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
 namespace phpMyEngine\Database;
@@ -682,10 +681,10 @@ const REQUEST_TYPE_REMOVE = 2;
  * Обновляет статистику использования базы данных
  *
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/)
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
  * @version 2010-09-11 15:58
- * @license Apache License
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  * @param float $time
  * @param bool $errorFlag
@@ -782,10 +781,10 @@ final class Storage {
  * Библиотека работы с кешем phpMyEngine
  *
  * @package phpMyEngine
- * @author xmcdbx
- * @copyright Copyright (c) 2010 World Famous Company (http://worldfamouscompany.ru/)
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
  * @version 2010-09-11 15:58
- * @license Apache License
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
 namespace phpMyEngine\Cache;

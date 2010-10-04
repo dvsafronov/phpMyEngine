@@ -3,8 +3,11 @@
 /**
  * phpMyEngine
  * 
- * @copyright 2010
- * @license Apache License 
+ * @package phpMyEngine
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 0.0.1-dev
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  * 
  */
 // debug status, turn false on production server
