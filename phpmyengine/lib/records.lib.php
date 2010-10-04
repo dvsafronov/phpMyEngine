@@ -1,4 +1,16 @@
 <?php
+
+/**
+ * Библиотека классов и функций phpMyEngine
+ * для работы с записями (Records)
+ *
+ * @package phpMyEngine
+ * @author Denis xmcdbx Safonov
+ * @copyright Copyright (c) 2010
+ * @version 2010-09-11 15:58
+ * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
+ *
+ */
 namespace phpMyEngine\Records;
 
 const PME_RECORDS_COLLECTION = 'records';
@@ -250,7 +262,7 @@ class Storage {
         if (count ( $this->records ) > 0 && key_exists ( 0, $this->records )) {
             return $this->records [0];
         } else {
-            throw new \phpMyEngine\Exception(\phpMyEngine\Exception::TYPE_ERROR, 'Record not found');
+            throw new \phpMyEngine\Exception ( \phpMyEngine\Exception::TYPE_ERROR, 'Record not found' );
         }
         return null;
     }
