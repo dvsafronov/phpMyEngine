@@ -1,0 +1,26 @@
+{
+   "cprule0": {
+        "pcre": "/^add/",
+        "result": "action=add"
+    },
+   "cprule1": {
+        "pcre": "/^list/",
+        "result": "action=list"
+    },
+   "cprule2": {
+        "pcre": "/^([0-9]+)\\/edit/",
+        "result": "action=edit;id=$1"
+    },
+   "cprule3": {
+        "pcre": "/^([0-9]+)\\/view/",
+        "result": "action=view;id=$1"
+    },
+   "rule0": {
+        "pcre": "/^([0-9]+)$/",
+        "result": "action=view;id=$1"
+    },
+   "rule1": {
+        "pcre": "/^([\\w\\s\\dа-яё]+)$/iu",
+        "result": "action=view;title=$1"
+    }
+}

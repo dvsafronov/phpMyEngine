@@ -1,0 +1,30 @@
+{
+    "title": {
+            "length": {
+                "min": 1,
+                "max": 120
+            },
+            "transformations": {
+                "stripTags": true,
+                "htmlspecialchars": true
+            },
+            "formTag": {
+              "type": "text"
+            }
+    },
+    "content" : {
+            "length": {
+                "min": 12,
+                "max": 32000
+            },
+            "transformations": {
+                "stripTags": false,
+                "htmlspecialchars": true
+            },
+            "formTag": {
+              "type": "textarea",
+              "id": "editor",
+              "rows": 24
+            }
+        }  
+}

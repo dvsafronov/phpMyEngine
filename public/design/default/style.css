@@ -1,0 +1,328 @@
+/* 
+    Document   : style.css
+    Created on : 22.09.2010, 17:23:25
+    Author     : xmcdbx
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+.cls {
+    clear: both;
+}
+root { 
+    display: block;
+}
+
+html {
+        background: #f2f5f6 url('images/middle_bg.png') repeat-x;
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family: sans-serif;
+    font-size: 14px;
+    min-width: 1000px;
+
+}
+body {
+    margin:0;
+    padding:0;
+}
+a img {
+    border: 0;
+}
+a {
+    color: #356a9f;
+}
+a:hover {
+    color: #4173a5;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0
+}
+.ad {
+    display: none;
+    height: 48px;
+    background: green;
+}
+#gspot {
+    margin-top: 0px;
+    min-height: 100%;
+}
+#header {
+    padding-top: 24px;
+    height: 96px;
+    background: #214971 url('images/header_bg.png') repeat-x;
+    border-bottom: 1px solid #fff
+}
+#headBar {
+    background: #214971 url('images/headbar_bg.png') repeat-x;
+    height: 34px;    
+    padding: 14px 32px 0 32px;
+}
+#menuBar {
+    background: #13293c;
+    height: 26px;
+    margin-top: 12px;
+}
+
+#middle {
+    margin: 24px 32px;
+}
+
+#westCoast {
+    width: 75%;
+    float: left
+}
+
+.block {
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #e3e7e9;
+    margin-bottom: 24px;
+    background: #f6f8f9;
+    padding: 24px 24px 24px 24px;
+    font-size: 14px;
+    line-height: 21px
+}
+.block p {
+    text-indent: 14px;
+}
+.block h2 {
+    font-size: 26px;
+    color: #3e5207;
+    font-weight: normal
+}
+
+.tags span {
+    display: block;
+    float: left;
+    text-indent: -20000px;
+    width: 13px;
+    height: 12px;
+    margin-right: 6px;
+    background: url('images/icons.png') no-repeat 0 0;
+    margin-top: 4px;
+}
+.tags ul {
+    text-indent: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left
+}
+.tags ul li {
+    float: left;
+    font-size: 12px;
+    margin-right: 6px;
+}
+.recordInfo {
+    height: 24px;
+    background: #e8eef0;
+    margin: 12px -24px 0 -24px;
+    padding: 0 24px 0 18px;
+    font-size: 11px;
+}
+.recordInfo .votePositive {
+    float: left;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border-right: 1px solid #f6f8f9;
+}
+.recordInfo .votePositive a {
+    display: block;
+    width: 13px;
+    height: 12px;
+    text-indent: -20000px;
+    background: url('images/icons.png') no-repeat -57px 0;
+    margin: 4px auto 0 auto;
+}
+.recordInfo .voteNegative a {
+    display: block;
+    width: 13px;
+    height: 13px;
+    text-indent: -20000px;
+    background: url('images/icons.png') no-repeat -70px 0;
+    margin: 3px auto 0 auto;
+}
+.recordInfo .voteNegative {
+    float: left;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    margin-right: 24px;
+    border-left: 1px solid #f6f8f9;
+}
+.recordInfo .votes {
+    float: left;
+    text-align: center;
+    width: 48px;
+    margin-top: 1px;
+    font-size: 11px;
+}
+.recordInfo .votes span {    
+    width: auto;
+    text-align: center;
+    width: 48px;
+    padding: 0 4px 0 4px;
+    font-size: 12px;
+    color: #3e5207;
+}
+.recordInfo div span {
+    display: block;
+    float: left;
+    text-indent: -20000px;
+    width: 13px;
+    height: 12px;
+    margin-right: 6px;
+    background: url('images/icons.png') no-repeat;
+    margin-top: 4px;
+}
+.recordInfo .username span {
+    background-position: -13px 0;
+}
+.recordInfo .date span {
+    background-position: -26px 0;
+}
+.recordInfo .link span {
+    width: 10px;
+    background-position: -121px 0;
+}
+.recordInfo .favorites span {
+    background-position: -108px 0;
+}
+.recordInfo .favorites span:hover {
+    background-position: -83px 0;
+}
+.recordInfo .comments span {
+    width: 16px;
+    background-position: -40px 0;
+}
+.recordInfo .username {
+    float: left;
+    width: 20%;
+}
+.recordInfo .date {
+    float: left;
+    width: 43%;
+}
+.recordInfo .link,.recordInfo .favorites {
+    width: 24px;
+    float: left;
+}
+.recordInfo .comments {
+    float: right;
+}
+.recordInfo div {
+    margin-top: 2px;
+}
+
+#eastCoast {
+    width: 23%;
+    float: right
+}
+
+#footer {
+    height: 80px;
+    clear: both;
+    border-top: 6px solid #C8D7DC;    
+    color: #555;
+    font-size: 12px;
+    padding: 18px 0 24px 32px;    
+}
+#footer .divny {
+    margin-right: 32px;
+}
+#footer .left {
+    float: left;
+    width: 25%;
+    min-height: 1px;
+}
+#footer .middle {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+#footer .right {    
+    width: 25%;
+    text-align: right;
+    float: left;
+}
+
+.menu {
+    margin-left: 24px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    line-height: 21px;
+    color: #CECECE
+}
+
+.menu ul a {
+    display: block;
+    color: #CECECE;
+    text-decoration: none;
+    padding: 0px 6px 2px 6px;
+    text-shadow: 2px 2px 1px #222;
+}
+
+.menu ul a:hover {
+    color: #FFF;
+    text-shadow: 2px 2px 1px #000;
+    background-color: #03192C;
+    -moz-border-radius: 6px;
+}
+
+.menu ul li {
+    margin-top: 2px;
+    float: left;
+    margin-right: 12px;
+}
+
+.menu ul li ul li {
+    font-size: 14px;
+    float: none;
+    color: #222;
+}
+.menu li ul {
+    display: none;
+    background: #fff;
+    background: url('images/mbg.png') repeat;
+    border: 1px solid #071827;
+    -moz-border-radius: 6px;
+    padding: 3px;
+    min-width: 150px;
+}
+.menu li:hover ul {
+    display: block;
+    position: absolute;
+}
+.submenu {
+    border: 1px solid #ccc;
+}
+.menu span.debug {
+    font-size: 13px;
+    color: #655
+}
+
+.decor1 {
+    position: absolute;
+    left: 100%;
+    margin-left: -343px;
+    width: 285px;
+    height: 146px;
+    background: url('images/ray.png') no-repeat;
+}
+.block h2 {
+    font-size: 26px;
+    color: #3e5207;
+    font-weight: normal;
+    margin-bottom: 24px;
+}

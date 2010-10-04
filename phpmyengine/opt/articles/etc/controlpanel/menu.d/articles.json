@@ -1,0 +1,9 @@
+{
+    "Articles": {
+        "Add category": "articles/category/add",
+        "List categories": "articles/categories",
+        "#seporator#" : null,
+        "Add new": "articles/add",
+        "List articles": "articles/list"
+    }
+}
