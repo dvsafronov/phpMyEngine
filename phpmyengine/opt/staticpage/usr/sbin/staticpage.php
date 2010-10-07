@@ -46,10 +46,37 @@ function editAction () {
     $_myRoute = Route::getInstance ();
     $_myRender = Render::getInstance ();
     if ($_myRoute->isControlPanel ()) {
+        $myMessages = new \phpMyEngine\Messages();
         $myFilter = new Filter();
         $myFilter->_id = (double) $_myRoute->id;
         $myFilter->mutagenType = 'StaticPage';
         $myRecord = $myFilter->getRecords ()->getFirst ();
+        $myProperties = $myRecord->mutagenData->getProperties ();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            foreach ($myProperties as $key) {
+                try {
+                    $myRecord->mutagenData->$key = filter_input ( INPUT_POST, $key );
+                } catch (\Exception $myException) {
+                    $myMessages->addError ( $myException->text );
+                }
+            }
+            $myRecord->tags = array ();
+            $tags = explode ( ',', filter_input ( INPUT_POST, 'tags' ) );
+            foreach ($tags as $key => $value) {
+                $value = trim ( $value );
+                if (!is_null ( $value ) && strlen ( $value ) > 0 && !in_array ( $value, $myRecord->tags )) {
+                    $myRecord->tags[] = $value;
+                }
+            }
+            $myRecord->status = (int) filter_input ( INPUT_POST, 'status' );
+
+            if ($myMessages->caErrors == 0) {
+                if ($myRecord->save ()) {
+                    $_tpl = 'staticpage_saved';
+                    $myMessages->addMessage ( 'Static page has been saved' );
+                }
+            }
+        }
         $_myRender->setValue ( 'myRecord', $myRecord );
         $_myRender->setValue ( '_messages', $myMessages );
         $_myRender->renderTemplate ( 'staticpage_edit.tpl' );
@@ -98,6 +125,25 @@ function addAction () {
     return null;
 }
 
-function defaultAction () {    
+function deleteAction () {
+    $_myRender = Render::getInstance ();
+    $_myRoute = Route::getInstance ();
+    if ($_myRoute->isControlPanel ()) {
+        $myMessages = new \phpMyEngine\Messages();
+        $myFilter = new Filter();
+        $myFilter->_id = (double) $_myRoute->id;
+        $myFilter->mutagenType = 'StaticPage';
+        if ($myFilter->deleteRecords ()) {
+            $myMessages->addMessage ( 'Static page has been deleted' );
+        } else {
+            $myMessages->addError ( 'Static page not deleted' );
+        }
+        $_myRender->setValue ( '_messages', $myMessages );
+        $_myRender->renderTemplate ( '_messages.tpl' );
+    }
+    return null;
+}
+
+function defaultAction () {
     return null;
 }

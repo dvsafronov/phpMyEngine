@@ -1,4 +1,5 @@
 phpMyEngine v.0.0.1-dev
+=======================
 
 Автор: Денис xmcdbx Сафронов <mcdb@mcdb.ru>, <xmcdbx@gmail.com>
 Форум проекта: http://mcdb.ru/phpmyengine
@@ -24,18 +25,18 @@ Github: http://github.com/xmcdbx/phpMyEngine
    |-/persons - профили пользователей
    |-/records - мутагены records
   |-/routerrules - директория содержащая правила роутинга для контроллеров
- |-/lib - библиотеки
-  |-/modules - библиотеки расширенных возможностей
+ |-/lib - библиотеки необходимые для работы phpMyEngine
   |-/smarty - Smarty
   |-/smartyplugins - плагины для Smarty 
-  |-/widgets - виджеты
  |-/opt - расширения
  |-/usr - контроллеры, языки, шаблоны
   |-/bin - контроллеры сайта
   |-/lang - языковые пакеты
+  |-/lib - библиотеки расширенных возможностей
   |-/sbin - контроллеры панели управления
   |-/templates - шаблоны
    |-/controlpanel - шаблоны панели управления
+  |-/widgets - виджеты
  |-/var - кеш, бекапы, скомпилированные шаблоны, логи
   |-/backups - бекапы (0777) 
   |-/cache - кэш (0777) 

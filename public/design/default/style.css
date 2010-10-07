@@ -326,3 +326,13 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
     margin-bottom: 24px;
 }
+div.tagCloud {
+    font-size: 36px;
+}
+div.tagCloud a {
+    margin-left: -6px;
+    text-decoration: none;
+}
+div.tagCloud a:hover {
+    text-decoration: underline;
+}

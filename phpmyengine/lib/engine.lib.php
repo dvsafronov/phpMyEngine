@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 
  * Библиотека основных функций и классов phpMyEngine
@@ -86,6 +87,13 @@ function doRedirect ( $url ) {
     return header ( 'Location: ' . $url );
 }
 
+function loadModule ( $name ) {
+    if (false !== $rp = EngineFileSystem\getRealFilePath ( $name.'.lib.php', 'usr/lib' )) {
+        include_once $rp;
+    }
+    return null;
+}
+
 /**
  * 
  * Функция проверяет, было ли обращение к приложению выполнено
@@ -126,7 +134,7 @@ function runController () {
         $_myRoute->controller = $_myConfig->engine->defaultController;
     }
     $path = $_myRoute->isControlPanel () ? 'sbin' : 'bin';
-    if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $_myRoute->controller . '.php', 'usr/'.$path )) {
+    if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $_myRoute->controller . '.php', 'usr/' . $path )) {
         include_once $rp;
         $func = '\phpMyEngine\\' . $_myRoute->controller . 'Controller\\' . $_myRoute->action . 'Action';
         if (\function_exists ( $func )) {
@@ -639,8 +647,8 @@ class Render {
                     break;
                 }
             case self::TITLE_APPEND: {
-                    if (strlen($this->title) > 0) {
-                        $this->title = $this->title." / ";
+                    if (strlen ( $this->title ) > 0) {
+                        $this->title = $this->title . " / ";
                     }
                     $this->title .= $text;
                     break;

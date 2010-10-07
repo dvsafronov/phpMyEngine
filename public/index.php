@@ -11,7 +11,7 @@
  * 
  */
 // debug status, turn false on production server
-const DEBUG = false;
+const DEBUG = true;
 
 define('PATH_APPLICATION',dirname ( __DIR__).'/phpmyengine');
 

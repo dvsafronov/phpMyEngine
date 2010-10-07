@@ -1,3 +1,1 @@
-<div class="block">
-    <h3>эм</h3>
-</div>
+{insert name="widget" widget="tagcloud" mutagen="StaticPage"}

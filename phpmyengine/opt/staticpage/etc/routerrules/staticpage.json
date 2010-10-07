@@ -1,4 +1,8 @@
 {
+   "cprule-0": {
+        "pcre": "/^configure/",
+        "result": "action=configure"
+    },
    "cprule0": {
         "pcre": "/^add/",
         "result": "action=add"
@@ -14,6 +18,10 @@
    "cprule3": {
         "pcre": "/^([0-9]+)\\/view/",
         "result": "action=view;id=$1"
+    },
+   "cprule3": {
+        "pcre": "/^([0-9]+)\\/delete/",
+        "result": "action=delete;id=$1"
     },
    "rule0": {
         "pcre": "/^([0-9]+)$/",

@@ -118,7 +118,9 @@ class Record {
     }
 
     public function delete () {
-        
+        $q = \phpMyEngine\Database\generateQuery ( (array) $this, PME_RECORDS_COLLECTION
+                        , \phpMyEngine\Database\REQUEST_TYPE_REMOVE );
+        return \phpMyEngine\Database\doQuery ( $q );
     }
 
     public function upRating () {
@@ -184,12 +186,21 @@ class Filter {
                             new Mutagen ( $myStorage->records[$i]->mutagenType,
                                     (array) $myStorage->records[$i]->mutagenData );
                 } catch (\phpMyEngine\Exception $myException) {
-                    \phpMyEngine\logError ( $myException->text );
+                    
                 }
             }
             $myStorage->count = $i;
         }
         return $myStorage;
+    }
+
+    public function deleteRecords () {
+        $filter = (array) $this;
+        if (count ( (array) $filter['mutagenData'] ) == 0) {
+            unset ( $filter['mutagenData'] );
+        }
+        $queryStr = \phpMyEngine\Database\generateQuery ( $filter, PME_RECORDS_COLLECTION, \phpMyEngine\Database\REQUEST_TYPE_REMOVE );
+        return \phpMyEngine\Database\doQuery ( $queryStr );
     }
 
 }

@@ -4,7 +4,7 @@
 //@todo обязательно!!!
 namespace phpMyEngine\Database\Mongo;
 
-function filterToCommand ( $filter = false ) {
+function filterToCommand ( $filter = false, $preparetosearch = false ) {
     if (is_null ( $filter )) return 'null';
     if ($filter === false) return 'false';
     if ($filter === true) return 'true';
@@ -20,7 +20,7 @@ function filterToCommand ( $filter = false ) {
     $result = array ();
     foreach ($filter as $key => $value) {
         // если на передали объект, то переделываем его в нужный для mongo вид
-        if (\is_object ( $value )) {
+        if ($preparetosearch == true && \is_object ( $value )) {
             foreach ($value as $subkey => $subvalue) {
                 $key = $key . '.' . $subkey;
                 $value = $subvalue;
@@ -28,7 +28,7 @@ function filterToCommand ( $filter = false ) {
         }
         if (false === strpos ( $key, '\\' )) { // skip private fields of object
             if (is_numeric ( $key )) {
-                $result[] = filterToCommand ( $value );
+                $result[] = filterToCommand ( $value, $preparetosearch );
             } else {
                 if ($value !== null) {
                     if ($key === '$btw') {
@@ -37,7 +37,7 @@ function filterToCommand ( $filter = false ) {
                                 filterToCommand ( '$lte' ) . "=>" .
                                 filterToCommand ( $value[1] );
                     } else {
-                        $result[] = filterToCommand ( $key ) . "=>" . filterToCommand ( $value );
+                        $result[] = filterToCommand ( $key, $preparetosearch ) . "=>" . filterToCommand ( $value, $preparetosearch );
                     }
                 }
             }
@@ -60,14 +60,14 @@ function createConnection () {
     $_myConfig = \phpMyEngine\Config\Config::getInstance ();
     $curDBProfile = $_myConfig->engine->databaseProfile;
     if ($_myConfig->$curDBProfile === null) {
-        //\phpMyEngine\logError('Database config not set ');
+        \phpMyEngine\logError ( 'Database config not set ' );
         return false;
     } elseif (!is_object ( $_myConfig->$curDBProfile )) {
-        //\phpMyEngine\logError('Database config is null ');
+        \phpMyEngine\logError ( 'Database config is null ' );
         return false;
     } elseif (!isset ( $_myConfig->$curDBProfile->host ) || !isset ( $_myConfig->$curDBProfile->database )
             || !isset ( $_myConfig->$curDBProfile->user ) || !isset ( $_myConfig->$curDBProfile->password )) {
-        //\phpMyEngine\logError('Database config is invalid ');
+        \phpMyEngine\logError ( 'Database config is invalid ' );
         return false;
     }
     $dbConnection = new \Mongo ( $_myConfig->$curDBProfile->host, array ("persist" => $_myConfig->$curDBProfile->database) );
@@ -76,7 +76,7 @@ function createConnection () {
         $dbDataBase->authenticate ( $_myConfig->$curDBProfile->user, $_myConfig->$curDBProfile->password );
         $lastError = $dbDataBase->lastError ();
         if ($lastError['err'] !== null) {
-            //\phpMyEngine\logError('Database selecting error:' . $lastError['err']);
+            \phpMyEngine\logError ( 'Database selecting error:' . $lastError['err'] );
             $dbConnection->close ();
             return false;
         } else {
@@ -85,7 +85,7 @@ function createConnection () {
             return true;
         }
     } else {
-        //\phpMyEngine\logError('Database connection error');
+        \phpMyEngine\logError ( 'Database connection error' );
         return false;
     }
 }
@@ -137,7 +137,7 @@ function generateQuery ( array $filter, $collection, $type ) {
                     $addStr .= "->sort(array('{$filter['orderBy']}'=>{$filter['order']}))";
                 }
                 unset ( $filter['limit'], $filter['offset'], $filter['order'], $filter['orderBy'] );
-                $queryStr .= "->find(" . filterToCommand ( $filter ) . "," . filterToCommand ( $onlyFields ) . ")" . $addStr;
+                $queryStr .= "->find(" . filterToCommand ( $filter, true ) . "," . filterToCommand ( $onlyFields ) . ")" . $addStr;
                 break;
             }
         case \phpMyEngine\Database\REQUEST_TYPE_SAVE: {
