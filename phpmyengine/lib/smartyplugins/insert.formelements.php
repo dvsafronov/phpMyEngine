@@ -18,9 +18,9 @@ function smarty_insert_formelements ( $params ) {
             $value = isset($params['values'][$key]) ? $params['values'][$key] : null;
             $myFormElement->value = html_entity_decode ( $value );
             if ($myFormElement->type != 'hidden') {
-                echo '<label>'.$key.':</label>';
+                echo '<label>'.$key.':</label>'.PHP_EOL;
             }
-            echo $myFormElement;
+            echo $myFormElement.PHP_EOL;
             unset($myFormElement,$value);
         }
     }

@@ -8,7 +8,7 @@
         "gzip" : false,
         "gziplevel" : 9,
         
-        "cache" : false,
+        "cache" : true,
         "cacheProfile" : "cacheProfileMemcache",
 
         "databaseProfile" : "dbProfileMongoDB",

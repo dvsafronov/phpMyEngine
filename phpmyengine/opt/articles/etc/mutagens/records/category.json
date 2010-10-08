@@ -1,8 +1,11 @@
 {
-    "title": {
+       "_specialNotes": {
+            "kinderTypes": ["Article","Category"]
+        },
+        "title" : {
             "length": {
                 "min": 1,
-                "max": 220
+                "max": 64
             },
             "transformations": {
                 "stripTags": true,
@@ -11,20 +14,19 @@
             "formTag": {
               "type": "text"
             }
-    },
-    "content" : {
+        },
+        "announcement" : {
             "length": {
-                "min": 12,
-                "max": 32000
+                "min": 0,
+                "max": 255
             },
             "transformations": {
-                "stripTags": false,
+                "stripTags": true,
                 "htmlspecialchars": true
             },
             "formTag": {
               "type": "textarea",
-              "id": "editor",
-              "rows": 24
+              "rows": 6
             }
         }  
 }

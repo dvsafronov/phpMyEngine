@@ -329,7 +329,7 @@ function validateInputData ( &$object, $name, $value ) {
             if (isset ( $myValidateRules[$name]->length->max ) && (int) $myValidateRules[$name]->length->max > 0) {
                 if (true === $valueLength > (int) $myValidateRules[$name]->length->max) {
                     throw new \phpMyEngine\Exception ( \phpMyEngine\Exception::TYPE_ERROR,
-                            'Max length of ' . $name . ' is . Now length is' );
+                            'Max length of ' . $name . ' is '.$myValidateRules[$name]->length->max.'. Now length is '.$valueLength );
                 }
             }
             if (isset ( $myValidateRules[$name]->pcre ) && (int) strlen ( $myValidateRules[$name]->pcre ) > 0) {

@@ -13,14 +13,16 @@
 // debug status, turn false on production server
 const DEBUG = true;
 
+if (DEBUG == true) {
+    define ( "DEBUG_START_TIME", microtime ( true ) );
+}
+
 define('PATH_APPLICATION',dirname ( __DIR__).'/phpmyengine');
 
 set_include_path ( get_include_path() . ':' . PATH_APPLICATION );
 
 setlocale ( LC_ALL, 'ru_RU.UTF-8' );
-if (DEBUG == true) {
-    define ( "DEBUG_START_TIME", microtime ( true ) );
-}
+
 
 include 'lib/engine.lib.php';
 include 'lib/records.lib.php';
@@ -46,6 +48,7 @@ if (DEBUG == true) {
     $_debugInfo = 'Время генерации: ' . round ( microtime ( true ) - DEBUG_START_TIME, 4 ) . ' сек <br />';
     $_debugInfo .= 'Использовано памяти: ' . (\memory_get_usage ( true ) / 1024) . 'Кб <br />';
     $_debugInfo .= 'Вложено файлов: ' . count ( \get_included_files () ) . '<br />';
+    $_debugInfo .= 'Размер HTML: ' . $_myRender->htmlsize . '<br />';
     $dbInfo = \phpMyEngine\Database\Storage::getInstance();
     $_debugInfo .= 'БД: <br />';
     $_debugInfo .= '&nbsp;&nbsp;&nbsp;&nbsp;Запросов: ' . $dbInfo->countQueries . ' / ' . $dbInfo->countErrorQueries . '<br />';

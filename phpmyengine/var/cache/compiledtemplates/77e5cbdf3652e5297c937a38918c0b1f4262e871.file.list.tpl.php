@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-07 15:12:53
-         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage_list.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:17585201304cadab35aa3158-26517284%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-07 15:57:19
+         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/list.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:12038501254cadb59f3e2fa7-60018755%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'c05612b0837aa51f3f4c31b21515bd8f9ecd96a6' => 
+    '77e5cbdf3652e5297c937a38918c0b1f4262e871' => 
     array (
-      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage_list.tpl',
-      1 => 1286449972,
+      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/list.tpl',
+      1 => 1286452638,
     ),
   ),
-  'nocache_hash' => '17585201304cadab35aa3158-26517284',
+  'nocache_hash' => '12038501254cadb59f3e2fa7-60018755',
   'function' => 
   array (
   ),
@@ -18,7 +18,7 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_function_cycle')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smarty/plugins/function.cycle.php';
 if (!is_callable('smarty_modifier_cplink')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/modifier.cplink.php';
-?><h2>List of static pages</h2>
+?><h2>List of uncategored articles</h2>
 <table class="list">
     <thead>
         <tr>
@@ -59,11 +59,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['last']       = ($_sm
             <td><?php echo $_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->mutagenData->title;?>
 </td>
             <td align="center">
-                <a href="<?php echo smarty_modifier_cplink("staticpage/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/edit");?>
+                <a href="<?php echo smarty_modifier_cplink("articles/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/edit");?>
 ">
                    <img src="/design/controlpanel/images/icons/001_45.png" width="24" height="24">
                 </a>
-                <a href="<?php echo smarty_modifier_cplink("staticpage/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/delete");?>
+                <a href="<?php echo smarty_modifier_cplink("articles/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/delete");?>
 ">
                    <img src="/design/controlpanel/images/icons/001_05.png" width="24" height="24">
                 </a>

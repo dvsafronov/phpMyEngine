@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-07 13:56:04
-         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage_edit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:7785864444cad9934ae84e6-97496644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-08 17:21:41
+         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/edit.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:13850498374caf1ae5eea690-14593363%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'c94acbd4a4329fd54d720838a8ada975f82db45b' => 
+    '57f664b1b699a0750102822aecfbe0f86331b829' => 
     array (
-      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage_edit.tpl',
-      1 => 1286445362,
+      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/edit.tpl',
+      1 => 1286544092,
     ),
   ),
-  'nocache_hash' => '7785864444cad9934ae84e6-97496644',
+  'nocache_hash' => '13850498374caf1ae5eea690-14593363',
   'function' => 
   array (
   ),
@@ -18,14 +18,14 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_insert_formelements')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/insert.formelements.php';
 if (!is_callable('smarty_insert_tags')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/insert.tags.php';
-?><h2>Add static page</h2>
+?><h2>Add article</h2>
     <?php if ($_smarty_tpl->getVariable('_messages')->value){?>
         <?php $_template = new Smarty_Internal_Template("_messages.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     <?php }?>
 <form action="#" method="POST" class="editrecord">
     <fieldset>
-        <?php echo smarty_insert_formelements(array('mutagen' => "staticpage", 'values' => ($_smarty_tpl->getVariable('myRecord')->value->mutagenData->getValues())),$_smarty_tpl->smarty,$_smarty_tpl);?>
+        <?php echo smarty_insert_formelements(array('mutagen' => ($_smarty_tpl->getVariable('mutagen')->value), 'values' => ($_smarty_tpl->getVariable('myRecord')->value->mutagenData->getValues())),$_smarty_tpl->smarty,$_smarty_tpl);?>
 
     </fieldset>
     <fieldset>

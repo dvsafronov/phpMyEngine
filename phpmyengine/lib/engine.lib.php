@@ -88,7 +88,7 @@ function doRedirect ( $url ) {
 }
 
 function loadModule ( $name ) {
-    if (false !== $rp = EngineFileSystem\getRealFilePath ( $name.'.lib.php', 'usr/lib' )) {
+    if (false !== $rp = EngineFileSystem\getRealFilePath ( $name . '.lib.php', 'usr/lib' )) {
         include_once $rp;
     }
     return null;
@@ -518,16 +518,36 @@ class FormElement {
                 if ((int) $this->rows > 0) {
                     $strMaxLength = ' rows="' . (int) $this->rows . '" ';
                 }
+                $strValue = '>' . $this->value . '</textarea';
             }
             if ($this->type == 'select') {
                 if ($this->multiple == true) {
                     $strMultiple = ' multiple';
                 }
+                if (isset ( $this->options ) && \is_string ( $this->options ) &&
+                        preg_match ( '/^\$\((.*)\)$/i', (string) $this->options, $matches )) {
+                    $callFunc = '\phpMyEngine\Modules\\' . \str_replace ( '/', '\\', $matches[1] );
+                    if (function_exists ( $callFunc )) {
+                        $this->options = $callFunc();
+                    } else {
+                        \phpMyEngine\logError ( $callFunc . " doesn't exists!" );
+                        $this->options = null;
+                    }
+                }
+                $strOptions = null;
+                if (isset ( $this->options ) && is_array ( $this->options ) === false) {
+                    $this->options = null;
+                } else {
+                    foreach ($this->options as $key => $value) {
+                        $selected = $value == $this->value ? ' selected="selected" ' : '';
+                        $strOptions .= '<option value="' . $value . '"'.$selected.'>' . $key . '</option>' . PHP_EOL;
+                    }
+                }
+
+                $strValue = '>' . $strOptions . '</select';
             }
-            if ($this->type != 'textarea') {
+            if ($strValue == null) {
                 $strValue = ' value="' . $this->value . '" ';
-            } else {
-                $strValue = '>' . $this->value . '</textarea';
             }
             if ($this->type == 'text' || $this->type == 'radio' || $this->type == 'checkbox') {
                 $strType = 'input type="' . $this->type . '" ';
@@ -536,12 +556,12 @@ class FormElement {
             }
             if ($this->type == 'hidden') {
                 $strType = 'input type="hidden" ';
-//$strValue = 'value ='' ;
             }
             $formElement = '<' . $strType . $strID . $strName . $strReadonly . $strMaxLength .
                     $strDisabled . $strMultiple . $strValue . '>';
             return $formElement;
         } else {
+            /* код ниже ничего не делает */
             $_myStructure = \phpMyEngine\EngineFileSystem\Structure::getInstance();
             if (\phpMyEngine\EngineFileSystem\fileExists ( 'etc/formelements/' . \strtolower ( $this->type ) . '.tpl' )) {
                 \ob_start();
@@ -558,8 +578,6 @@ class FormElement {
                 if (isset ( $this->options ) && is_array ( $this->options ) === false) {
                     $this->options = null;
                 }
-
-//include $_W12STRUCTURE['etc']['formelements'][$this->type . '.phtml'];
                 $formElement = \ob_get_contents();
                 \ob_end_clean();
                 return $formElement;
@@ -618,6 +636,9 @@ class Render {
 
     public function getOutput () {
         $this->content = \ob_get_clean();
+        if (\defined ( 'DEBUG' ) && DEBUG == true) {
+            $this->htmlsize = strlen ( $this->content );
+        }
         return null;
     }
 

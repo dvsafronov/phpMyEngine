@@ -4,7 +4,7 @@
         <tr>
             <td width="10%">ID</td>
             <td>Заголовок</td>
-            <td width="13%">Действия</td>
+            <td width="8%">Действия</td>
         </tr>
     </thead>
     <tbody>        
@@ -13,9 +13,6 @@
             <td>{$recordsList->records[list]->_id}</td>
             <td>{$recordsList->records[list]->mutagenData->title}</td>
             <td align="center">
-                <a href="{"staticpage/{$recordsList->records[list]->_id}/view"|cplink}">
-                   <img src="/design/controlpanel/images/icons/001_38.png" width="24" height="24" alt="">
-                </a>
                 <a href="{"staticpage/{$recordsList->records[list]->_id}/edit"|cplink}">
                    <img src="/design/controlpanel/images/icons/001_45.png" width="24" height="24">
                 </a>

@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-07 15:12:53
-         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage_list.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:17585201304cadab35aa3158-26517284%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-08 13:02:36
+         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage/list.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:13278757744caede2c86cda3-98943910%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'c05612b0837aa51f3f4c31b21515bd8f9ecd96a6' => 
+    'b8ad6212ce7e71ea63c7079c6cecf689e4188f68' => 
     array (
-      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage_list.tpl',
-      1 => 1286449972,
+      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/staticpage/usr/templates/controlpanel/staticpage/list.tpl',
+      1 => 1286528371,
     ),
   ),
-  'nocache_hash' => '17585201304cadab35aa3158-26517284',
+  'nocache_hash' => '13278757744caede2c86cda3-98943910',
   'function' => 
   array (
   ),

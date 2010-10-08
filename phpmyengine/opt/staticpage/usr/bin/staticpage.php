@@ -22,7 +22,7 @@ function viewAction () {
         $myRecord = $myFilter->getRecords ()->getFirst ();
         $_myRender->setTitle ( $myRecord->mutagenData->title );
         $_myRender->Smarty ()->assign ( "myRecord", $myRecord );
-        $_myRender->renderTemplate ( 'staticpage.tpl' );
+        $_myRender->renderTemplate ( 'staticpage/view.tpl' );
     } catch (\phpMyEngine\Exception $e) {
         $_myRender->renderTemplate ( 'errors/404.tpl' );
     }
