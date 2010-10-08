@@ -10,11 +10,11 @@
             <div id="header">
                 <div id="headBar">
                     <a href="{"/"|cplink}">
-                    <img src="/design/controlpanel/images/phpMyEngine24.png"
+                    <img src="/design/controlpanel/images/phpMyEngineCP.png"
                          alt="phpMyEngine"
                          title="phpMyEngine"
-                         width="144"
-                         height="23"
+                         width="156"
+                         height="36"
                          />
                     </a>
                 </div>

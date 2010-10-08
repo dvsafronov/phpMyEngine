@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-06 11:08:52
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-09 01:12:05
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:16211865494cac20843084b2-52147591%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:20177305184caf8925a05843-00545904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4b1d971fc2413ce0dd0c62be7f9822c2076d5bee' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_header.tpl',
-      1 => 1286121861,
+      1 => 1286572323,
     ),
   ),
-  'nocache_hash' => '16211865494cac20843084b2-52147591',
+  'nocache_hash' => '20177305184caf8925a05843-00545904',
   'function' => 
   array (
   ),
@@ -31,11 +31,11 @@ if (!is_callable('smarty_insert_widget')) include '/home/desigency/web/dev/phpmy
                 <div id="headBar">
                     <a href="<?php echo smarty_modifier_cplink("/");?>
 ">
-                    <img src="/design/controlpanel/images/phpMyEngine24.png"
+                    <img src="/design/controlpanel/images/phpMyEngineCP.png"
                          alt="phpMyEngine"
                          title="phpMyEngine"
-                         width="144"
-                         height="23"
+                         width="156"
+                         height="36"
                          />
                     </a>
                 </div>

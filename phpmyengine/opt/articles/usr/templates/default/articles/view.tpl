@@ -30,7 +30,7 @@
         </div>
         <div class="date">
             <span></span>
-            <a href="/archive/{$myRecord->getCreationTime()|date_format:"%d%m%Y"}">
+            <a href="/archive/Article/{$myRecord->getCreationTime()|date_format:"%d%m%Y"}">
                 {$myRecord->getCreationTime()|date_format:"%A, %e %b %Y, %H:%M"}
             </a>
         </div>

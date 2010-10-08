@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-08 21:59:34
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-08 22:19:01
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/view.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:15153085284caf5c06b18721-93490250%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:18923521534caf609597c820-16020165%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3e6e35249d05b6b0c160ed27ef65aec350a2a9d1' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/view.tpl',
-      1 => 1286560772,
+      1 => 1286561940,
     ),
   ),
-  'nocache_hash' => '15153085284caf5c06b18721-93490250',
+  'nocache_hash' => '18923521534caf609597c820-16020165',
   'function' => 
   array (
   ),
@@ -71,7 +71,7 @@ if (count($_from) > 0){
         </div>
         <div class="date">
             <span></span>
-            <a href="/archive/<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('myRecord')->value->getCreationTime(),"%d%m%Y");?>
+            <a href="/archive/Article/<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('myRecord')->value->getCreationTime(),"%d%m%Y");?>
 ">
                 <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('myRecord')->value->getCreationTime(),"%A, %e %b %Y, %H:%M");?>
 

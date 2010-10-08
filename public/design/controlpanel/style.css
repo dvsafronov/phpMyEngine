@@ -59,9 +59,8 @@ h1,h2,h3,h4,h5,h6 {
     border-bottom: 1px solid #fff
 }
 #headBar {
-    background: #214971 url('images/headbar_bg.png') repeat-x;
-    height: 34px;    
-    padding: 14px 32px 0 32px;
+    height: 40px;
+    padding: 8px 32px 0 32px;
 }
 #menuBar {
     background: #13293c;

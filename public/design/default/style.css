@@ -25,13 +25,10 @@ html {
     font-family: sans-serif;
     font-size: 14px;
     min-width: 1000px;
-
 }
 body {
     margin:0;
     padding:0;
-    max-width: 1260px;
-    margin: auto auto;
 }
 a img {
     border: 0;
@@ -51,9 +48,10 @@ h1,h2,h3,h4,h5,h6 {
     height: 48px;
     background: green;
 }
-#gspot {
-    margin-top: 0px;
-    min-height: 100%;
+.gspot {
+    margin: auto auto;
+    max-width: 1260px;
+    padding: 0 36px 0 36px;
 }
 #header {
     padding-top: 24px;
@@ -62,9 +60,9 @@ h1,h2,h3,h4,h5,h6 {
     border-bottom: 1px solid #fff
 }
 #headBar {
-    background: #214971;
-    height: 60px;
-    padding: 0 32px 0 32px;
+    /background: #214971;
+    height: 48px;
+    padding: 12px 0 0 0;
 }
 #menuBar {
     background: #13293c;
@@ -73,7 +71,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #middle {
-    margin: 24px 32px;
+    margin: 24px 0 32px 0;
 }
 
 #westCoast {
@@ -235,10 +233,10 @@ h1,h2,h3,h4,h5,h6 {
 #footer {
     height: 80px;
     clear: both;
-    border-top: 6px solid #C8D7DC;    
+    border-top: 6px solid #C8D7DC;
     color: #555;
     font-size: 12px;
-    padding: 18px 0 24px 32px;    
+    padding: 12px 0 24px 0;
 }
 #footer .divny {
     margin-right: 32px;
@@ -260,7 +258,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .menu {
-    margin-left: 24px;
+
 }
 
 .menu ul {
@@ -321,7 +319,7 @@ h1,h2,h3,h4,h5,h6 {
     margin-bottom: 24px;
 }
 div.tagCloud {
-    font-size: 36px;
+    font-size: 24px;
 }
 div.tagCloud a {
     margin-left: -6px;

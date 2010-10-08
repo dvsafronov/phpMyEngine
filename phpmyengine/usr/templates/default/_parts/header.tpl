@@ -7,20 +7,24 @@
     </head>
     <body>
         <div class="ad"></div>
-        <div id="gspot">
-            <div id="header">
-                <div id="headBar">
+        <div id="header">
+            <div id="headBar">
+                <div class="gspot">
                     <a href="/">
-                        <img src="/design/default/images/phpMyEngine24.png"
+                        <img src="/design/default/images/phpMyEngine36.png"
                              alt="phpMyEngine"
                              title="phpMyEngine"
-                             
+                             width="216"
                              height="36"
                              />
                     </a>
                 </div>
-                <div id="menuBar">
+            </div>
+            <div id="menuBar">
+                <div class="gspot">
                      {insert name="widget" widget="menu"}
                 </div>
             </div>
-            <div id="middle">
+        </div>        
+        <div id="middle">
+            <div class="gspot">
