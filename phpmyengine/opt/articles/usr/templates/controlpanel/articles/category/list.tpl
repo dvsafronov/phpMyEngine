@@ -13,10 +13,10 @@
             <td>{$recordsList->records[list]->_id}</td>
             <td>{$recordsList->records[list]->mutagenData->title}</td>
             <td align="center">
-                <a href="{"articles/{$recordsList->records[list]->_id}/edit"|cplink}">
+                <a href="{"articles/category/{$recordsList->records[list]->_id}/edit"|cplink}">
                    <img src="/design/controlpanel/images/icons/001_45.png" width="24" height="24">
                 </a>
-                <a href="{"articles/{$recordsList->records[list]->_id}/delete"|cplink}">
+                <a href="{"articles/category/{$recordsList->records[list]->_id}/delete"|cplink}">
                    <img src="/design/controlpanel/images/icons/001_05.png" width="24" height="24">
                 </a>
             </td>

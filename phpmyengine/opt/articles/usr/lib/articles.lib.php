@@ -7,7 +7,7 @@ use phpMyEngine\Records\FilterOperation;
 use phpMyEngine\Route;
 use phpMyEngine\Render\Render;
 
-function prepareAndSave ( $action,$mutagen = 'article' ) {
+function prepareAndSave ( $action, $mutagen = 'Article' ) {
     $_tpl = 'articles/edit';
     $_myRender = Render::getInstance ();
     $myMessages = new \phpMyEngine\Messages();
@@ -15,14 +15,14 @@ function prepareAndSave ( $action,$mutagen = 'article' ) {
     switch ($action) {
         case 'add': {
                 $myRecord = new \phpMyEngine\Records\Record();
-                $myRecord->applyMutagen ( 'Article' );
+                $myRecord->applyMutagen ( $mutagen );
                 break;
             }
         case 'edit': {
                 $_myRoute = Route::getInstance ();
                 $myFilter = new Filter();
                 $myFilter->_id = (double) $_myRoute->id;
-                $myFilter->mutagenType = 'Article';
+                $myFilter->mutagenType = $mutagen;
                 $myRecord = $myFilter->getRecords ()->getFirst ();
                 unset ( $myFilter );
                 break;
@@ -33,7 +33,7 @@ function prepareAndSave ( $action,$mutagen = 'article' ) {
             }
     }
     $myProperties = $myRecord->mutagenData->getProperties ();
-    
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($myProperties as $key) {
             try {
@@ -66,6 +66,16 @@ function prepareAndSave ( $action,$mutagen = 'article' ) {
     return null;
 }
 
-function getCategories($forceCategory = null) {
-    return array('uncategored'=>0);
+function getCategories ( $forceCategory = null ) {
+    $myFilter = new Filter();
+    $myFilter->mutagenType = 'Category';
+    $myRecords = $myFilter->getRecords ();
+    $myCategories = array ('_uncategored' => 0);
+    if ($myRecords->count > 0) {
+        for ($i = 0; $i < $myRecords->count; $i++) {
+            $myCategories[$myRecords->records[$i]->mutagenData->title] = $myRecords->records[$i]->_id;
+        }
+    }
+    unset ( $myFilter,$myRecords );
+    return $myCategories;
 }

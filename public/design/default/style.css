@@ -18,7 +18,7 @@ root {
 }
 
 html {
-        background: #f2f5f6 url('images/middle_bg.png') repeat-x;
+    background: #fff repeat-x;
     margin:0;
     padding:0;
     height:100%;
@@ -30,6 +30,8 @@ html {
 body {
     margin:0;
     padding:0;
+    max-width: 1260px;
+    margin: auto auto;
 }
 a img {
     border: 0;
@@ -55,18 +57,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 #header {
     padding-top: 24px;
-    height: 96px;
+    height: 120px;
     background: #214971 url('images/header_bg.png') repeat-x;
     border-bottom: 1px solid #fff
 }
 #headBar {
-    background: #214971 url('images/headbar_bg.png') repeat-x;
-    height: 34px;    
-    padding: 14px 32px 0 32px;
+    background: #214971;
+    height: 60px;
+    padding: 0 32px 0 32px;
 }
 #menuBar {
     background: #13293c;
-    height: 26px;
+    height: 32px;
     margin-top: 12px;
 }
 
@@ -75,7 +77,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #westCoast {
-    width: 75%;
+    width: 68%;
     float: left
 }
 
@@ -97,7 +99,9 @@ h1,h2,h3,h4,h5,h6 {
     color: #3e5207;
     font-weight: normal
 }
-
+.tags {
+    margin-top: 12px;
+}
 .tags span {
     display: block;
     float: left;
@@ -161,7 +165,8 @@ h1,h2,h3,h4,h5,h6 {
 .recordInfo .votes {
     float: left;
     text-align: center;
-    width: 48px;
+    min-width: 36px;
+    padding: 0 6px 0 6px;
     margin-top: 1px;
     font-size: 11px;
 }
@@ -223,7 +228,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #eastCoast {
-    width: 23%;
+    width: 30%;
     float: right
 }
 
@@ -261,15 +266,15 @@ h1,h2,h3,h4,h5,h6 {
 .menu ul {
     list-style: none;
     padding: 0;
-    line-height: 21px;
-    color: #CECECE
+    color: #CECECE;    
+    font-size: 16px;
 }
 
 .menu ul a {
     display: block;
     color: #CECECE;
     text-decoration: none;
-    padding: 0px 6px 2px 6px;
+    padding: 0px 6px 0px 6px;
     text-shadow: 2px 2px 1px #222;
 }
 
@@ -281,13 +286,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .menu ul li {
-    margin-top: 2px;
+    margin-top: 6px;
     float: left;
     margin-right: 12px;
 }
 
 .menu ul li ul li {
     font-size: 14px;
+    line-height: 24px;
     float: none;
     color: #222;
 }
@@ -307,19 +313,7 @@ h1,h2,h3,h4,h5,h6 {
 .submenu {
     border: 1px solid #ccc;
 }
-.menu span.debug {
-    font-size: 13px;
-    color: #655
-}
 
-.decor1 {
-    position: absolute;
-    left: 100%;
-    margin-left: -343px;
-    width: 285px;
-    height: 146px;
-    background: url('images/ray.png') no-repeat;
-}
 .block h2 {
     font-size: 26px;
     color: #3e5207;

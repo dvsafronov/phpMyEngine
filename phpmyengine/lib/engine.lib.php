@@ -540,7 +540,7 @@ class FormElement {
                 } else {
                     foreach ($this->options as $key => $value) {
                         $selected = $value == $this->value ? ' selected="selected" ' : '';
-                        $strOptions .= '<option value="' . $value . '"'.$selected.'>' . $key . '</option>' . PHP_EOL;
+                        $strOptions .= '<option value="' . $value . '"' . $selected . '>' . $key . '</option>' . PHP_EOL;
                     }
                 }
 

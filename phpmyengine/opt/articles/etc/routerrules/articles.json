@@ -12,12 +12,16 @@
         "result": "action=list"
     },
    "cpruleCatAdd": {
-        "pcre": "/^category\\/add/",
+        "pcre": "/^category\\/add$/",
         "result": "action=addcategory"
     },
    "cpruleCatEdit": {
-        "pcre": "/^category/([0-9]+)\\/edit/",
+        "pcre": "/^category\\/([0-9]+)\\/edit/",
         "result": "action=editcategory;id=$1"
+    },
+   "cpruleCategories": {
+        "pcre": "/^categories/",
+        "result": "action=listcategory"
     },
    "cprule2": {
         "pcre": "/^([0-9]+)\\/edit/",
@@ -32,11 +36,7 @@
         "result": "action=delete;id=$1"
     },
    "rule0": {
-        "pcre": "/^([0-9]+)$/",
+        "pcre": "/^([0-9]+)\\/view/",
         "result": "action=view;id=$1"
-    },
-   "rule1": {
-        "pcre": "/^([\\w\\s\\dа-яё]+)$/iu",
-        "result": "action=view;title=$1"
     }
 }

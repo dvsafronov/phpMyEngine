@@ -1,1 +1,1 @@
-{insert name="widget" widget="tagcloud" mutagen="StaticPage"}
+{insert name="widget" widget="tagcloud" mutagen="Article"}

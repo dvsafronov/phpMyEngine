@@ -17,24 +17,45 @@ function editAction () {
     return null;
 }
 
-function addAction () {    
+function addAction () {
     $_myRoute = Route::getInstance ();
     if ($_myRoute->isControlPanel ()) {
         \phpMyEngine\Modules\Articles\prepareAndSave ( 'add' );
     }
     return null;
 }
+
 function addcategoryAction () {
     $_myRoute = Route::getInstance ();
     if ($_myRoute->isControlPanel ()) {
-        \phpMyEngine\Modules\Articles\prepareAndSave ( 'add','category' );
+        \phpMyEngine\Modules\Articles\prepareAndSave ( 'add', 'Category' );
     }
     return null;
 }
 
-function listAction () {
+function editcategoryAction () {
+    $_myRoute = Route::getInstance ();
+    if ($_myRoute->isControlPanel ()) {
+        \phpMyEngine\Modules\Articles\prepareAndSave ( 'edit', 'Category' );
+    }
+    return null;
+}
+
+function listcategoryAction () {
     $_myRoute = Route::getInstance ();
     $_myRender = Render::getInstance ();
+    if ($_myRoute->isControlPanel ()) {
+        $myFilter = new Filter();
+        $myFilter->mutagenType = 'Category';
+        $myRecords = $myFilter->getRecords ();
+        $_myRender->setValue ( 'recordsList', $myRecords );
+        $_myRender->renderTemplate ( 'articles/category/list.tpl' );
+    }
+}
+
+function listAction () {
+    $_myRender = Render::getInstance ();
+    $_myRoute = Route::getInstance ();
     if ($_myRoute->isControlPanel ()) {
         $myFilter = new Filter();
         $myFilter->mutagenType = 'Article';

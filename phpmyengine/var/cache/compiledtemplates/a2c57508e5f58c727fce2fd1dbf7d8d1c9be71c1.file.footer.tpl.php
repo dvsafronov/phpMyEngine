@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-07 21:11:20
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-08 19:54:48
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3597478934cadff38b0a5a2-51268548%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9539110654caf3ec89fdfe5-26930854%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a2c57508e5f58c727fce2fd1dbf7d8d1c9be71c1' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl',
-      1 => 1286467997,
+      1 => 1286553281,
     ),
   ),
-  'nocache_hash' => '3597478934cadff38b0a5a2-51268548',
+  'nocache_hash' => '9539110654caf3ec89fdfe5-26930854',
   'function' => 
   array (
   ),
@@ -18,6 +18,7 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_insert_widget')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/insert.widget.php';
 ?></div>
+</div>
 <div id="footer">
     <div class="divny">
         <div class="left">

@@ -8,15 +8,14 @@
     <body>
         <div class="ad"></div>
         <div id="gspot">
-            <div class="decor1"></div>
             <div id="header">
                 <div id="headBar">
                     <a href="/">
                         <img src="/design/default/images/phpMyEngine24.png"
                              alt="phpMyEngine"
                              title="phpMyEngine"
-                             width="144"
-                             height="23"
+                             
+                             height="36"
                              />
                     </a>
                 </div>
@@ -24,3 +23,4 @@
                      {insert name="widget" widget="menu"}
                 </div>
             </div>
+            <div id="middle">

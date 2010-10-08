@@ -15,6 +15,8 @@ function smarty_modifier_bbcode ( $cont ) {
                 'childs' => ''),
             'b' => array ('type' => BBCODE_TYPE_NOARG, 'open_tag' => '<b>',
                 'close_tag' => '</b>'),
+            'h1' => array ('type' => BBCODE_TYPE_NOARG, 'open_tag' => '<h3>',
+                'close_tag' => '</h3>'),
         );
         $BBHandler = bbcode_create ( $arrayBBCode );
         return bbcode_parse ( $BBHandler, $cont );
