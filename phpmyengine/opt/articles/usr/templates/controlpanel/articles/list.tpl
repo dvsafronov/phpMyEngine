@@ -4,6 +4,7 @@
         <tr>
             <td width="10%">ID</td>
             <td>Заголовок</td>
+            <td>Рубрика</td>
             <td width="8%">Действия</td>
         </tr>
     </thead>
@@ -12,6 +13,7 @@
         <tr {cycle values=',class="sec"'}>
             <td>{$recordsList->records[list]->_id}</td>
             <td>{$recordsList->records[list]->mutagenData->title}</td>
+            <td>{$recordsList->records[list]->mutagenData->category}</td>
             <td align="center">
                 <a href="{"articles/{$recordsList->records[list]->_id}/edit"|cplink}">
                    <img src="/design/controlpanel/images/icons/001_45.png" width="24" height="24">

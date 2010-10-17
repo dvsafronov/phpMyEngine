@@ -1,0 +1,3 @@
+19:49:44	/articles/categories	::ffff:192.168.1.12	Unable to load template file 'articles/category/list.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
+19:49:48	/articles/categories/	::ffff:192.168.1.12	Unable to load template file 'articles/category/list.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
+19:49:52	/articles/categories/	::ffff:192.168.1.12	Unable to load template file 'articles/category/list.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)

@@ -64,3 +64,41 @@ function listAction () {
         $_myRender->renderTemplate ( 'articles/list.tpl' );
     }
 }
+
+function deleteAction () {
+    $_myRender = Render::getInstance ();
+    $_myRoute = Route::getInstance ();
+    if ($_myRoute->isControlPanel ()) {
+        $myMessages = new \phpMyEngine\Messages();
+        $myFilter = new Filter();
+        $myFilter->_id = (double) $_myRoute->id;
+        $myFilter->mutagenType = 'Article';
+        if ($myFilter->deleteRecords ()) {
+            $myMessages->addMessage ( 'Item has been deleted' );
+        } else {
+            $myMessages->addError ( 'Item not deleted' );
+        }
+        $_myRender->setValue ( '_messages', $myMessages );
+        $_myRender->renderTemplate ( '_messages.tpl' );
+    }
+    return null;
+}
+
+function deletecategoryAction () {
+    $_myRender = Render::getInstance ();
+    $_myRoute = Route::getInstance ();
+    if ($_myRoute->isControlPanel ()) {
+        $myMessages = new \phpMyEngine\Messages();
+        $myFilter = new Filter();
+        $myFilter->_id = (double) $_myRoute->id;
+        $myFilter->mutagenType = 'Category';
+        if ($myFilter->deleteRecords ()) {
+            $myMessages->addMessage ( 'Item has been deleted' );
+        } else {
+            $myMessages->addError ( 'Item not deleted' );
+        }
+        $_myRender->setValue ( '_messages', $myMessages );
+        $_myRender->renderTemplate ( '_messages.tpl' );
+    }
+    return null;
+}

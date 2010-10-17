@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-04 19:04:22
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-09 11:37:01
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default//menu/_tree.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5621278754ca9ecf6aa8e59-50516953%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7849264634cb01b9d7c09a8-94996511%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a1473b69b0fe4ed9bb783b8b89a2842beee9798a' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default//menu/_tree.tpl',
-      1 => 1286037641,
+      1 => 1286609820,
     ),
   ),
-  'nocache_hash' => '5621278754ca9ecf6aa8e59-50516953',
+  'nocache_hash' => '7849264634cb01b9d7c09a8-94996511',
   'function' => 
   array (
   ),
@@ -30,7 +30,7 @@ if (count($_from) > 0){
     <li>
         <?php if (is_array($_smarty_tpl->getVariable('href')->value)){?>
         <?php echo $_smarty_tpl->getVariable('name')->value;?>
-
+ &darr;
             <?php $_template = new Smarty_Internal_Template("/menu/_tree.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('tree',$_smarty_tpl->getVariable('href')->value); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
         <?php }else{ ?>

@@ -18,10 +18,9 @@ root {
 }
 
 html {
-    background: #fff repeat-x;
+    background: #F3F9FD;
     margin:0;
     padding:0;
-    height:100%;
     font-family: sans-serif;
     font-size: 14px;
     min-width: 1000px;
@@ -54,24 +53,26 @@ h1,h2,h3,h4,h5,h6 {
     padding: 0 36px 0 36px;
 }
 #header {
-    padding-top: 24px;
-    height: 120px;
-    background: #214971 url('images/header_bg.png') repeat-x;
-    border-bottom: 1px solid #fff
+    padding-top: 36px;
+    height: 96px;
+    background: #e6ecee url('images/header_bgcp.png') repeat-x;
 }
 #headBar {
-    /background: #214971;
     height: 48px;
-    padding: 12px 0 0 0;
 }
 #menuBar {
     background: #13293c;
-    height: 32px;
+    border-bottom: 2px solid #bbb;
+    border-top: 2px solid #bbb;
     margin-top: 12px;
+    height: 32px;
 }
 
 #middle {
-    margin: 24px 0 32px 0;
+    background: #fff url('images/middle_bg.png') repeat-x;
+    margin: 0;
+    padding-top: 24px;
+    padding-bottom: 32px;
 }
 
 #westCoast {
@@ -93,10 +94,22 @@ h1,h2,h3,h4,h5,h6 {
     text-indent: 14px;
 }
 .block h2 {
-    font-size: 26px;
+    font-size: 28px;
+    line-height: 32px;
     color: #3e5207;
-    font-weight: normal
+    font-weight: normal;
+    margin-bottom: 24px;
+
 }
+
+
+#westCoast .block {
+    border: 0;
+    background: none;
+    padding: 0;
+    border: 0;
+}
+
 .tags {
     margin-top: 12px;
 }
@@ -123,9 +136,11 @@ h1,h2,h3,h4,h5,h6 {
     margin-right: 6px;
 }
 .recordInfo {
+    -moz-border-radius: 6px;
+    border-radius: 6px;
     height: 24px;
     background: #e8eef0;
-    margin: 12px -24px 0 -24px;
+    margin: 12px 0 0 0;
     padding: 0 24px 0 18px;
     font-size: 11px;
 }
@@ -231,12 +246,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #footer {
-    height: 80px;
     clear: both;
     border-top: 6px solid #C8D7DC;
     color: #555;
     font-size: 12px;
-    padding: 12px 0 24px 0;
+    padding: 24px 0 24px 0;
 }
 #footer .divny {
     margin-right: 32px;
@@ -258,7 +272,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .menu {
-
+    margin-top: -10px;
 }
 
 .menu ul {
@@ -284,22 +298,24 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .menu ul li {
-    margin-top: 6px;
     float: left;
     margin-right: 12px;
 }
 
-.menu ul li ul li {
+.menu ul li ul li{
     font-size: 14px;
     line-height: 24px;
     float: none;
-    color: #222;
+    color: #000;
+}
+.menu ul li ul li a {
+    color: #000;
+    text-shadow: 0 0 0;
 }
 .menu li ul {
     display: none;
-    background: #fff;
-    background: url('images/mbg.png') repeat;
-    border: 1px solid #071827;
+    background: #E1E0DF;
+    border: 1px solid #ccc;
     -moz-border-radius: 6px;
     padding: 3px;
     min-width: 150px;
@@ -312,12 +328,6 @@ h1,h2,h3,h4,h5,h6 {
     border: 1px solid #ccc;
 }
 
-.block h2 {
-    font-size: 26px;
-    color: #3e5207;
-    font-weight: normal;
-    margin-bottom: 24px;
-}
 div.tagCloud {
     font-size: 24px;
 }
@@ -327,4 +337,10 @@ div.tagCloud a {
 }
 div.tagCloud a:hover {
     text-decoration: underline;
+}
+ul.categorylist {
+    font-size: 18px;
+    line-height: 32px;
+    padding: 0 0 0 24px;
+    list-style: decimal;
 }

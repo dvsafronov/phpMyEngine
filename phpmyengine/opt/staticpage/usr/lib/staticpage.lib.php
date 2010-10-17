@@ -22,11 +22,15 @@ function prepareAndSave ( $action ) {
             }
         case 'edit': {
                 $_myRoute = Route::getInstance ();
+
                 $myFilter = new Filter();
                 $myFilter->_id = (double) $_myRoute->id;
                 $myFilter->mutagenType = MUTAGEN_TYPE;
                 $myRecord = $myFilter->getRecords ()->getFirst ();
                 unset ( $myFilter );
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $myRecord->applyMutagen ( MUTAGEN_TYPE );
+                }
                 break;
             }
         default: {

@@ -12,8 +12,8 @@ function filterToCommand ( $filter = false, $preparetosearch = false ) {
         if (is_float ( $filter )) {
             $filter = str_replace ( ",", ".", $filter );
         }
-        $replcaes = array (array ("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'),
-            array ('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'));
+        $replcaes = array (array ("\\", "/", "\n", "\t", "\r", "\b", "\f", '"',"'"),
+            array ('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"',"\'"));
         $val = str_replace ( $replcaes[0], $replcaes[1], $filter );
         return is_numeric ( $val ) ? $val : "'" . $val . "'";
     }

@@ -25,6 +25,9 @@ function prepareAndSave ( $action, $mutagen = 'Article' ) {
                 $myFilter->mutagenType = $mutagen;
                 $myRecord = $myFilter->getRecords ()->getFirst ();
                 unset ( $myFilter );
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $myRecord->applyMutagen ( $mutagen );
+                }
                 break;
             }
         default: {
@@ -76,6 +79,6 @@ function getCategories ( $forceCategory = null ) {
             $myCategories[$myRecords->records[$i]->mutagenData->title] = $myRecords->records[$i]->_id;
         }
     }
-    unset ( $myFilter,$myRecords );
+    unset ( $myFilter, $myRecords );
     return $myCategories;
 }

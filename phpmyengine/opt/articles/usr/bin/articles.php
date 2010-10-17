@@ -29,6 +29,16 @@ function viewAction () {
     return null;
 }
 
+function listcategoryAction () {
+    $_myRoute = Route::getInstance ();
+    $_myRender = Render::getInstance ();
+    $myFilter = new Filter();
+    $myFilter->mutagenType = 'Category';
+    $myRecords = $myFilter->getRecords ();
+    $_myRender->setValue ( 'recordsList', $myRecords );
+    $_myRender->renderTemplate ( 'articles/category/list.tpl' );
+}
+
 function defaultAction () {
     $_myRoute = Route::getInstance ();
     return null;
