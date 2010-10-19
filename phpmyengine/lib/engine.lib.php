@@ -879,3 +879,12 @@ class Cache {
     }
 
 }
+namespace phpMyEngine\l10n;
+
+function _ ( $text, $domain = 'default' ) {
+    $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $domain . '.mo', 'usr/locale/ru_RU/LC_MESSAGES' );
+    $locDir = dirname ( dirname ( dirname ( $rp ) ) );
+    \bindtextdomain ( $domain, $locDir );
+    \bind_textdomain_codeset ( $domain, 'UTF-8' );
+    return dgettext ( $domain, $text );
+}

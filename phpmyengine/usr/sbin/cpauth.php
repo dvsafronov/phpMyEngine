@@ -2,6 +2,7 @@
 namespace phpMyEngine\cpauthController;
 
 use phpMyEngine;
+use phpMyEngine\l10n as _;
 use phpMyEngine\Route;
 use phpMyEngine\Config\Config;
 use phpMyEngine\Render\Render;
@@ -17,7 +18,7 @@ function defaultAction () {
         } else {
             $login = \filter_input ( INPUT_POST, 'login' );
             $_myMessages = new \phpMyEngine\Messages();
-            $_myMessages->addError ( _ ( 'Incorrect login or password' ) );
+            $_myMessages->addError ( _\_ ( 'Incorrect login or password', 'cpauth' ) );
             $_myRender->setValue ( '_messages', $_myMessages );
         }
     }
