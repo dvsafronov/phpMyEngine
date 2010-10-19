@@ -24,6 +24,4 @@ function cpsidebarmenuWidget () {
     $_myRender->Smarty ()->assign ( "pageTitle", "Ошибочный запрос" );
     $_myRender->Smarty ()->assign ( "menuItems", $cpMenu );
     return $_myRender->Smarty ()->display ( 'sidebarmenu/menu.tpl' );
-
-    return null;
 }

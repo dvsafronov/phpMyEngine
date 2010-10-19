@@ -17,12 +17,17 @@ if (DEBUG == true) {
     define ( "DEBUG_START_TIME", microtime ( true ) );
 }
 
-define('PATH_APPLICATION',dirname ( __DIR__).'/phpmyengine');
+define ( 'PATH_APPLICATION', dirname ( __DIR__ ) . '/phpmyengine' );
 
 set_include_path ( get_include_path() . ':' . PATH_APPLICATION );
 
-setlocale ( LC_ALL, 'ru_RU.UTF-8' );
-
+putenv ( "LC_ALL=ru_RU" );
+putenv ( "LANG=ru_RU" );
+putenv ( "LANGUAGE=ru_RU" );
+setlocale ( LC_ALL, 'ru_RU.utf8' );
+/*
+  \bindtextdomain ( 'default', PATH_APPLICATION . '/usr/locale/' );
+  \textdomain ( "default" ); */
 
 include 'lib/engine.lib.php';
 include 'lib/records.lib.php';
@@ -40,7 +45,7 @@ if ($_myRender->monopolyView !== true) {
 } else {
     \phpMyEngine\runController();
 }
-$_myRender->setTitle($_myConfig->engine->siteName,$_myRender::TITLE_APPEND);
+$_myRender->setTitle ( $_myConfig->engine->siteName, $_myRender::TITLE_APPEND );
 
 $_myRender->getOutput ();
 \ob_end_clean();

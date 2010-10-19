@@ -60,6 +60,12 @@ h1,h2,h3,h4,h5,h6 {
 #headBar {
     height: 48px;
 }
+#headBar .left {
+    float: left
+}
+#headBar .right {
+    float: right
+}
 #menuBar {
     background: #13293c;
     border-bottom: 2px solid #bbb;
@@ -343,4 +349,94 @@ ul.categorylist {
     line-height: 32px;
     padding: 0 0 0 24px;
     list-style: decimal;
+}
+h2.catTitle {
+    font-size: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ccc;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="file"],input[type="text"],select,textarea,input[type="password"] {
+    width: 99%;
+    background-color: #F2F5F6;
+    color: #111;
+    border: 1px solid #e3e7e9;
+    font-size: 14px;
+    padding: 4px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+input[type="file"]:hover,input[type="text"]:hover,select:hover,textarea:hover,input[type="password"]:hover {
+    background-color: #fff;
+    color: #111;
+    border: 1px solid #e3e7e9;
+}
+input[type="file"]:FOCUS,input[type="text"]:FOCUS,select:focus,textarea:FOCUS,input[type="password"]:focus {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #13293C;
+}
+fieldset {
+    border: 1px solid #e3e7e9;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin-bottom: 24px;
+}
+.person {
+    padding: 0;
+    margin: -18px 0 0 0;
+}
+.person .signin {
+    font-size: 21px;
+}
+.person a:hover {
+    color: #13293C;
+}
+.person .signup {
+    font-size: 18px;
+}
+.person p {
+    margin: 4px 0 0 0;
+    text-align: right
+}
+.person .resetpwd {
+    font-size: 13px;
+}
+
+._messages {
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #e3e7e9;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+._messages img {
+    margin-right: 36px
+}
+._messages ul {
+    padding: 0 0 0 24px;
+    margin: -12px 0 0 0;
+    text-align: left;
+    list-style: decimal;
+}
+._messages ul li {
+    margin-top: 12px;
+}
+
+
+._messages.error{
+    background-color: #fde5e5;
+    border-color: #f6d7d7;
+    color: maroon;
+}
+._messages.warning{
+    background-color: #f6eac5;
+    border-color: #f6e4ac;
+    color: #644b00;
 }

@@ -1,14 +1,20 @@
 phpMyEngine v.0.0.1-dev
 =======================
 
+Версия README: 19 октября 2010 21:46
+
 Автор: Денис xmcdbx Сафронов <mcdb@mcdb.ru>, <xmcdbx@gmail.com>
-Форум проекта: http://mcdb.ru/phpmyengine
+Сайт проекта: http://phpmyengine.net/
 Github: http://github.com/xmcdbx/phpMyEngine
 Лицензия: GPL v.3  http://www.gnu.org/licenses/gpl.txt
 
 В данный момент работает только с MongoDB!
 В качестве кеша используется memcached!
 В ПРОДАКШЕНЕ НЕ ИСПОЛЬЗОВАТЬ! ЕЩЁ ОЧЕНЬ СЫРО!!!
+
+Минимальная версия PHP: 5.3.3
+Необходимые расширения PHP: bbcode, gettext, imagick
+База данных: MongoDB
 
 Назначение директорий и некторых файлов:
 

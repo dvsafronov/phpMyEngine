@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-09 01:12:05
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-19 21:15:19
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:20177305184caf8925a05843-00545904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16267661924cbdd22759a760-26449194%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -10,7 +10,7 @@ $_smarty_tpl->decodeProperties(array (
       1 => 1286572323,
     ),
   ),
-  'nocache_hash' => '20177305184caf8925a05843-00545904',
+  'nocache_hash' => '16267661924cbdd22759a760-26449194',
   'function' => 
   array (
   ),

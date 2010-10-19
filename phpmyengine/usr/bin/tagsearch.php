@@ -12,10 +12,9 @@ function defaultAction () {
     $myFilter = new \phpMyEngine\Records\Filter();
     $myFilter->mutagenType = $type;
     $myFilter->tags = $tag;
-    
-    $myRecords = $myFilter->getRecords();
 
-    echo "<pre>";
-    var_dump($myRecords);
-    echo "</pre>";
+    $myRecords = $myFilter->getRecords ();
+
+    $_myRender->setValue ( 'recordsList', $myRecords );
+    $_myRender->renderTemplate ( 'articles/list.tpl' );
 }

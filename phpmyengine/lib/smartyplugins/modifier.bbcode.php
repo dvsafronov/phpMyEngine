@@ -21,7 +21,7 @@ function smarty_modifier_bbcode ( $cont ) {
         $BBHandler = bbcode_create ( $arrayBBCode );
         return bbcode_parse ( $BBHandler, $cont );
     } else {
-        \phpMyEngine\logError("BBCode PHP-extension i'snt loaded");
+        \phpMyEngine\logError ( "BBCode PHP-extension is not loaded" );
     }
     return $cont;
 }

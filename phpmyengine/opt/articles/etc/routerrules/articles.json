@@ -19,6 +19,10 @@
         "pcre": "/^category\\/([0-9]+)\\/edit/",
         "result": "action=editcategory;id=$1"
     },
+   "cpruleCatList": {
+        "pcre": "/^category\\/([0-9]+)\\/list/",
+        "result": "action=list;id=$1"
+    },
    "cpruleCategories": {
         "pcre": "/^categories/",
         "result": "action=listcategory"

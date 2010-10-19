@@ -99,6 +99,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .block._messages {
+    
     padding: 12px;
     margin-bottom: 12px;
 }
@@ -351,4 +352,7 @@ table.list tbody tr.sec {
 }
 table.list tbody tr:hover {
     background: #C9D8DD;
+}
+table.list tbody td {
+    padding: 2px 4px 2px 4px;
 }

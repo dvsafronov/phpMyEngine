@@ -10,14 +10,19 @@
         <div id="header">
             <div id="headBar">
                 <div class="gspot">
-                    <a href="/">
-                        <img src="/design/default/images/phpMyEngine36.png"
-                             alt="phpMyEngine"
-                             title="phpMyEngine"
-                             width="216"
-                             height="36"
-                             />
-                    </a>
+                    <div class="left">
+                        <a href="/">
+                            <img src="/design/default/images/phpMyEngine36.png"
+                                 alt="phpMyEngine"
+                                 title="phpMyEngine"
+                                 width="216"
+                                 height="36"
+                                 />
+                        </a>
+                    </div>
+                    <div class="right">
+                    {insert name="widget" widget="person"}
+                    </div>
                 </div>
             </div>
             <div id="menuBar">

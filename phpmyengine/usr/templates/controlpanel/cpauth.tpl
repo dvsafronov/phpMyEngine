@@ -1,15 +1,15 @@
 {include file="_header.tpl"}
 <div class="block auth">
-    <h2>Need auth</h2>
+    <h2>{"Need auth"|l10n:cpauth}</h2>
     {if $_messages}
         {include file="_messages.tpl"}
     {/if}
     <form method="POST" action="{"cpauth"|cplink}" class="editrecord">
-        <label>Login:</label>
+        <label>{"Login"|l10n:cpauth}:</label>
         <input type="text" name="login" value="{$cplogin}" />
-        <label>Password:</label>
+        <label>{"Password"|l10n:cpauth}:</label>
         <input type="password" name="password" />
-        <input type="submit" value="Send" />
+        <input type="submit" value="{"Enter"|l10n:cpauth}" />
 </div>
 </form>
 {include file="_footer.tpl"}

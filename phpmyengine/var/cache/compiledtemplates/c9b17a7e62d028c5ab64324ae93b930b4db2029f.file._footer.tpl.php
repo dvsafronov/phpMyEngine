@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-06 11:08:53
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-19 21:15:20
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:17843578284cac2085272711-08679436%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15512751364cbdd22854d326-33328763%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c9b17a7e62d028c5ab64324ae93b930b4db2029f' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_footer.tpl',
-      1 => 1286017436,
+      1 => 1287495813,
     ),
   ),
-  'nocache_hash' => '17843578284cac2085272711-08679436',
+  'nocache_hash' => '15512751364cbdd22854d326-33328763',
   'function' => 
   array (
   ),
@@ -26,18 +26,12 @@ $_smarty_tpl->decodeProperties(array (
             &copy; 2010 phpMyEngine
         </div>
         <div class="right">
-            <a href="http://worldfamouscompany.ru/">
-                <img  src="/design/controlpanel/images/wfclogo32.png"
-                      alt="World Famous Company" height="32" width="58"
-                      />
-            </a>
-            &nbsp;
-            <a href="http://mcdb.ru/phpmyengine/">
-                <img src="/design/controlpanel/images/phpMyEngine32.png"
+            <a href="http://phpmyengine.net/">
+                <img src="/design/controlpanel/images/phpMyEngine88x31.png"
                      alt="phpMyEngine"
                      title="phpMyEngine"
-                     width="144"
-                     height="32"
+                     width="88"
+                     height="31"
                      />
             </a>
         </div>

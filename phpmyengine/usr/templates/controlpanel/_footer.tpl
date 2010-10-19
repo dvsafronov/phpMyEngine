@@ -8,18 +8,12 @@
             &copy; 2010 phpMyEngine
         </div>
         <div class="right">
-            <a href="http://worldfamouscompany.ru/">
-                <img  src="/design/controlpanel/images/wfclogo32.png"
-                      alt="World Famous Company" height="32" width="58"
-                      />
-            </a>
-            &nbsp;
-            <a href="http://mcdb.ru/phpmyengine/">
-                <img src="/design/controlpanel/images/phpMyEngine32.png"
+            <a href="http://phpmyengine.net/">
+                <img src="/design/controlpanel/images/phpMyEngine88x31.png"
                      alt="phpMyEngine"
                      title="phpMyEngine"
-                     width="144"
-                     height="32"
+                     width="88"
+                     height="31"
                      />
             </a>
         </div>

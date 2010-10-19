@@ -3,7 +3,7 @@
     <ul class="categorylist">
 {section name=list loop=$recordsList->records}
         <li>
-            <a href="{$recordsList->records[list]->_id|sitelink}">{$recordsList->records[list]->mutagenData->title}</a>
+            <a href="{"articles/category/{$recordsList->records[list]->_id}/list"|sitelink}">{$recordsList->records[list]->mutagenData->title}</a>
         </li>
 {/section}
     </ul>
