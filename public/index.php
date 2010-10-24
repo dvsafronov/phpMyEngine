@@ -31,7 +31,11 @@ setlocale ( LC_ALL, 'ru_RU.utf8' );
 
 include 'lib/engine.lib.php';
 include 'lib/records.lib.php';
-include 'lib/persons.lib.php';
+
+function __autoload($class) {
+    echo $class;
+    die();
+}
 
 \ob_start();
 $_myConfig = \phpMyEngine\Config\Config::getInstance ();

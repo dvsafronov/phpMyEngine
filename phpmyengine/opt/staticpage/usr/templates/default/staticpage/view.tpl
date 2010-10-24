@@ -1,4 +1,4 @@
 <div class="block">
-    <h2>{$myRecord->mutagenData->title}</h2>
+    <h1>{$myRecord->mutagenData->title}</h1>
     {$myRecord->mutagenData->content|escape:"htmlall"|nl2br|bbcode}
 </div>

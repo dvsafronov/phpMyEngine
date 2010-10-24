@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-19 21:44:24
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-24 18:20:56
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/cpauth.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1590057194cbdd8f8f03e01-59701155%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3461819184cc440c8c9abf2-37507153%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -10,7 +10,7 @@ $_smarty_tpl->decodeProperties(array (
       1 => 1287510262,
     ),
   ),
-  'nocache_hash' => '1590057194cbdd8f8f03e01-59701155',
+  'nocache_hash' => '3461819184cc440c8c9abf2-37507153',
   'function' => 
   array (
   ),

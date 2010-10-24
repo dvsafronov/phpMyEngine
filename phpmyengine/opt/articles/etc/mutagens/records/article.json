@@ -16,7 +16,9 @@
             },
             "formTag": {
               "type": "text"
-            }
+            },
+            "required": true,
+            "unique": true
     },
     "content" : {
             "length": {
