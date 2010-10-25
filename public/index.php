@@ -32,11 +32,19 @@ setlocale ( LC_ALL, 'ru_RU.utf8' );
 include 'lib/engine.lib.php';
 include 'lib/records.lib.php';
 
-function __autoload($class) {
-    echo $class;
-    die();
-}
+/* function autoload ( $name ) {
+  if (\substr ( $name, 0, 12 ) == 'phpMyEngine\\') {
+  $fname = PATH_APPLICATION . '/' . strtolower ( substr ( $name, strrpos ( $name, '\\' ) + 1 ) ) . '.lib.php';
+  echo $fname;
+  if (\file_exists ( $fname )) {
 
+  include_once $fname;
+  }
+  }
+  }
+
+  spl_autoload_register ( __NAMESPACE__ . '\autoload' );
+ */
 \ob_start();
 $_myConfig = \phpMyEngine\Config\Config::getInstance ();
 $_myRender = \phpMyEngine\Render\Render::getInstance ();
@@ -53,15 +61,22 @@ $_myRender->setTitle ( $_myConfig->engine->siteName, $_myRender::TITLE_APPEND );
 
 $_myRender->getOutput ();
 \ob_end_clean();
+
 if (DEBUG == true) {
-    $_debugInfo = 'Время генерации: ' . round ( microtime ( true ) - DEBUG_START_TIME, 4 ) . ' сек <br />';
-    $_debugInfo .= 'Использовано памяти: ' . (\memory_get_usage ( true ) / 1024) . 'Кб <br />';
-    $_debugInfo .= 'Вложено файлов: ' . count ( \get_included_files () ) . '<br />';
-    $_debugInfo .= 'Размер HTML: ' . $_myRender->htmlsize . '<br />';
+    $dbPorfile = $_myConfig->engine->databaseProfile;
     $dbInfo = \phpMyEngine\Database\Storage::getInstance();
-    $_debugInfo .= 'БД: <br />';
-    $_debugInfo .= '&nbsp;&nbsp;&nbsp;&nbsp;Запросов: ' . $dbInfo->countQueries . ' / ' . $dbInfo->countErrorQueries . '<br />';
-    $_debugInfo .= '&nbsp;&nbsp;&nbsp;&nbsp;Время: ' . round ( $dbInfo->time, 4 ) . ' сек <br />';
-    $_myRender->applyDebugInfo ( $_debugInfo );
+    $_debugInfo = array (
+        'genTime' => round ( microtime ( true ) - DEBUG_START_TIME, 4 ),
+        'memory' => \memory_get_usage ( true ) / 1024,
+        'includedFiles' => count ( \get_included_files () ),
+        'HTML' => $_myRender->htmlsize,
+        'dbProfile' => $dbPorfile,
+        'dbType' => $_myConfig->$dbPorfile->type,
+        'dbSuccessQueries' => $dbInfo->countQueries,
+        'dbErrorQueries' => $dbInfo->countErrorQueries,
+        'dbTime' => round ( $dbInfo->time, 4 )
+    );
+    $_myRender->setValue ( '_debugInfo', $_debugInfo );
+    $_myRender->applyDebugInfo ( $_myRender->renderTemplate ( '__debug.tpl', true ) );
 }
 $_myRender->show ();

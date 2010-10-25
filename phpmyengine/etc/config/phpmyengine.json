@@ -11,7 +11,7 @@
         "cache" : false,
         "cacheProfile" : "cacheProfileMemcache",
 
-        "databaseProfile" : "dbProfileMongoDB",
+        "databaseProfile" : "dbProfileFiles",
 
         "uriType": "asHTMLDocuments",
 
@@ -27,6 +27,9 @@
         "host" : "localhost",
         "port" : 11211,
         "prefix2" : "pme1_"
+    },
+    "dbProfileFiles": {
+        "type" : "Files"
     },
     "dbProfileMongoDB": {
         "type" : "Mongo",

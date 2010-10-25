@@ -642,9 +642,15 @@ class Render {
         return null;
     }
 
-    public function renderTemplate ( $name ) {
+    public function renderTemplate ( $name, $toVar = false ) {
         try {
+            if ($toVar === true) {
+                \ob_start();
+            }
             $this->_smarty->display ( $name );
+            if ($toVar === true) {
+                return \ob_get_clean();
+            }
         } catch (\Exception $e) {
             $file = \str_replace ( dirname ( __DIR__ ) . '/', null, $e->getFile () );
             \phpMyEngine\logError ( $e->getMessage () . ' (' . $file . ')' );

@@ -1,0 +1,4 @@
+20:30:59	/	::ffff:192.168.1.12	Unkown resource type 'Время генерации' (lib/smarty/sysplugins/smarty_internal_template.php)
+20:31:00	/design/default/images/phpMyEngine88x31.png	::ffff:192.168.1.12	Unkown resource type 'Время генерации' (lib/smarty/sysplugins/smarty_internal_template.php)
+20:44:14	/staticpage/list	::ffff:192.168.1.12	Unable to load template file '__debug.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
+20:49:50	/staticpage/list	::ffff:192.168.1.12	Unable to load template file '__debug.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)

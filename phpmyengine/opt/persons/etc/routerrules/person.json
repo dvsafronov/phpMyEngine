@@ -1,0 +1,18 @@
+{
+   "auth": {
+        "pcre": "/^auth/",
+        "result": "action=auth"
+    },
+   "registration": {
+        "pcre": "/^registration/",
+        "result": "action=registration"
+    },
+   "resetpassword": {
+        "pcre": "/^resetpassword/",
+        "result": "action=resetpassword"
+    },
+   "room": {
+        "pcre": "/^room/",
+        "result": "action=room"
+    }
+}

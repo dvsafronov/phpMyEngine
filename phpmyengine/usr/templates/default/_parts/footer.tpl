@@ -4,7 +4,7 @@
 <div id="footer">
     <div  class="container_24">
         <div class="grid_8">
-            <!--phpMyEngine::debugInfo/-->
+            &nbsp;
         </div>
         <div class="grid_8">
             &copy; 2010 phpMyEngine
@@ -22,7 +22,7 @@
         <div class="clear"></div>
     </div>
 </div>
-
+<!--phpMyEngine::debugInfo/-->
 {insert name="widget" widget="googleanalytics"}
 </body>
 </html>
