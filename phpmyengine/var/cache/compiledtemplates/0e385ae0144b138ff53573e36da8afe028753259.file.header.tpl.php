@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 22:34:17
-         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14842209714cc71f29ee7aa2-49534170%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 22:49:07
+         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_parts/header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:5227643524cc722a3b23001-93603884%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '4b1d971fc2413ce0dd0c62be7f9822c2076d5bee' => 
+    '0e385ae0144b138ff53573e36da8afe028753259' => 
     array (
-      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_header.tpl',
-      1 => 1288117968,
+      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/_parts/header.tpl',
+      1 => 1288118909,
     ),
   ),
-  'nocache_hash' => '14842209714cc71f29ee7aa2-49534170',
+  'nocache_hash' => '5227643524cc722a3b23001-93603884',
   'function' => 
   array (
   ),

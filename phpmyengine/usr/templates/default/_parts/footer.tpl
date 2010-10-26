@@ -11,7 +11,7 @@
         </div>
         <div class="grid_8">
             <a href="http://mcdb.ru/phpmyengine/">
-                <img src="/design/default/images/phpMyEngine88x31.png"
+                <img src="/controlpanel/images/phpMyEngine88x31.png"
                      alt="phpMyEngine"
                      title="phpMyEngine"
                      width="88"

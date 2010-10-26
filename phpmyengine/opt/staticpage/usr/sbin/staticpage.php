@@ -7,7 +7,7 @@ use phpMyEngine\Records\FilterOperation;
 use phpMyEngine\Route;
 use phpMyEngine\Render\Render;
 
-\phpMyEngine\loadModule('staticpage');
+\phpMyEngine\loadModule ( 'staticpage' );
 
 function viewAction () {
     $_myRoute = Route::getInstance ();
@@ -35,6 +35,8 @@ function listAction () {
     if ($_myRoute->isControlPanel ()) {
         $myFilter = new Filter();
         $myFilter->mutagenType = 'StaticPage';
+        $myFilter->order = Filter::ORDER_ASC;
+        $myFilter->orderBy = 'mutagenData.title';
         $myRecords = $myFilter->getRecords ();
         $_myRender->setValue ( 'recordsList', $myRecords );
         $_myRender->renderTemplate ( 'staticpage/list.tpl' );

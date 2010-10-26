@@ -1,37 +1,37 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 22:41:33
-         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/list.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5548124674cc720dd60baa2-44160464%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 23:05:55
+         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/extensions/list.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:7926445914cc72693170908-94542372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '77e5cbdf3652e5297c937a38918c0b1f4262e871' => 
+    '9e9dcf82a3c8008774e1a75870bcf90178d446dc' => 
     array (
-      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/list.tpl',
-      1 => 1288118022,
+      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/extensions/list.tpl',
+      1 => 1287495394,
     ),
   ),
-  'nocache_hash' => '5548124674cc720dd60baa2-44160464',
+  'nocache_hash' => '7926445914cc72693170908-94542372',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_function_cycle')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smarty/plugins/function.cycle.php';
-if (!is_callable('smarty_modifier_cplink')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/modifier.cplink.php';
-?><h2>List of uncategored articles</h2>
+?><h2>Extensions</h2>
 <table class="list">
     <thead>
         <tr>
-            <td width="10%">ID</td>
-            <td>Заголовок</td>
-            <td>Рубрика</td>
+            <td width="18%">Название</td>
+            <td width="8%">Версия</td>
+            <td width="20%">Автор</td>
+            <td>Описание</td>
             <td width="8%">Действия</td>
         </tr>
     </thead>
-    <tbody>        
-        <?php unset($_smarty_tpl->tpl_vars['smarty']->value['section']['list']);
+    <tbody>
+    <?php unset($_smarty_tpl->tpl_vars['smarty']->value['section']['list']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['name'] = 'list';
-$_smarty_tpl->tpl_vars['smarty']->value['section']['list']['loop'] = is_array($_loop=$_smarty_tpl->getVariable('recordsList')->value->records) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$_smarty_tpl->tpl_vars['smarty']->value['section']['list']['loop'] = is_array($_loop=$_smarty_tpl->getVariable('optInfo')->value) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['show'] = true;
 $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['max'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['loop'];
 $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['step'] = 1;
@@ -55,22 +55,15 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['last']       = ($_sm
 ?>
         <tr <?php echo smarty_function_cycle(array('values'=>',class="sec"'),$_smarty_tpl->smarty,$_smarty_tpl);?>
 >
-            <td><?php echo $_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id;?>
+            <td><?php echo $_smarty_tpl->getVariable('optInfo')->value[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->extension;?>
 </td>
-            <td><?php echo $_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->mutagenData->title;?>
+            <td><?php echo $_smarty_tpl->getVariable('optInfo')->value[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->version;?>
 </td>
-            <td><?php echo $_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->mutagenData->category;?>
+            <td><?php echo $_smarty_tpl->getVariable('optInfo')->value[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->author;?>
 </td>
-            <td align="center">
-                <a href="<?php echo smarty_modifier_cplink("articles/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/edit");?>
-">
-                   <img src="/controlpanel/images/icons/001_45.png" width="24" height="24">
-                </a>
-                <a href="<?php echo smarty_modifier_cplink("articles/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/delete");?>
-">
-                   <img src="/controlpanel/images/icons/001_05.png" width="24" height="24">
-                </a>
-            </td>
+            <td><?php echo $_smarty_tpl->getVariable('optInfo')->value[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->description;?>
+</td>
+            <td>-</td>
         </tr>
     <?php endfor; endif; ?>
     </tbody>

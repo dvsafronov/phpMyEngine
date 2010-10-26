@@ -99,7 +99,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .block._messages {
-    
+
     padding: 12px;
     margin-bottom: 12px;
 }
@@ -230,7 +230,7 @@ h1,h2,h3,h4,h5,h6 {
 .menu li.seporator {
     border-right: 1px solid #06193C;
     height: 23px;
-    
+
     margin-right: 10px;
 }
 
@@ -323,13 +323,16 @@ form.editrecord input[type="file"]:FOCUS,input[type="text"]:FOCUS,select:focus,t
     color: #000;
     border: 1px solid #13293C;
 }
-form.editrecord fieldset {
+fieldset {
     border: 1px solid #e3e7e9;
     border-radius: 6px;
     -moz-border-radius: 6px;
     margin-bottom: 24px;
 }
-
+fieldset legend {
+    font-size: 14px;
+    padding: 0 12px 0 12px;    
+}
 table.list {
     padding: 6px;
     width: 100%;

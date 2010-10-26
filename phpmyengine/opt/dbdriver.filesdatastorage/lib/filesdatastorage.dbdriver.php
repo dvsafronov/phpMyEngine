@@ -2,9 +2,9 @@
 
 //@todo комментить! код!!!!
 //@todo обязательно!!!
-namespace phpMyEngine\Database\Files;
+namespace phpMyEngine\Database\filesDataStorage;
 
-\phpMyEngine\loadModule ( 'datastorage' );
+include 'lib/filesDataStorage/filesDataStorage.php';
 
 function filterToCommand ( $filter = false, $preparetosearch = false ) {
     if (is_null ( $filter )) return 'null';
@@ -36,7 +36,7 @@ function filterToCommand ( $filter = false, $preparetosearch = false ) {
 
 function returnConnection () {
     $_myDBStorage = \phpMyEngine\Database\Storage::getInstance ();
-    if ($_myDBStorage->_connection instanceof DataStorage) {
+    if ($_myDBStorage->_connection instanceof \filesDataStorage\filesDataStorage) {
         return $_myDBStorage->_connection;
     } else {
         createConnection();
@@ -46,7 +46,8 @@ function returnConnection () {
 
 function createConnection () {
     $_myDBStorage = \phpMyEngine\Database\Storage::getInstance ();
-    $_myDBStorage->_connection = new DataStorage();
+    $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( '', 'var/storage' );
+    $_myDBStorage->_connection = new \filesDataStorage\filesDataStorage ( $rp );
     return true;
 }
 
@@ -83,30 +84,34 @@ function generateQuery ( array $filter, $collection, $type ) {
     } else {
         $onlyFields = array ();
     }
-    $queryStr = null;
+    $queryStr = "selectCollection('{$collection}')";
     switch ($type) {
         case \phpMyEngine\Database\REQUEST_TYPE_QUERY: {
-                $offset = $limit = 0;
+                $queryFilter = new \filesDataStorage\QueryFilter();
                 if (isset ( $filter['limit'] ) && $filter['limit'] > 0) {
-                    $limit = (int) $filter['limit'];
+                    $queryFilter->setLimit ( (int) $filter['limit'] );
                 }
                 if (isset ( $filter['offset'] ) && $filter['offset'] > 0) {
-                    $offset = (int) $filter['offset'];
+                    $queryFilter->setOffset ( (int) $filter['offset'] );
                 }
-                /* if (isset ( $filter['orderBy'] ) && isset ( $filter['order'] )) {
-                  $addStr .= "->sort(array('{$filter['orderBy']}'=>{$filter['order']}))";
-                  } */
+                if (isset ( $filter['orderBy'] )) {
+                    $queryFilter->setOrderField ( $filter['orderBy'] );
+                }
+                if (isset ( $filter['order'] )) {
+                    $queryFilter->setOrderDirection ( (int) $filter['order'] );
+                }
                 unset ( $filter['limit'], $filter['offset'], $filter['order'], $filter['orderBy'] );
-                $queryStr .= "get({$collection}," . filterToCommand ( $filter, true ) . ",{$limit},{$offset})";
+                $queryFilter->setData ( $filter );
+                $queryStr .= '->get("' . $queryFilter . '")';
                 break;
             }
         case \phpMyEngine\Database\REQUEST_TYPE_SAVE: {
                 unset ( $filter['limit'], $filter['offset'], $filter['order'], $filter['orderBy'] );
-                $queryStr .= "save({$collection}," . filterToCommand ( $filter ) . ");";
+                $queryStr .= "->save(" . filterToCommand ( $filter ) . ");";
                 break;
             }
         case \phpMyEngine\Database\REQUEST_TYPE_REMOVE: {
-                $queryStr .= "remove({$collection}," . filterToCommand ( $filter ) . ")";
+                $queryStr .= "->remove(" . filterToCommand ( $filter ) . ")";
                 break;
             }
     }

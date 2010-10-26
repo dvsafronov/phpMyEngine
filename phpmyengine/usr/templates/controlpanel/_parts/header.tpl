@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="/design/controlpanel/style.css" />
+        <link rel="stylesheet" type="text/css" href="/controlpanel/style.css" />
         <title>phpMyEngine Control Panel</title>
     </head>
     <body>
@@ -10,7 +10,7 @@
             <div id="header">
                 <div id="headBar">
                     <a href="{"/"|cplink}">
-                    <img src="/design/controlpanel/images/phpMyEngineCP.png"
+                    <img src="/controlpanel/images/phpMyEngineCP.png"
                          alt="phpMyEngine"
                          title="phpMyEngine"
                          width="156"

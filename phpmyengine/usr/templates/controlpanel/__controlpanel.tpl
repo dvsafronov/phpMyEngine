@@ -1,4 +1,4 @@
-{include file="_header.tpl"}
+{include file="_parts/header.tpl"}
                 <div id="westCoast">
                     <div class="block">
                         {insert name="widget" widget="cpsidebarmenu"}
@@ -11,4 +11,4 @@
                 </div>
                 <div class="cls"></div>
             </div>
-{include file="_footer.tpl"}
+{include file="_parts/footer.tpl"}

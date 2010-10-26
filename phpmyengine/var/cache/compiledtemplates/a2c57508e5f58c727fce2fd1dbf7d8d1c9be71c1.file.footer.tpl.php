@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-25 20:34:17
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 23:11:23
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6534307024cc5b189e2bbe1-04400148%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:6520160794cc727db97edd3-31363938%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a2c57508e5f58c727fce2fd1dbf7d8d1c9be71c1' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl',
-      1 => 1288024456,
+      1 => 1288120282,
     ),
   ),
-  'nocache_hash' => '6534307024cc5b189e2bbe1-04400148',
+  'nocache_hash' => '6520160794cc727db97edd3-31363938',
   'function' => 
   array (
   ),
@@ -30,7 +30,7 @@ $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="grid_8">
             <a href="http://mcdb.ru/phpmyengine/">
-                <img src="/design/default/images/phpMyEngine88x31.png"
+                <img src="/controlpanel/images/phpMyEngine88x31.png"
                      alt="phpMyEngine"
                      title="phpMyEngine"
                      width="88"

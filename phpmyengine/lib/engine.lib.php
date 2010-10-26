@@ -754,13 +754,18 @@ function generateQuery ( array $filter, $collection, $type = REQUEST_TYPE_QUERY 
     }
 }
 
-function checkDriver ( $dbType ) {
+function checkDriver ( $dbType, $ite = 0 ) {
+    if ($ite >= 2) {
+        \phpMyEngine\logError('Unable to load database driver');
+        return false;
+    }
     if (false !== function_exists ( '\phpMyEngine\Database\\' . $dbType . '\generateQuery' )) {
         return true;
     } else {
         if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( strtolower ( $dbType ) . '.dbdriver.php', 'lib' )) {
+            $ite++;
             include_once $rp;
-            return checkDriver ( $dbType );
+            return checkDriver ( $dbType, $ite );
         } else {
             die ( 'DB Driver not found' );
             return false;

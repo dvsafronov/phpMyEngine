@@ -1,17 +1,19 @@
 {
     "engine": {
         "siteName" : "powered by phpMyEngine",
+
         "design" : "default",
         "defaultController" : "index",
+        
         "language" : "ru",
         
         "gzip" : false,
         "gziplevel" : 9,
         
-        "cache" : false,
+        "cache" : true,
         "cacheProfile" : "cacheProfileMemcache",
 
-        "databaseProfile" : "dbProfileFiles",
+        "databaseProfile" : "dbProfileFilesDS",
 
         "uriType": "asHTMLDocuments",
 
@@ -28,8 +30,8 @@
         "port" : 11211,
         "prefix2" : "pme1_"
     },
-    "dbProfileFiles": {
-        "type" : "Files"
+    "dbProfileFilesDS": {
+        "type" : "filesDataStorage"
     },
     "dbProfileMongoDB": {
         "type" : "Mongo",
@@ -37,13 +39,5 @@
         "database" : "pmedb",
         "user" : "357126G",
         "password" : "swordfish"
-    },
-    "dbProfileMySQL": {
-        "type" : "MySQLi",
-        "host" : "localhost",
-        "database" : "pmedb",
-        "user" : "357126G",
-        "password" : "swordfish",
-        "prefix": "pme_"
     }
 }

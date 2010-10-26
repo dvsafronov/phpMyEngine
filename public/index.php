@@ -25,9 +25,6 @@ putenv ( "LC_ALL=ru_RU" );
 putenv ( "LANG=ru_RU" );
 putenv ( "LANGUAGE=ru_RU" );
 setlocale ( LC_ALL, 'ru_RU.utf8' );
-/*
-  \bindtextdomain ( 'default', PATH_APPLICATION . '/usr/locale/' );
-  \textdomain ( "default" ); */
 
 include 'lib/engine.lib.php';
 include 'lib/records.lib.php';
@@ -51,7 +48,7 @@ $_myRender = \phpMyEngine\Render\Render::getInstance ();
 
 \phpMyEngine\EngineFileSystem\Structure::getInstance();
 \phpMyEngine\Route::getInstance();
-
+//TODO: Либо сделать, чтобо оно работало, либо проверить что оно работает, либо прибить нах
 if ($_myRender->monopolyView !== true) {
     $_myRender->Smarty ()->display ( '__' . $_myConfig->engine->design . '.tpl' );
 } else {
@@ -64,6 +61,7 @@ $_myRender->getOutput ();
 
 if (DEBUG == true) {
     $dbPorfile = $_myConfig->engine->databaseProfile;
+    $cacheProfile = $_myConfig->engine->cacheProfile;
     $dbInfo = \phpMyEngine\Database\Storage::getInstance();
     $_debugInfo = array (
         'genTime' => round ( microtime ( true ) - DEBUG_START_TIME, 4 ),
@@ -74,7 +72,12 @@ if (DEBUG == true) {
         'dbType' => $_myConfig->$dbPorfile->type,
         'dbSuccessQueries' => $dbInfo->countQueries,
         'dbErrorQueries' => $dbInfo->countErrorQueries,
-        'dbTime' => round ( $dbInfo->time, 4 )
+        'dbTime' => round ( $dbInfo->time, 4 ),
+        'cacheProfile' => $cacheProfile,
+        'cacheType' => $_myConfig->$cacheProfile->type,
+        'cacheSuccessQueries' => $dbInfo->countQueries,
+        'cacheErrorQueries' => $dbInfo->countErrorQueries,
+        'cacheTime' => round ( $dbInfo->time, 4 )
     );
     $_myRender->setValue ( '_debugInfo', $_debugInfo );
     $_myRender->applyDebugInfo ( $_myRender->renderTemplate ( '__debug.tpl', true ) );

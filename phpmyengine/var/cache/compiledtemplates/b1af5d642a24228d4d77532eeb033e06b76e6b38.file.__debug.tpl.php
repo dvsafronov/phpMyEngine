@@ -1,23 +1,23 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 23:17:03
-         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/__debug.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2403303104cc7292f8b0042-03180275%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 23:18:16
+         compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/__debug.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:19374548114cc729783a5da8-94277585%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'f17390181a64a5b4086a056bb5cdcb4d0de60503' => 
+    'b1af5d642a24228d4d77532eeb033e06b76e6b38' => 
     array (
-      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/__debug.tpl',
-      1 => 1288120622,
+      0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/controlpanel/__debug.tpl',
+      1 => 1288120694,
     ),
   ),
-  'nocache_hash' => '2403303104cc7292f8b0042-03180275',
+  'nocache_hash' => '19374548114cc729783a5da8-94277585',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<div class="container_24" style="margin-bottom: 24px;font-size: 11px">
-    <div class="grid_8">
+<div style="margin-bottom: 24px;font-size: 11px">
+    <div style="float:left;margin-right: 24px;padding-bottom: 24px;">
         <b>Общие</b>:<br>
         Время генерации: <?php echo $_smarty_tpl->getVariable('_debugInfo')->value['genTime'];?>
  сек<br>
@@ -27,9 +27,9 @@ $_smarty_tpl->decodeProperties(array (
  шт.<br>
         Размер HTML: <?php echo $_smarty_tpl->getVariable('_debugInfo')->value['HTML'];?>
 Кб<br>
-        
+
     </div>
-    <div class="grid_8">
+    <div style="float:left;margin-right: 24px;padding-bottom: 24px;">
         <b>База данных</b>:<br>
         Профиль: <?php echo $_smarty_tpl->getVariable('_debugInfo')->value['dbProfile'];?>
 <br>
@@ -41,7 +41,7 @@ $_smarty_tpl->decodeProperties(array (
         Время: <?php echo $_smarty_tpl->getVariable('_debugInfo')->value['dbTime'];?>
  сек<br>
     </div>
-    <div class="grid_8">
+    <div style="float:left">
         <b>Кэш:</b><br>
         Профиль: <?php echo $_smarty_tpl->getVariable('_debugInfo')->value['cacheProfile'];?>
 <br>
@@ -53,5 +53,5 @@ $_smarty_tpl->decodeProperties(array (
         Время: <?php echo $_smarty_tpl->getVariable('_debugInfo')->value['cacheTime'];?>
  сек<br>
     </div>
-    <div class="clear"></div>
+    <div style="clear: both"></div>
 </div>

@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-25 18:47:20
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 22:41:30
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/category/list.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8905406794cc59878bbbfa9-78379118%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:20029884504cc720da3983a5-14420988%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '091b5b025151ab6ac5182c2121a73ce0dfbd4618' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/controlpanel/articles/category/list.tpl',
-      1 => 1286546892,
+      1 => 1288118011,
     ),
   ),
-  'nocache_hash' => '8905406794cc59878bbbfa9-78379118',
+  'nocache_hash' => '20029884504cc720da3983a5-14420988',
   'function' => 
   array (
   ),
@@ -61,11 +61,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['last']       = ($_sm
             <td align="center">
                 <a href="<?php echo smarty_modifier_cplink("articles/category/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/edit");?>
 ">
-                   <img src="/design/controlpanel/images/icons/001_45.png" width="24" height="24">
+                   <img src="/controlpanel/images/icons/001_45.png" width="24" height="24">
                 </a>
                 <a href="<?php echo smarty_modifier_cplink("articles/category/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/delete");?>
 ">
-                   <img src="/design/controlpanel/images/icons/001_05.png" width="24" height="24">
+                   <img src="/controlpanel/images/icons/001_05.png" width="24" height="24">
                 </a>
             </td>
         </tr>

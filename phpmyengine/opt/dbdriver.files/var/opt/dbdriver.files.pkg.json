@@ -1,6 +1,0 @@
-{
-    "extension": "FilesDB Driver",
-    "version": "10.10.17",
-    "description": "Driver for storage data as JSON-files",
-    "author": "Denis Safronov"
-}

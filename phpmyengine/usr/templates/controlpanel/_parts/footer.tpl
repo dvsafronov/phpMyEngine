@@ -9,7 +9,7 @@
         </div>
         <div class="right">
             <a href="http://phpmyengine.net/">
-                <img src="/design/controlpanel/images/phpMyEngine88x31.png"
+                <img src="/controlpanel/images/phpMyEngine88x31.png"
                      alt="phpMyEngine"
                      title="phpMyEngine"
                      width="88"
