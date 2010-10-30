@@ -24,7 +24,7 @@
             "password": "swordfish"
     },
     "view": {
-        "skin": "modern"
+        "skin": "coldblue"
     },
     
     "cacheProfileMemcache": {
