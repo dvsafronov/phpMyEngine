@@ -6,9 +6,9 @@
         <link rel="stylesheet" type="text/css" href="/css/960_24_col.css" />
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/text.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/coldblue/css/coldblue.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/coldblue/css/navigation.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/coldblue/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/modern/css/modern.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/modern/css/navigation.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/modern/css/style.css" />
     </head>
     <body>
         <div id="advertising_banner"></div>

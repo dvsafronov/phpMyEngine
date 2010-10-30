@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-24 17:44:26
+<?php /* Smarty version Smarty3-RC3, created on 2010-10-26 23:56:50
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:911571354cc4383a237dd5-46036499%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:5895836124cc73282f279d8-96477009%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fcdbecbc5d6af05eb6338208b9482cfbec1e6c84' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/header.tpl',
-      1 => 1287927864,
+      1 => 1288123010,
     ),
   ),
-  'nocache_hash' => '911571354cc4383a237dd5-46036499',
+  'nocache_hash' => '5895836124cc73282f279d8-96477009',
   'function' => 
   array (
   ),
@@ -25,9 +25,9 @@ $_smarty_tpl->decodeProperties(array (
         <link rel="stylesheet" type="text/css" href="/css/960_24_col.css" />
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/text.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/coldblue/css/coldblue.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/coldblue/css/navigation.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/coldblue/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/modern/css/modern.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/modern/css/navigation.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/modern/css/style.css" />
     </head>
     <body>
         <div id="advertising_banner"></div>

@@ -3,7 +3,6 @@
     border-bottom: 2px solid #03142f;
     border-top: 1px solid #a6b8bf;
     height: 33px;
-    margin-bottom: 12px;
 }
 
 #header ul,#navigation ul {
@@ -75,7 +74,7 @@
     margin: 0;
     padding: 0;
     font-size: 11px;
-    color: #ebebe9;
+    color: #ebebe9
 }
 #header ul a {
     color: #0A3A84;
