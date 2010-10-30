@@ -38,7 +38,7 @@
     height: 22px;
     background: #e8eef0;
     margin: 12px 0 0 0;
-    padding: 2px 0 0 0;
+    padding: 0;
     font-size: 11px;
 }
 .recordInfo .votePositive {
@@ -54,7 +54,7 @@
     height: 12px;
     text-indent: -20000px;
     background: url('./../images/icons.png') no-repeat -57px 0;
-    margin: 2px auto 0 auto;
+    margin: 4px auto 0 auto;
 }
 .recordInfo .voteNegative a {
     display: block;
@@ -62,7 +62,7 @@
     height: 13px;
     text-indent: -20000px;
     background: url('./../images/icons.png') no-repeat -70px 0;
-    margin: 2px auto 0 auto;
+    margin: 4px auto 0 auto;
 }
 .recordInfo .voteNegative {
     float: left;
@@ -95,7 +95,7 @@
     height: 12px;
     margin-right: 6px;
     background: url('./../images/icons.png') no-repeat;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 .recordInfo .username span {
     background-position: -13px 0;
@@ -134,7 +134,7 @@
     margin-right: 8px;
 }
 .recordInfo div {
-    margin-top: 2px;
+    margin-top: 0px;
 }
 
 div.tagCloud {
@@ -168,16 +168,16 @@ fieldset {
 .person {
     padding: 0;
     margin: -12px 0 0 0;
-    color: #222;
+    color: #CCC;
 }
 .person .signin {
     font-size: 21px;
 }
 .person a {
-    color: #0A3A84;
+    color: #CEDBE0;
 }
 .person a:hover {
-    color: #03142f;
+    color: #E8EEF0;
 }
 .person .signup {
     font-size: 18px;

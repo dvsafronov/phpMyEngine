@@ -11,25 +11,32 @@
         "gziplevel" : 9,
         
         "cache" : true,
-        "cacheProfile" : "cacheProfileMemcache",
+        "cacheProfile" : "cacheProfileFilesDS",
 
         "databaseProfile" : "dbProfileFilesDS",
 
-        "uriType": "asHTMLDocuments",
-
-        "controlPanel": {
+        "uriType": "asHTMLDocuments"
+    },
+    "controlPanel": {
             "host": "cp.phpmyengine.dev",
             "virtualController": "ctrlpnl",
             "login": "357126G",
             "password": "swordfish"
-        }
     },
+    "view": {
+        "skin": "modern"
+    },
+    
     "cacheProfileMemcache": {
         "type" : "Memcached",
         "host" : "localhost",
         "port" : 11211,
-        "prefix2" : "pme1_"
+        "prefix" : "pme1_"
     },
+    "cacheProfileFilesDS": {
+        "type" : "filesDataStorage"
+    },
+    
     "dbProfileFilesDS": {
         "type" : "filesDataStorage"
     },

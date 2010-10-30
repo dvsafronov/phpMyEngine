@@ -1,11 +1,11 @@
 #navigation {
-    background: #162d50;
-    border-bottom: 2px solid #03142f;
-    border-top: 1px solid #a6b8bf;
-    height: 33px;
+    background: #13293c;
+    border: 0px;
+    height: 24px;
+    margin-top: -34px;
 }
 
-#header ul,#navigation ul {
+#navigation ul {
     list-style: none;
     padding: 0;
     color: #CECECE;
@@ -13,7 +13,7 @@
 }
 
 #navigation ul {
-    margin-top: 5px;
+    margin-top: 0;
 }
 #navigation ul a {
     display: block;
@@ -26,7 +26,7 @@
 #navigation ul a:hover {
     color: #FFF;
     text-shadow: 2px 2px 1px #000;
-    background-color: #03192C;
+    background-color: #03192C;    
     -moz-border-radius: 6px;
     border-radius: 6px;
 }
@@ -38,8 +38,8 @@
 
 #navigation li ul {
     display: none;
-    background: #E1E0DF;
-    border: 1px solid #ccc;
+    background: url('./../images/mbg.png') repeat;
+    border: 1px solid #222;
     -moz-border-radius: 6px;
     border-radius: 6px;
     padding: 3px;
@@ -55,37 +55,10 @@
     font-size: 14px;
     line-height: 24px;
     float: none;
-    color: #000;
+    color: #555;
 }
 
 #navigation ul li ul li a {
-    color: #000;
+    color: #CECECE;
     text-shadow: 0 0 0;
-}
-
-#header ul {
-    float: right;
-    margin-top: -8px;
-}
-#header ul li {
-    font-size: 21px;    
-}
-#header ul li p {
-    margin: 0;
-    padding: 0;
-    font-size: 11px;
-    color: #ebebe9
-}
-#header ul a {
-    color: #0A3A84;
-    display: block;
-    border-bottom: 2px solid #528296;
-    margin-bottom: 23px;
-    padding-bottom: 11px;
-    text-decoration: none;
-}
-#header ul a:hover {
-    color: #03142f;
-    background: url('./../images/hbgm.png') repeat;
-    border-bottom: 2px solid #356A9F
 }

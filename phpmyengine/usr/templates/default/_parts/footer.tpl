@@ -10,7 +10,7 @@
             &copy; 2010 phpMyEngine
         </div>
         <div class="grid_8">
-            <a href="http://mcdb.ru/phpmyengine/">
+            <a href="http://phpmyengine.net/">
                 <img src="/controlpanel/images/phpMyEngine88x31.png"
                      alt="phpMyEngine"
                      title="phpMyEngine"

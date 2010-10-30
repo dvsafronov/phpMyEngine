@@ -6,9 +6,9 @@
         <link rel="stylesheet" type="text/css" href="/css/960_24_col.css" />
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/text.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/modern/css/modern.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/modern/css/navigation.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/modern/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/{$__skin}/css/{$__skin}.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/{$__skin}/css/navigation.css" />
+        <link rel="stylesheet" type="text/css" href="/skins/{$__skin}/css/style.css" />
     </head>
     <body>
         <div id="advertising_banner"></div>
@@ -16,7 +16,7 @@
             <div class="container_24 headbar">
                 <div class="grid_10">
                     <a href="/">
-                        <img src="/skins/coldblue/images/pmelogo.png"
+                        <img src="/skins/{$__skin}/images/pmelogo.png"
                              width="238"
                              height="36"
                              alt="phpMyEngine"
@@ -38,5 +38,5 @@
         </div>
 
         <div id="middle">
-        <div class="container_24">
+            <div class="container_24">
 

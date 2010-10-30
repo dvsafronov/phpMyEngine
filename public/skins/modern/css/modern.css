@@ -18,8 +18,9 @@ html {
 }
 #header {
     padding-top: 48px;
-    height: 72px;
+    height: 101px;
     background: #214971 url('./../images/header_bg.png') repeat-x;
+    border-bottom: 1px solid #FFF;
 }
 
 .headbar {

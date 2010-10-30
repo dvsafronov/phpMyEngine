@@ -4,7 +4,7 @@
 //@todo обязательно!!!
 namespace phpMyEngine\Database\filesDataStorage;
 
-include 'lib/filesDataStorage/filesDataStorage.php';
+include_once 'lib/filesDataStorage/filesDataStorage.php';
 
 function filterToCommand ( $filter = false, $preparetosearch = false ) {
     if (is_null ( $filter )) return 'null';

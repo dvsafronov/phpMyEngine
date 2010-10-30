@@ -190,17 +190,17 @@ class Route {
         $_myConfig = \phpMyEngine\Config\Config::getInstance();
         $seporator = '/';
         $request = \urldecode ( $_SERVER ['REQUEST_URI'] );
-        if (isset ( $_myConfig->engine->controlPanel->host )) {
-            if ($_SERVER['HTTP_HOST'] == $_myConfig->engine->controlPanel->host) {
-                $_myConfig->engine->controlPanel->URI = 'http://' . $_SERVER['HTTP_HOST'];
+        if (isset ( $_myConfig->controlPanel->host )) {
+            if ($_SERVER['HTTP_HOST'] == $_myConfig->controlPanel->host) {
+                $_myConfig->controlPanel->URI = 'http://' . $_SERVER['HTTP_HOST'];
                 $this->_controlpanel = true;
             }
-        } elseif (isset ( $_myConfig->engine->controlPanel->virtualController )) {
-            $_vcp = $_myConfig->engine->controlPanel->virtualController;
+        } elseif (isset ( $_myConfig->controlPanel->virtualController )) {
+            $_vcp = $_myConfig->controlPanel->virtualController;
             if (\substr ( $request, 0, strlen ( $_vcp ) + 2 ) == '/' . $_vcp . '/') {
                 $request = \substr ( $request, strlen ( $_vcp ) + 1 );
                 $this->_controlpanel = true;
-                $_myConfig->engine->controlPanel->URI = '/' . $_vcp;
+                $_myConfig->controlPanel->URI = '/' . $_vcp;
                 unset ( $_vcp );
             }
         }
@@ -438,8 +438,8 @@ function isAuth () {
     return
     isset ( $_SESSION['_cplogin'] )
     && isset ( $_SESSION['_cppasshash'] )
-    && $_SESSION['_cplogin'] == Config::getInstance()->engine->controlPanel->login
-    && $_SESSION['_cppasshash'] == sha1 ( Config::getInstance()->engine->controlPanel->password );
+    && $_SESSION['_cplogin'] == Config::getInstance()->controlPanel->login
+    && $_SESSION['_cppasshash'] == sha1 ( Config::getInstance()->controlPanel->password );
 }
 
 function doQuit () {
@@ -447,8 +447,8 @@ function doQuit () {
 }
 
 function doAuth ( $login, $password ) {
-    $_referenceAuth[] = Config::getInstance()->engine->controlPanel->login;
-    $_referenceAuth[] = sha1 ( Config::getInstance()->engine->controlPanel->password );
+    $_referenceAuth[] = Config::getInstance()->controlPanel->login;
+    $_referenceAuth[] = sha1 ( Config::getInstance()->controlPanel->password );
 // have a nice day ;)
     if ((bool) ((int) array_diff ( array ($login, sha1 ( $password )), $_referenceAuth ) - 1)) {
         if (!isset ( $_SESSION['SID'] )) {
@@ -756,7 +756,7 @@ function generateQuery ( array $filter, $collection, $type = REQUEST_TYPE_QUERY 
 
 function checkDriver ( $dbType, $ite = 0 ) {
     if ($ite >= 2) {
-        \phpMyEngine\logError('Unable to load database driver');
+        \phpMyEngine\logError ( 'Unable to load database driver' );
         return false;
     }
     if (false !== function_exists ( '\phpMyEngine\Database\\' . $dbType . '\generateQuery' )) {
@@ -823,7 +823,7 @@ final class Storage {
  * @package phpMyEngine
  * @author Denis xmcdbx Safonov
  * @copyright Copyright (c) 2010
- * @version 2010-09-11 15:58
+ * @version 2010-10-30 17:58
  * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
@@ -831,7 +831,7 @@ namespace phpMyEngine\Cache;
 
 class Cache {
     protected static $instance; // object instance
-    private $_cache = false, $prefix;
+    private $_cache = false, $prefix, $type, $time = 0, $requests = 0;
 
     public static function &getInstance () {
         if (self::$instance === null) {
@@ -845,19 +845,33 @@ class Cache {
         if (false == $_myConfig->engine->cache) {
             return null;
         } else {
+            $tmpTime = \microtime ( true );
             $_cacheProfile = $_myConfig->engine->cacheProfile;
             $_cacheProfile = $_myConfig->$_cacheProfile;
             $this->prefix = (isset ( $_cacheProfile->prefix )) ? $_cacheProfile->prefix : null;
-            if ($_cacheProfile->type == 'Memcached') {
-                $this->_cache = new \Memcache();
-                $this->_cache->connect ( $_cacheProfile->host, (int) $_cacheProfile->port );
-                if (false == $this->_cache->getVersion ()) {
-                    $this->_cache = false;
-                }
-            } else {
-                $this->_cache = false;
+            $this->type = $_cacheProfile->type;
+            switch ($this->type) {
+                case 'Memcached': {
+                        $this->_cache = new \Memcache();
+                        $this->_cache->connect ( $_cacheProfile->host, (int) $_cacheProfile->port );
+                        if (false == $this->_cache->getVersion ()) {
+                            $this->_cache = false;
+                        }
+                        break;
+                    }
+                case 'filesDataStorage': {
+                        include_once 'lib/filesDataStorage/filesDataStorage.php';
+                        $folder = PATH_APPLICATION . '/var/cache/';
+                        $this->_cache = new \filesDataStorage\filesDataStorage ( $folder );
+                        break;
+                    }
+                default : {
+                        $this->_cache = false;
+                        break;
+                    }
             }
         }
+        $this->time += \microtime ( true ) - $tmpTime;
         return null;
     }
 
@@ -870,10 +884,36 @@ class Cache {
      * @param int $periodMinutes
      */
     public function setValue ( $valueName, $valueContent, $periodMinutes ) {
+        $result = false;
+        $tmpTime = \microtime ( true );
         if ($this->_cache !== false) {
-            return $this->_cache->set ( $this->prefix . $valueName, $valueContent, false, $periodMinutes * 60 );
+            $this->requests++;
+            switch ($this->type) {
+                case 'Memcached': {
+                        $result = $this->_cache->set ( $this->prefix . $valueName, $valueContent, false, $periodMinutes * 60 );
+                        break;
+                    }
+                case 'filesDataStorage': {
+                        $queryFilter = new \filesDataStorage\QueryFilter();
+                        $data['_id'] = '_cache';
+                        $queryFilter->setData ( $data );
+                        $data = $this->_cache->selectCollection ( '_filesds' )->get ( $queryFilter );
+                        unset ( $queryFilter );
+                        if (\is_array ( $data )) {
+                            $data = $data[0];
+                        } else {
+                            $data['_id'] = '_cache';
+                        }
+                        $data[$valueName] = $valueContent;
+                        $data['_fds_ttl' . $valueName] = $periodMinutes;
+                        $data['_fds_crt' . $valueName] = time();
+                        $result = $this->_cache->selectCollection ( '_filesds' )->save ( $data );
+                        break;
+                    }
+            }
         }
-        return false;
+        $this->time += \microtime ( true ) - $tmpTime;
+        return $result;
     }
 
     /**
@@ -883,10 +923,41 @@ class Cache {
      * @param string $valueName
      */
     public function getValue ( $valueName ) {
+        $result = false;
+        $tmpTime = \microtime ( true );
         if ($this->_cache !== false) {
-            return $this->_cache->get ( $this->prefix . $valueName );
-        }
-        return false;
+            $this->requests++;
+            switch ($this->type) {
+                case 'Memcached': {
+                        $result = $this->_cache->get ( $this->prefix . $valueName );
+                        break;
+                    }
+                case 'filesDataStorage': {
+                        $queryFilter = new \filesDataStorage\QueryFilter();
+                        $data['_id'] = '_cache';
+                        $queryFilter->setData ( $data );
+                        $tmpRes = $this->_cache->selectCollection ( '_filesds' )->get ( $queryFilter );
+                        if (
+                                isset ( $tmpRes[0][$valueName] )
+                                && isset ( $tmpRes[0]['_fds_ttl' . $valueName] )
+                                && isset ( $tmpRes[0]['_fds_crt' . $valueName] )
+                                && (time() - ($tmpRes[0]['_fds_crt' . $valueName])) < ($tmpRes[0]['_fds_ttl' . $valueName] * 60)) {
+                            $result = $tmpRes[0][$valueName];
+                        }
+                        break;
+                    } //case fds
+            } //switch
+        } // cache enabled
+        $this->time += \microtime ( true ) - $tmpTime;
+        return $result;
+    }
+
+    public function getTime () {
+        return $this->time;
+    }
+
+    public function getRequests () {
+        return $this->requests;
     }
 
 }

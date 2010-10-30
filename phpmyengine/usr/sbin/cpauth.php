@@ -14,7 +14,7 @@ function defaultAction () {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (true === ControlPanel\doAuth ( \filter_input ( INPUT_POST, 'login' ), \filter_input ( INPUT_POST, 'password' ) )) {
             $_myConfig = \phpMyEngine\Config\Config::getInstance();
-            \phpMyEngine\doRedirect ( $_myConfig->engine->controlPanel->URI );
+            \phpMyEngine\doRedirect ( $_myConfig->controlPanel->URI );
         } else {
             $login = \filter_input ( INPUT_POST, 'login' );
             $_myMessages = new \phpMyEngine\Messages();
@@ -23,7 +23,7 @@ function defaultAction () {
         }
     }
     $_myRender->setValue ( 'cplogin', $login );
-    $_myRender->renderTemplate ( 'cpauth.tpl' );
+    $_myRender->renderTemplate ( 'cpauth/index.tpl' );
     return null;
 }
 
@@ -34,5 +34,5 @@ function authAction () {
 function quitAction () {
     ControlPanel\doQuit();
     $_myConfig = \phpMyEngine\Config\Config::getInstance();
-    \phpMyEngine\doRedirect ( $_myConfig->engine->controlPanel->URI );
+    \phpMyEngine\doRedirect ( $_myConfig->controlPanel->URI );
 }
