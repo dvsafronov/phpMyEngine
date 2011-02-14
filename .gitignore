@@ -10,4 +10,4 @@
 !empty
 /phpmyengine/lib/filesDataStorage/*
 !empty
-
+.*
