@@ -1,3 +1,5 @@
+*~
+/.gitignore
 /phpmyengine.dev/phpmyengine/var/cache/*
 !empty
 /phpmyengine.dev/phpmyengine/var/cache/compiledtemplates/*
@@ -10,4 +12,3 @@
 !empty
 /phpmyengine/lib/filesDataStorage/*
 !empty
-.*
