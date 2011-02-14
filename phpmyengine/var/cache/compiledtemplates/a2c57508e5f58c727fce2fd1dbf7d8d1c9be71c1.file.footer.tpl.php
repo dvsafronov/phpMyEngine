@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-30 15:39:19
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:52:31
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5898159264ccc03e7a168e5-92601331%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15984125194d594fbf4c80e1-76050232%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -8,9 +8,10 @@ $_smarty_tpl->decodeProperties(array (
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl',
       1 => 1288438605,
+      2 => 'file',
     ),
   ),
-  'nocache_hash' => '5898159264ccc03e7a168e5-92601331',
+  'nocache_hash' => '15984125194d594fbf4c80e1-76050232',
   'function' => 
   array (
   ),
@@ -42,7 +43,7 @@ $_smarty_tpl->decodeProperties(array (
     </div>
 </div>
 <!--phpMyEngine::debugInfo/-->
-<?php echo smarty_insert_widget(array('widget' => "googleanalytics"),$_smarty_tpl->smarty,$_smarty_tpl);?>
+<?php echo smarty_insert_widget(array('widget' => "googleanalytics"),$_smarty_tpl);?>
 
 </body>
 </html>

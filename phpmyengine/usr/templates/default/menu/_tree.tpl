@@ -5,7 +5,7 @@
     <li>
         {if is_array($href)}
         {$name} &darr;
-            {include file="/menu/_tree.tpl" tree=$href}
+            {include file="menu/_tree.tpl" tree=$href}
         {else}
         <a href="{$href|sitelink}">{$name}</a>
         {/if}

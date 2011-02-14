@@ -3,15 +3,19 @@
     <head>
         <title>phpMyEngine. Бесплатная CMS с открытым исходным кодом. Opensource PHP CMS. Официальный сайт</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="/css/960_24_col.css" />
-        <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-        <link rel="stylesheet" type="text/css" href="/css/text.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/{$__skin}/css/{$__skin}.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/{$__skin}/css/navigation.css" />
-        <link rel="stylesheet" type="text/css" href="/skins/{$__skin}/css/style.css" />
+
+        {insert name="css" file="/css/960_24_col.css"}
+        {insert name="css" file="/css/reset.css"}
+        {insert name="css" file="/css/text.css"}
+
+        {insert name="css" file="/skins/{$__skin}/css/{$__skin}.css"}
+        {insert name="css" file="/skins/{$__skin}/css/navigation.css"}
+        {insert name="css" file="/skins/{$__skin}/css/style.css"}
     </head>
     <body>
-        <div id="advertising_banner"></div>
+        <div id="advertising_banner">
+        
+        </div>
         <div id="header">
             <div class="container_24 headbar">
                 <div class="grid_10">

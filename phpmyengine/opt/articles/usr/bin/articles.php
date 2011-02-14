@@ -7,6 +7,8 @@ use phpMyEngine\Records\FilterOperation;
 use phpMyEngine\Route;
 use phpMyEngine\Render\Render;
 
+\phpMyEngine\loadModule ( 'articles' );
+
 function viewAction () {
     $_myRoute = Route::getInstance ();
     $_myRender = Render::getInstance ();
@@ -44,8 +46,11 @@ function listAction () {
     $_myRender = Render::getInstance ();
     $myFilter = new Filter();
     $myFilter->mutagenType = 'Article';
-    $myFilter->mutagenData->category = (double)$_myRoute->id;
+    $myFilter->mutagenData->category = (double) $_myRoute->id;
     $myRecords = $myFilter->getRecords ();
+    $categoryTitle = \phpMyEngine\Modules\Articles\getCategoryTitles ( array ($_myRoute->id) );
+    $categoryTitle = $categoryTitle[(string) $_myRoute->id];
+    $_myRender->setValue ( 'categoryTitle', $categoryTitle );
     $_myRender->setValue ( 'recordsList', $myRecords );
     $_myRender->renderTemplate ( 'articles/list.tpl' );
 }

@@ -1,10 +1,10 @@
 <?php
 /**
  * Smarty shared plugin
+ *
  * @package Smarty
  * @subpackage PluginsShared
  */
-
 
 /**
  * Function: smarty_make_timestamp<br>
@@ -14,6 +14,7 @@
  * @param string $string
  * @return string
  */
+
 function smarty_make_timestamp($string)
 {
     if(empty($string)) {
@@ -21,7 +22,7 @@ function smarty_make_timestamp($string)
         return time();
     } elseif ($string instanceof DateTime) {
         return $string->getTimestamp();
-    } elseif (preg_match('/^\d{14}$/', $string)) {
+    } elseif (strlen($string)==14 && ctype_digit($string)) {
         // it is mysql timestamp format of YYYYMMDDHHMMSS?            
         return mktime(substr($string, 8, 2),substr($string, 10, 2),substr($string, 12, 2),
                        substr($string, 4, 2),substr($string, 6, 2),substr($string, 0, 4));
@@ -38,4 +39,5 @@ function smarty_make_timestamp($string)
         return $time;
     }
 }
+
 ?>

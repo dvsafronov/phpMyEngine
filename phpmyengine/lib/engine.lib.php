@@ -600,6 +600,7 @@ class Render {
     const TITLE_APPEND = 2;
     const TITLE_REPLACE = 0;
     private $_smarty;
+    private $_css = array ();
     private $content, $situation, $title;
     public $monopolyView, $module, $rssLink;
     protected static $instance; // object instance
@@ -618,8 +619,9 @@ class Render {
         include_once 'lib/smarty/Smarty.class.php';
         $this->_smarty = new \Smarty();
         $this->_smarty->debugging = false;
-        $this->_smarty->allow_php_tag = true;
+        $this->_smarty->allow_php_tag = false;
         $this->_smarty->caching = false;
+        $this->_smarty->error_reporting = true;
         $this->_smarty->cache_lifetime = 12;
         $_myConfig = \phpMyEngine\Config\Config::getInstance ();
         $mySt = \phpMyEngine\EngineFileSystem\Structure::getInstance();
@@ -662,8 +664,14 @@ class Render {
         $this->_smarty->assign ( $valName, $valContent );
     }
 
-    public function show () {
+    private function prepareContent () {
         $this->content = \str_replace ( '<title></title>', "<title>{$this->title}</title>", $this->content );
+        $this->applyCSS();
+        return null;
+    }
+
+    public function show () {
+        $this->prepareContent();
         echo $this->content;
     }
 
@@ -689,6 +697,19 @@ class Render {
 
     public function applyDebugInfo ( $text ) {
         $this->content = \str_replace ( '<!--phpMyEngine::debugInfo/-->', $text, $this->content );
+    }
+
+    public function addCSS ( $file ) {
+        \array_push ( $this->_css, $file );
+        return null;
+    }
+
+    private function applyCSS () {
+        $cssContent = null;
+        for ($i = 0,$ca = count($this->_css); $i < $ca; $i++ ) {
+            $cssContent .= '<link rel="stylesheet" type="text/css" href="' . $this->_css[$i] . '" />'.\PHP_EOL;            
+        }
+        $this->content = \str_replace ( '</head>', "{$cssContent}\r\n</head>", $this->content );
     }
 
 }

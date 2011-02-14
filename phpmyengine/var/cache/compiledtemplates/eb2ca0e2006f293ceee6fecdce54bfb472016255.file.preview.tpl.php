@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-30 14:06:56
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:55:44
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/preview.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5076597894ccbee40db49c1-88159078%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3116737974d595080ca7707-72939061%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -8,9 +8,10 @@ $_smarty_tpl->decodeProperties(array (
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/preview.tpl',
       1 => 1288023694,
+      2 => 'file',
     ),
   ),
-  'nocache_hash' => '5076597894ccbee40db49c1-88159078',
+  'nocache_hash' => '3116737974d595080ca7707-72939061',
   'function' => 
   array (
   ),
@@ -34,10 +35,9 @@ if (!is_callable('smarty_modifier_date_format')) include '/home/desigency/web/de
         <?php  $_smarty_tpl->tpl_vars["value"] = new Smarty_Variable;
  $_smarty_tpl->tpl_vars["key"] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('myRecord')->value->tags; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
- $_smarty_tpl->tpl_vars["value"]->total=($_from instanceof Traversable)?iterator_count($_from):count($_from);
+ $_smarty_tpl->tpl_vars["value"]->total= $_smarty_tpl->_count($_from);
  $_smarty_tpl->tpl_vars["value"]->iteration=0;
- $_smarty_tpl->tpl_vars['smarty']->value['foreach']["tags"]['total'] = $_smarty_tpl->tpl_vars["value"]->total;
-if (count($_from) > 0){
+if ($_smarty_tpl->tpl_vars["value"]->total > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars["value"]->key => $_smarty_tpl->tpl_vars["value"]->value){
  $_smarty_tpl->tpl_vars["key"]->value = $_smarty_tpl->tpl_vars["value"]->key;
  $_smarty_tpl->tpl_vars["value"]->iteration++;

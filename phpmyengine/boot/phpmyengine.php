@@ -16,7 +16,6 @@ const VERSION = '0.0.1-dev';
 
 define ( 'PATH_APPLICATION', dirname ( __DIR__ ) );
 
-
 set_include_path ( get_include_path() . ':' . PATH_APPLICATION );
 
 if (\defined ( '\phpMyEngine\DEBUG' ) && \phpMyEngine\DEBUG == true) {

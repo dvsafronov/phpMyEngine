@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-30 14:06:39
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:52:29
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/__default.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6962875784ccbee2febd633-38221449%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:18242434934d594fbda07d20-73742394%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -8,9 +8,10 @@ $_smarty_tpl->decodeProperties(array (
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/__default.tpl',
       1 => 1287927823,
+      2 => 'file',
     ),
   ),
-  'nocache_hash' => '6962875784ccbee2febd633-38221449',
+  'nocache_hash' => '18242434934d594fbda07d20-73742394',
   'function' => 
   array (
   ),
@@ -18,16 +19,16 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_insert_widget')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/insert.widget.php';
 ?><?php $_template = new Smarty_Internal_Template("_parts/header.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+ echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 <div class="grid_15 content">
-                       <?php echo smarty_insert_widget(array('widget' => "controller"),$_smarty_tpl->smarty,$_smarty_tpl);?>
+                       <?php echo smarty_insert_widget(array('widget' => "controller"),$_smarty_tpl);?>
 
 </div>
 <div class="grid_1">&nbsp;</div>
 <div class="grid_8 sidebar">
                     <?php $_template = new Smarty_Internal_Template("sidebar.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+ echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 </div>
 <div class="clear"></div>
 <?php $_template = new Smarty_Internal_Template("_parts/footer.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+ echo $_template->getRenderedTemplate();?><?php unset($_template);?>

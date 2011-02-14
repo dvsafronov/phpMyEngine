@@ -82,3 +82,18 @@ function getCategories ( $forceCategory = null ) {
     unset ( $myFilter, $myRecords );
     return $myCategories;
 }
+
+function getCategoryTitles ( Array $id ) {
+    $myCategories = array ();
+    $myFilter = new Filter();
+    $myFilter->mutagenType = 'Category';
+    $myFilter->_id = FilterOperation::op ( FilterOperation::FOP_IN, $id );
+    $myRecords = $myFilter->getRecords ();
+    if ($myRecords->count > 0) {
+        for ($i = 0; $i < $myRecords->count; $i++) {
+            $myCategories[(string)$myRecords->records[$i]->_id] = $myRecords->records[$i]->mutagenData->title;
+        }
+    }
+    unset ( $myFilter, $myRecords );
+    return $myCategories;
+}

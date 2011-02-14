@@ -22,6 +22,12 @@ class Mutagen {
         \phpMyEngine\Records\Validate\validateInputData ( $this, $name, $value );
         return null;
     }
+    public function __get ( $name ) {
+        if (isset($this->$name)) {
+            return $this->$name;
+        }
+        return null;
+    }
 
     public function __construct ( $name = null, Array $data = null ) {
         if (true === \is_null ( $name )) {
@@ -88,7 +94,7 @@ class Record {
     public $permissions = 0, $requests = 0;
     public $owner;
     public $mutagenData;
-
+    
     public function __construct ( $array = null ) {
         $this->_id = (double) (hexdec ( \uniqid () ) / 100);
         $this->mutagenData = new Mutagen();

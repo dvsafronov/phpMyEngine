@@ -1,16 +1,17 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-30 14:06:41
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:55:22
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/menu/_tree.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:11975050694ccbee313e5354-60454883%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12373223454d59506a8243a5-69732886%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e71c247ce73d345c24c008f8bf409f2a28042514' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/menu/_tree.tpl',
-      1 => 1286609820,
+      1 => 1297698917,
+      2 => 'file',
     ),
   ),
-  'nocache_hash' => '11975050694ccbee313e5354-60454883',
+  'nocache_hash' => '12373223454d59506a8243a5-69732886',
   'function' => 
   array (
   ),
@@ -22,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
 <?php  $_smarty_tpl->tpl_vars["href"] = new Smarty_Variable;
  $_smarty_tpl->tpl_vars["name"] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('tree')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-if (count($_from) > 0){
+if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars["href"]->key => $_smarty_tpl->tpl_vars["href"]->value){
  $_smarty_tpl->tpl_vars["name"]->value = $_smarty_tpl->tpl_vars["href"]->key;
 ?>
@@ -31,8 +32,8 @@ if (count($_from) > 0){
         <?php if (is_array($_smarty_tpl->getVariable('href')->value)){?>
         <?php echo $_smarty_tpl->getVariable('name')->value;?>
  &darr;
-            <?php $_template = new Smarty_Internal_Template("/menu/_tree.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
-$_template->assign('tree',$_smarty_tpl->getVariable('href')->value); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+            <?php $_template = new Smarty_Internal_Template("menu/_tree.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+$_template->assign('tree',$_smarty_tpl->getVariable('href')->value); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
         <?php }else{ ?>
         <a href="<?php echo smarty_modifier_sitelink($_smarty_tpl->getVariable('href')->value);?>
 "><?php echo $_smarty_tpl->getVariable('name')->value;?>

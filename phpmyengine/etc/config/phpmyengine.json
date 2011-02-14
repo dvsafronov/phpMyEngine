@@ -10,10 +10,10 @@
         "gzip" : false,
         "gziplevel" : 9,
         
-        "cache" : true,
+        "cache" : false,
         "cacheProfile" : "cacheProfileFilesDS",
 
-        "databaseProfile" : "dbProfileFilesDS",
+        "databaseProfile" : "dbProfileMongoDB",
 
         "uriType": "asHTMLDocuments"
     },
@@ -24,9 +24,12 @@
             "password": "swordfish"
     },
     "view": {
-        "skin": "coldblue"
+        "skin": "coldblue",
+        "css": {
+            "includeInDocument": true,
+            "uniteFiles": true
+        }
     },
-    
     "cacheProfileMemcache": {
         "type" : "Memcached",
         "host" : "localhost",

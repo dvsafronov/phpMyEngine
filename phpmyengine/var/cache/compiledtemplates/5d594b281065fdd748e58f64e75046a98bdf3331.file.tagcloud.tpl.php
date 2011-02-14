@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty3-RC3, created on 2010-10-30 14:06:42
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:52:31
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/tagcloud.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14462505804ccbee329f10e3-18732350%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:10485495684d594fbf0b03c4-72342823%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -8,9 +8,10 @@ $_smarty_tpl->decodeProperties(array (
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/tagcloud.tpl',
       1 => 1287929636,
+      2 => 'file',
     ),
   ),
-  'nocache_hash' => '14462505804ccbee329f10e3-18732350',
+  'nocache_hash' => '10485495684d594fbf0b03c4-72342823',
   'function' => 
   array (
   ),
@@ -21,7 +22,7 @@ $_smarty_tpl->decodeProperties(array (
 <?php  $_smarty_tpl->tpl_vars['score'] = new Smarty_Variable;
  $_smarty_tpl->tpl_vars['tag'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('tagCloud')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-if (count($_from) > 0){
+if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['score']->key => $_smarty_tpl->tpl_vars['score']->value){
  $_smarty_tpl->tpl_vars['tag']->value = $_smarty_tpl->tpl_vars['score']->key;
 ?>

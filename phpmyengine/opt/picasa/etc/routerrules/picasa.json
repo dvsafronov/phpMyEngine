@@ -1,0 +1,10 @@
+{
+   "cprule-0": {
+        "pcre": "/^configure/",
+        "result": "action=configure"
+    },   
+   "rule0": {
+        "pcre": "/^([0-9]+)\\/view/",
+        "result": "action=view;id=$1"
+    }
+}

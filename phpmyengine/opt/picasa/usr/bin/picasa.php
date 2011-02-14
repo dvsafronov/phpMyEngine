@@ -7,6 +7,8 @@ function defaultAction () {
     $myPicasa = new \phpMyEngine\Picasa\Picasa();
 
     $myPicasa->user = 'xmcdbx';
+    $myPicasa->thumbWidth = 160;
+    
     $id = '5529337982772012737';
     $imgs = $myPicasa->getImages ( $id );
     //$albms = $myPicasa->getAlbums ();

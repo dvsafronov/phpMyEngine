@@ -1,0 +1,13 @@
+/phpmyengine.dev/phpmyengine/var/cache/*
+!empty
+/phpmyengine.dev/phpmyengine/var/cache/compiledtemplates/*
+!empty
+/phpmyengine/var/logs/*
+!empty
+/phpmyengine/var/storage/*
+!empty
+/phpmyengine/lib/smarty/*
+!empty
+/phpmyengine/lib/filesDataStorage/*
+!empty
+

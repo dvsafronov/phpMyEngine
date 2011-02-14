@@ -37,7 +37,7 @@ function defaultAction () {
                 return $res;
             } );
     //\var_dump ( $ar );
-
+    echo sqrt(-1);
     $data = array (
         "_id" => \uniqid(),
         "helloTo" => "world",
