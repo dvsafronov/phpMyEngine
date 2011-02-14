@@ -666,12 +666,12 @@ class Render {
 
     private function prepareContent () {
         $this->content = \str_replace ( '<title></title>', "<title>{$this->title}</title>", $this->content );
-        $this->applyCSS();
+        $this->applyCSS ();
         return null;
     }
 
     public function show () {
-        $this->prepareContent();
+        $this->prepareContent ();
         echo $this->content;
     }
 
@@ -706,8 +706,36 @@ class Render {
 
     private function applyCSS () {
         $cssContent = null;
-        for ($i = 0,$ca = count($this->_css); $i < $ca; $i++ ) {
-            $cssContent .= '<link rel="stylesheet" type="text/css" href="' . $this->_css[$i] . '" />'.\PHP_EOL;            
+        $_myCSSConfig = \phpMyEngine\Config\Config::getInstance ()->view->css;
+        if ($_myCSSConfig->includeInDocument == true) {
+            $cssContent = '<style type="text/css" />' . PHP_EOL;
+            for ($i = 0, $ca = count ( $this->_css ); $i < $ca; $i++) {
+                $domain = null;
+                if (\strpos ( $this->_css[$i], ':' ) == false) {
+                    $domain = $_SERVER['DOCUMENT_ROOT'];
+                }
+                $cssContent .= \file_get_contents ( $domain . $this->_css[$i] );
+            }
+            $cssContent .= PHP_EOL . "</style>";
+        } else {
+            if ($_myCSSConfig->uniteFiles == true) {
+                $cssFile = "/shared/phpmyengine_" . sha1 ( implode ( null, \array_values ( $this->_css ) ) ) . ".css";
+                if (false === \file_exists ( $_SERVER['DOCUMENT_ROOT'] . $cssFile )) {
+                    for ($i = 0, $ca = count ( $this->_css ); $i < $ca; $i++) {
+                        $domain = null;
+                        if (\strpos ( $this->_css[$i], ':' ) == false) {
+                            $domain = $_SERVER['DOCUMENT_ROOT'];
+                        }
+                        $cssFileContent .= \file_get_contents ( $domain . $this->_css[$i] );
+                    }
+                    \file_put_contents ( $_SERVER['DOCUMENT_ROOT'] . $cssFile, $cssFileContent );
+                }
+                $cssContent .= '<link rel="stylesheet" type="text/css" href="' . '//' . $_SERVER['HTTP_HOST'] . $cssFile . '" />' . \PHP_EOL;
+            } else {
+                for ($i = 0, $ca = count ( $this->_css ); $i < $ca; $i++) {
+                    $cssContent .= '<link rel="stylesheet" type="text/css" href="' . $this->_css[$i] . '" />' . \PHP_EOL;
+                }
+            }
         }
         $this->content = \str_replace ( '</head>', "{$cssContent}\r\n</head>", $this->content );
     }
