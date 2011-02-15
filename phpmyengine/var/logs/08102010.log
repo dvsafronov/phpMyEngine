@@ -1,8 +1,0 @@
-16:20:08	/articles/add	::ffff:192.168.1.12	\phpMyEngine\Modules\Articles\getCategories doesn't exists!
-21:10:21	/articles/13490321689552/view	::ffff:192.168.1.12	Unable to load template file 'article/view.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
-21:10:22	/articles/13490321689552/view	::ffff:192.168.1.12	Unable to load template file 'article/view.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
-21:10:43	/articles/13490321689552/view	::ffff:192.168.1.12	Unable to load template file 'articles/view.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
-21:10:46	/articles/13490321689552/view	::ffff:192.168.1.12	Unable to load template file 'articles/view.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
-21:10:47	/articles/13490321689552/view	::ffff:192.168.1.12	Unable to load template file 'articles/view.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
-21:11:10	/articles/13490321689552/view	::ffff:192.168.1.12	Unable to load template file 'articles/view.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
-21:30:36	/articles/13490321689552/view	::ffff:192.168.1.12	Syntax Error in template "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/view.tpl"  on line 4 "    &lt;div class=&quot;tags&quot;&gt;{$myRecord-&gt;tags|tags}&lt;/div&gt;" unknown modifier "tags" (lib/smarty/sysplugins/smarty_internal_templatecompilerbase.php)

@@ -713,7 +713,7 @@ html {
 #header {
     padding-top: 48px;
     height: 96px;
-    background: #88bacf url('./../images/header.jpg') repeat-x;
+    background: #88bacf url('/skins/coldblue/images/header.jpg') repeat-x;
 }
 
 .headbar {
@@ -761,7 +761,7 @@ a:hover {
 
 .block {
     margin-bottom: 24px;
-    background: transparent url('./../images/blockbg.png') repeat-y;
+    background: transparent url('/skins/coldblue/images/blockbg.png') repeat-y;
     height: auto;
 }
 .block h3 {
@@ -770,7 +770,7 @@ a:hover {
 }
 
 .content ul.list {
-    background: transparent url('./../images/blockbg.png') repeat-y;
+    background: transparent url('/skins/coldblue/images/blockbg.png') repeat-y;
     margin: -12px 0 0 0;
 }
 .content ul.list li {
@@ -1038,7 +1038,7 @@ a:hover {
 }
 #header ul a:hover {
     color: #03142f;
-    background: url('./../images/hbgm.png') repeat;
+    background: url('/skins/coldblue/images/hbgm.png') repeat;
     border-bottom: 2px solid #356A9F
 }.content .block {
     border: 0;
@@ -1056,7 +1056,7 @@ a:hover {
     width: 13px;
     height: 12px;
     margin-right: 6px;
-    background: url('./../images/icons.png') no-repeat 0 0;
+    background: url('/skins/coldblue/images/icons.png') no-repeat 0 0;
     margin-top: 4px;
 }
 .tags ul {
@@ -1095,7 +1095,7 @@ a:hover {
     width: 13px;
     height: 12px;
     text-indent: -20000px;
-    background: url('./../images/icons.png') no-repeat -57px 0;
+    background: url('/skins/coldblue/images/icons.png') no-repeat -57px 0;
     margin: 2px auto 0 auto;
 }
 .recordInfo .voteNegative a {
@@ -1103,7 +1103,7 @@ a:hover {
     width: 13px;
     height: 13px;
     text-indent: -20000px;
-    background: url('./../images/icons.png') no-repeat -70px 0;
+    background: url('/skins/coldblue/images/icons.png') no-repeat -70px 0;
     margin: 2px auto 0 auto;
 }
 .recordInfo .voteNegative {
@@ -1136,7 +1136,7 @@ a:hover {
     width: 13px;
     height: 12px;
     margin-right: 6px;
-    background: url('./../images/icons.png') no-repeat;
+    background: url('/skins/coldblue/images/icons.png') no-repeat;
     margin-top: 2px;
 }
 .recordInfo .username span {

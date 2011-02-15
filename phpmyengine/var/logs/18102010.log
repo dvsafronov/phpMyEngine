@@ -1,5 +1,0 @@
-13:22:12	/personregistration/	::ffff:192.168.1.12	Unable to load template file 'persons/registration.tpl' (lib/smarty/sysplugins/smarty_internal_template.php)
-21:05:25	/personregistration/	::ffff:192.168.1.12	Can not process empty Imagick object (usr/widgets/captcha.widget.php)
-21:06:04	/personregistration/	::ffff:192.168.1.12	Can not process empty Imagick object (usr/widgets/captcha.widget.php)
-21:10:59	/personregistration/	::ffff:192.168.1.12	Can not process empty Imagick object (usr/widgets/captcha.widget.php)
-21:11:10	/personregistration/	::ffff:192.168.1.12	Can not process empty Imagick object (usr/widgets/captcha.widget.php)

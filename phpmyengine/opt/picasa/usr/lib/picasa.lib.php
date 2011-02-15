@@ -84,7 +84,7 @@ class Picasa {
                 $myAlbum->id = (string) str_replace ( "http://picasaweb.google.com/data/entry/api/user/{$this->user}/albumid/", null, $album->getId () );
                 $myAlbum->title = (string) $album->getTitle ();
                 $myAlbum->cover = (string) $album->getIcon ();
-                $myAlbum->url = str_replace ( "http://picasaweb.google.com/{$this->user}/", null, $album->getWeblink () );
+                $myAlbum->url = substr ( $album->getWeblink (), strrpos ( $album->getWeblink (), '/' ) + 1 );
                 $myAlbum->count = (int) $album->getNumphotos ();
                 $myAlbums[] = $myAlbum;
                 unset ( $myAlbum );

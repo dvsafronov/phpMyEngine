@@ -74,7 +74,7 @@ class Messages {
 
 function logError ( $desc, $hold = false ) {
     $e = date ( 'H:i:s' ) . "\t" . $_SERVER ['REQUEST_URI'] . "\t" . $_SERVER ['REMOTE_ADDR'] . "\t" . $desc . PHP_EOL;
-    file_put_contents ( dirname ( __DIR__ ) . '/var/logs/' . date ( 'dmY' ) . '.log', $e, FILE_APPEND );
+    file_put_contents ( dirname ( __DIR__ ) . '/var/logs/' . date ( 'Ymd' ) . '.log', $e, FILE_APPEND );
     if ($hold == true) {
         if (\DEBUG != 1) {
             $desc = "Fatal Error. Check engine ;)";
@@ -376,6 +376,7 @@ use \phpMyEngine\EngineFileSystem;
 class Config {
     protected static $instance; // object instance
     private $_data = array ();
+    private $_optData = array ();
 
     public static function &getInstance ( $name = null ) {
         if (self::$instance === null) {
@@ -385,16 +386,26 @@ class Config {
     }
 
     public function __set ( $name, $value ) {
-        $this->_data [$name] = $value;
+        if ($name === 'opt') {
+            $key = key ( $value );
+            $this->_optData[$key] = $value->$key;
+        } else {
+            $this->_data [$name] = $value;
+        }
         return null;
     }
 
     public function __get ( $name ) {
-        if (isset ( $this->_data [$name] )) {
-            return $this->_data [$name];
+        if ($name === 'opt') {
+            if (isset ( $this->_optData )) {
+                return (object) $this->_optData;
+            }
         } else {
-            return null;
+            if (isset ( $this->_data [$name] )) {
+                return $this->_data [$name];
+            }
         }
+        return null;
     }
 
     public function __construct ( $name = null ) {
@@ -405,9 +416,12 @@ class Config {
         return null;
     }
 
-    public function load ( $configFile ) {
+    public function load ( $configFile, $fromOPT = false ) {
 // специальная проверка, на случай загрузки конфига кеша.
 // если убрать - получим вечный цикл
+        if ($fromOPT == true) {
+            $configFile = 'opt/' . $configFile;
+        }
         $rp = dirname ( __DIR__ ) . '/etc/config/' . $configFile . '.json';
         if (false === \file_exists ( $rp )) {
             $_myStructure = EngineFileSystem\Structure::getInstance ();
@@ -418,11 +432,31 @@ class Config {
             if (JSON_ERROR_NONE !== json_last_error ()) {
                 die ( 'Config file malformed' );
             } else {
-                foreach ($configContent as $group => $value) {
-                    $this->$group = $value;
+                if ($fromOPT == true) {
+                    $configFile = \substr ( $configFile, 4 );
+                    $curConf = new \stdClass();
+                    $curConf->$configFile = new \stdClass();
+                    foreach ($configContent as $group => $value) {
+                        $curConf->$configFile->$group = $value;
+                    }
+                    $this->opt = $curConf;
+                } else {
+                    foreach ($configContent as $group => $value) {
+                        $this->$group = $value;
+                    }
                 }
             }
         }
+    }
+
+    public function saveOPT ( $opt, $data ) {
+        $data = \json_encode ( $data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+        $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( '', 'etc/config/opt' );
+        $result = (bool) \file_put_contents ( "{$rp}{$opt}.json", $data );
+        if ($result === true) {
+            \chmod ( "{$rp}{$opt}.json", 0666 );
+        }
+        return $result;
     }
 
 }
@@ -704,6 +738,24 @@ class Render {
         return null;
     }
 
+    private function repairURLs ( $input, $iteration, $domain ) {
+        if (\preg_match_all ( '/url\((\'|")*([a-z0-9\:\.\/\-\_\ ]+)(\'|")*\)/i', $input, $mat )) {
+            $newURLs = array ();
+            for ($i = 0, $ca = count ( $mat[2] ); $i < $ca; $i++) {
+                $lastPos = \strrpos ( $mat[2][$i], './' );
+                if ($lastPos != 0) {
+                    $lastPos++;
+                }
+                $newURLs[] = \str_replace ( $_SERVER['DOCUMENT_ROOT'], null,
+                                realpath ( substr ( $domain . $this->_css[$iteration], 0, strrpos ( $domain . $this->_css[$iteration], '/' ) ) . '/' . $mat[2][$i] )
+                );
+            }
+            $input = \str_replace ( $mat[2], $newURLs, $input );
+            unset ( $newURLs, $lastPos, $mat );
+        }
+        return $input;
+    }
+
     private function applyCSS () {
         $cssContent = null;
         $_myCSSConfig = \phpMyEngine\Config\Config::getInstance ()->view->css;
@@ -714,11 +766,12 @@ class Render {
                 if (\strpos ( $this->_css[$i], ':' ) == false) {
                     $domain = $_SERVER['DOCUMENT_ROOT'];
                 }
-                $cssContent .= \file_get_contents ( $domain . $this->_css[$i] );
+                $cssContent .= $this->repairURLs ( \file_get_contents ( $domain . $this->_css[$i] ), $i, $domain );
             }
             $cssContent .= PHP_EOL . "</style>";
         } else {
             if ($_myCSSConfig->uniteFiles == true) {
+                $cssFileContent = null;
                 $cssFile = "/shared/phpmyengine_" . sha1 ( implode ( null, \array_values ( $this->_css ) ) ) . ".css";
                 if (false === \file_exists ( $_SERVER['DOCUMENT_ROOT'] . $cssFile )) {
                     for ($i = 0, $ca = count ( $this->_css ); $i < $ca; $i++) {
@@ -726,7 +779,7 @@ class Render {
                         if (\strpos ( $this->_css[$i], ':' ) == false) {
                             $domain = $_SERVER['DOCUMENT_ROOT'];
                         }
-                        $cssFileContent .= \file_get_contents ( $domain . $this->_css[$i] );
+                        $cssFileContent .= $this->repairURLs ( \file_get_contents ( $domain . $this->_css[$i] ), $i, $domain );
                     }
                     \file_put_contents ( $_SERVER['DOCUMENT_ROOT'] . $cssFile, $cssFileContent );
                 }
