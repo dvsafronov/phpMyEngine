@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:52:31
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-15 21:50:02
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:15984125194d594fbf4c80e1-76050232%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15722509544d5acadae32e56-16406862%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a2c57508e5f58c727fce2fd1dbf7d8d1c9be71c1' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/footer.tpl',
-      1 => 1288438605,
+      1 => 1297795778,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '15984125194d594fbf4c80e1-76050232',
+  'nocache_hash' => '15722509544d5acadae32e56-16406862',
   'function' => 
   array (
   ),
@@ -27,7 +27,7 @@ $_smarty_tpl->decodeProperties(array (
             &nbsp;
         </div>
         <div class="grid_8">
-            &copy; 2010 phpMyEngine
+            &copy; 2010-2011 phpMyEngine
         </div>
         <div class="grid_8">
             <a href="http://phpmyengine.net/">

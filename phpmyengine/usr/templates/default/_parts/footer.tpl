@@ -7,7 +7,7 @@
             &nbsp;
         </div>
         <div class="grid_8">
-            &copy; 2010 phpMyEngine
+            &copy; 2010-2011 phpMyEngine
         </div>
         <div class="grid_8">
             <a href="http://phpmyengine.net/">

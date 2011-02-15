@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:55:44
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-15 22:37:48
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/preview.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3116737974d595080ca7707-72939061%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:767862724d5ad60cbdb826-66507042%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'eb2ca0e2006f293ceee6fecdce54bfb472016255' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/preview.tpl',
-      1 => 1288023694,
+      1 => 1297798663,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3116737974d595080ca7707-72939061',
+  'nocache_hash' => '767862724d5ad60cbdb826-66507042',
   'function' => 
   array (
   ),
@@ -19,68 +19,16 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_modifier_escape')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smarty/plugins/modifier.escape.php';
 if (!is_callable('smarty_modifier_bbcode')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/modifier.bbcode.php';
-if (!is_callable('smarty_modifier_sitelink')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/modifier.sitelink.php';
-if (!is_callable('smarty_modifier_date_format')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smarty/plugins/modifier.date_format.php';
+if (!is_callable('smarty_modifier_cut')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/modifier.cut.php';
 ?><div class="block">
     <h2>
-        <?php echo $_smarty_tpl->getVariable('myRecord')->value->mutagenData->title;?>
-
-    </h2>
-    <?php echo smarty_modifier_bbcode(nl2br(smarty_modifier_escape($_smarty_tpl->getVariable('myRecord')->value->mutagenData->content,"htmlall")));?>
-
-    <?php if ($_smarty_tpl->getVariable('myRecord')->value->tags){?>
-    <div class="tags">
-        <span></span>
-        <ul>
-        <?php  $_smarty_tpl->tpl_vars["value"] = new Smarty_Variable;
- $_smarty_tpl->tpl_vars["key"] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('myRecord')->value->tags; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
- $_smarty_tpl->tpl_vars["value"]->total= $_smarty_tpl->_count($_from);
- $_smarty_tpl->tpl_vars["value"]->iteration=0;
-if ($_smarty_tpl->tpl_vars["value"]->total > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars["value"]->key => $_smarty_tpl->tpl_vars["value"]->value){
- $_smarty_tpl->tpl_vars["key"]->value = $_smarty_tpl->tpl_vars["value"]->key;
- $_smarty_tpl->tpl_vars["value"]->iteration++;
- $_smarty_tpl->tpl_vars["value"]->last = $_smarty_tpl->tpl_vars["value"]->iteration === $_smarty_tpl->tpl_vars["value"]->total;
- $_smarty_tpl->tpl_vars['smarty']->value['foreach']["tags"]['last'] = $_smarty_tpl->tpl_vars["value"]->last;
-?>
-            <li>
-                <a href="<?php echo smarty_modifier_sitelink("tagsearch/Article/".($_smarty_tpl->getVariable('value')->value));?>
-"><?php echo $_smarty_tpl->getVariable('value')->value;?>
+        <a href="/articles/<?php echo $_smarty_tpl->getVariable('myRecord')->value->_id;?>
+/view" title="<?php echo $_smarty_tpl->getVariable('myRecord')->value->mutagenData->title;?>
+"><?php echo $_smarty_tpl->getVariable('myRecord')->value->mutagenData->title;?>
 </a>
-                <?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['tags']['last']){?>
-                ,
-                <?php }?>
-            </li>
-        <?php }} ?>
-        </ul>
-    </div>
-    <div class="clear"></div>
-    <?php }?>
-    <div class="recordInfo">
-        <div class="votePositive">
-            <a href="#" title="+">+</a>
-        </div>
-        <div class="votes">+<?php echo $_smarty_tpl->getVariable('myRecord')->value->ratingPositive;?>
- / -<?php echo $_smarty_tpl->getVariable('myRecord')->value->ratingNegative;?>
-</div>
-        <div class="voteNegative">
-            <a href="#" title="-">-</a>
-        </div>
-        <div class="username">
-            <span></span> <a href="#"><?php echo $_smarty_tpl->getVariable('username')->value;?>
-Навыхудоносер</a>
-        </div>
-        <div class="date">
-            <span></span>
-            <a href="/archive/Article/<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('myRecord')->value->getCreationTime(),"%d%m%Y");?>
-">
-                <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('myRecord')->value->getCreationTime(),"%A, %e %b %Y, %H:%M");?>
+    </h2>
+    <?php echo smarty_modifier_cut(smarty_modifier_bbcode(nl2br(smarty_modifier_escape($_smarty_tpl->getVariable('myRecord')->value->mutagenData->content,"htmlall"))),"/articles/".($_smarty_tpl->getVariable('myRecord')->value->_id)."/view");?>
 
-            </a>
-        </div>
-        <div class="favorites"><a href="#"><span>*</span></a></div>
-        <div class="link"><a href="#"><span>#</span></a></div>
-        <div class="comments"><span></span> 3200</div>
-    </div>
+    <?php $_template = new Smarty_Internal_Template("articles/_recordinfo.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 </div>

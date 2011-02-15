@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 19:10:36
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-15 19:02:16
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:16951916754d5953fc9e1991-28481453%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16466334974d5aa38877f626-50123629%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fcdbecbc5d6af05eb6338208b9482cfbec1e6c84' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/usr/templates/default/_parts/header.tpl',
-      1 => 1297699831,
+      1 => 1297785734,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '16951916754d5953fc9e1991-28481453',
+  'nocache_hash' => '16466334974d5aa38877f626-50123629',
   'function' => 
   array (
   ),
@@ -22,7 +22,7 @@ if (!is_callable('smarty_insert_widget')) include '/home/desigency/web/dev/phpmy
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
     <head>
-        <title>phpMyEngine. Бесплатная CMS с открытым исходным кодом. Opensource PHP CMS. Официальный сайт</title>
+        <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
         <?php echo smarty_insert_css(array('file' => "/css/960_24_col.css"),$_smarty_tpl);?>

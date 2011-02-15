@@ -1264,3 +1264,7 @@ fieldset {
     border-color: #f6e4ac;
     color: #644b00;
 }
+
+#share {
+    margin-top: 24px;
+}
