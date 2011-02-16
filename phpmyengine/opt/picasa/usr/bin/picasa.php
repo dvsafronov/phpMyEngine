@@ -10,8 +10,11 @@ function defaultAction () {
     if (strlen ( $_myConfig->opt->picasa->user ) > 1) {
         $_myRender = \phpMyEngine\Render\Render::getInstance();
         $myPicasa = new \phpMyEngine\Picasa\Picasa();
-        $myPicasa->user = $_myConfig->opt->picasa->user;
+        $myPicasa->user = (string) $_myConfig->opt->picasa->user;
         $myPicasa->thumbWidth = (int) $_myConfig->opt->picasa->width;
+        $myPicasa->fullWidth = (int) $_myConfig->opt->picasa->fullWidth;
+        $myPicasa->cacheTime = (int) $_myConfig->opt->picasa->cacheTime;
+
         if (null != $_myConfig->opt->picasa->forceAlbum) {
             //грузим сразу альбом
             $imgs = $myPicasa->getImages ( $_myConfig->opt->picasa->forceAlbum );
@@ -22,7 +25,7 @@ function defaultAction () {
             $_myRender->setValue ( 'albums', $albums );
             $tpl = 'albums';
         }
-        $_myRender->renderTemplate ( 'picasa/' . $tpl . '.tpl' );
+        $_myRender->renderTemplate ( 'gallerytemplates/' . $tpl . '.tpl' );
     } else {
         \phpMyEngine\logError ( 'Picasa module not configured' );
     }
@@ -35,8 +38,12 @@ function viewAction () {
     $_myConfig->load ( 'picasa', true );
 
     $myPicasa = new \phpMyEngine\Picasa\Picasa();
-    $myPicasa->user = $_myConfig->opt->picasa->user;
+
+    $myPicasa->user = (string) $_myConfig->opt->picasa->user;
     $myPicasa->thumbWidth = (int) $_myConfig->opt->picasa->width;
+    $myPicasa->fullWidth = (int) $_myConfig->opt->picasa->fullWidth;
+    $myPicasa->cacheTime = (int) $_myConfig->opt->picasa->cacheTime;
+
     if (null != $_myConfig->opt->picasa->forceAlbum) {
         $imgs = $myPicasa->getImages ( $_myConfig->opt->picasa->forceAlbum );
     } else {
@@ -44,5 +51,5 @@ function viewAction () {
     }
 
     $_myRender->setValue ( 'album', $imgs );
-    $_myRender->renderTemplate ( 'picasa/images.tpl' );
+    $_myRender->renderTemplate ( 'gallerytemplates/images.tpl' );
 }

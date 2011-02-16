@@ -1,23 +1,24 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:55:44
+<?php /* Smarty version Smarty-3.0.7, created on 2011-02-16 13:03:27
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/list.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:4041615844d5950807d1130-11043927%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11755556784d5ba0efca25a4-76869171%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9837c355d719fb6e45ac9c1cdc4cf236a7e9efba' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/list.tpl',
-      1 => 1294424298,
+      1 => 1297850606,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4041615844d5950807d1130-11043927',
+  'nocache_hash' => '11755556784d5ba0efca25a4-76869171',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<div class="block">
+<?php if (!is_callable('smarty_insert_widget')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/insert.widget.php';
+?><div class="block">
 <h2 class="catTitle"><?php echo $_smarty_tpl->getVariable('categoryTitle')->value;?>
 </h2>
 <?php unset($_smarty_tpl->tpl_vars['smarty']->value['section']['list']);
@@ -47,4 +48,6 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['last']       = ($_sm
     <?php $_template = new Smarty_Internal_Template("articles/preview.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('myRecord',$_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 <?php endfor; endif; ?>
+<?php echo smarty_insert_widget(array('widget' => "pagination", 'pages' => ($_smarty_tpl->getVariable('paginationCountPages')->value)),$_smarty_tpl);?>
+
 </div>

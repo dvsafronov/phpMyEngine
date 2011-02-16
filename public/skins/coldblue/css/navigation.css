@@ -89,3 +89,65 @@
     background: url('./../images/hbgm.png') repeat;
     border-bottom: 2px solid #356A9F
 }
+
+
+/* PAGINATION */
+._paginatioForm {
+    float: right;
+}
+
+._paginatioForm form {
+    float: right;
+    width: 70px;
+    text-align: right;
+}
+
+._paginatioForm input {
+    width: 24px;
+    text-align: right;
+    color: #666;
+    padding: 6px;
+    border: 1px solid #E8EEF0;
+}
+
+._paginationList {
+    float: left;
+}
+
+._paginationList h4 {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    font-size: 21px;
+    color: #243501;
+}
+
+._paginationList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+._paginationList li {
+    float: left;
+    display: block;
+    margin-left: 6px;
+}
+
+
+._paginationList span.curPage {
+    color: #243501;
+    background: #F6F6F2;
+    padding: 3px;
+    border: 1px solid #F0F0E7;
+}
+
+._paginationList .fal {
+    font-size: 12px;
+}
+
+._paginationList li:before {
+    display: none;
+}

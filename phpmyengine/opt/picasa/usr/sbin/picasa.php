@@ -19,9 +19,11 @@ function configureAction () {
         $picasaConf = $_myConfig->opt->picasa;
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $picasaConf->user = \filter_input ( INPUT_POST, 'user' );
+            $picasaConf->user = (string) \filter_input ( INPUT_POST, 'user' );
             $picasaConf->forceAlbum = (string) \filter_input ( INPUT_POST, 'forceAlbum' );
             $picasaConf->width = (int) \filter_input ( INPUT_POST, 'width' );
+            $picasaConf->fullWidth = (int) \filter_input ( INPUT_POST, 'fullWidth' );
+            $picasaConf->cacheTime = (int) \filter_input ( INPUT_POST, 'cacheTime' );
             $myMessages = new \phpMyEngine\Messages();
             if (true === $_myConfig->saveOPT ( 'picasa', $picasaConf )) {
                 $myMessages->addMessage ( 'Settings has been saved successfully' );

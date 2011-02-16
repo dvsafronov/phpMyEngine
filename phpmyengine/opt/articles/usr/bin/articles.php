@@ -44,14 +44,20 @@ function listcategoryAction () {
 function listAction () {
     $_myRoute = Route::getInstance ();
     $_myRender = Render::getInstance ();
+
+    $onPage = 1;
     $myFilter = new Filter();
     $myFilter->mutagenType = 'Article';
     $myFilter->mutagenData->category = (double) $_myRoute->id;
+
     $myRecords = $myFilter->getRecords ();
     $categoryTitle = \phpMyEngine\Modules\Articles\getCategoryTitles ( array ($_myRoute->id) );
     $categoryTitle = $categoryTitle[(string) $_myRoute->id];
     $_myRender->setValue ( 'categoryTitle', $categoryTitle );
     $_myRender->setValue ( 'recordsList', $myRecords );
+    
+    $_myRender->setValue ( 'paginationCountPages', 22 );
+
     $_myRender->renderTemplate ( 'articles/list.tpl' );
 }
 

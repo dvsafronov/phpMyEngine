@@ -3,4 +3,5 @@
 {section name=list loop=$recordsList->records}
     {include file="articles/preview.tpl" myRecord=$recordsList->records[list]}
 {/section}
+{insert name="widget" widget="pagination" pages="{$paginationCountPages}"}
 </div>
