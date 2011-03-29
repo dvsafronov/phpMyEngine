@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-02-16 13:03:27
+<?php /* Smarty version Smarty-3.0.7, created on 2011-03-29 16:33:08
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/list.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:11755556784d5ba0efca25a4-76869171%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9423984304d91d184e4d330-17017322%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9837c355d719fb6e45ac9c1cdc4cf236a7e9efba' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/list.tpl',
-      1 => 1297850606,
+      1 => 1301401987,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '11755556784d5ba0efca25a4-76869171',
+  'nocache_hash' => '9423984304d91d184e4d330-17017322',
   'function' => 
   array (
   ),
@@ -19,8 +19,9 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_insert_widget')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/insert.widget.php';
 ?><div class="block">
-<h2 class="catTitle"><?php echo $_smarty_tpl->getVariable('categoryTitle')->value;?>
-</h2>
+<?php if ($_smarty_tpl->getVariable('categoryTitle')->value){?><h2 class="catTitle"><?php echo $_smarty_tpl->getVariable('categoryTitle')->value;?>
+</h2><?php }?>
+
 <?php unset($_smarty_tpl->tpl_vars['smarty']->value['section']['list']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['name'] = 'list';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['loop'] = is_array($_loop=$_smarty_tpl->getVariable('recordsList')->value->records) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

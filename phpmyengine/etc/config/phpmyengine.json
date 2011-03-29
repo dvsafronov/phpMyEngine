@@ -26,8 +26,8 @@
     "view": {
         "skin": "coldblue",
         "css": {
-            "includeInDocument": true,
-            "uniteFiles": true
+            "includeInDocument": false,
+            "uniteFiles": false
         }
     },
     "cacheProfileMemcache": {

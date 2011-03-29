@@ -35,8 +35,14 @@ $_myConfig = \phpMyEngine\Config\Config::getInstance ();
 $_myRender = \phpMyEngine\Render\Render::getInstance ();
 
 \phpMyEngine\EngineFileSystem\Structure::getInstance();
-\phpMyEngine\Route::getInstance();
-//TODO: Либо сделать, чтобо оно работало, либо проверить что оно работает, либо прибить нах
+$_myRoute = \phpMyEngine\Route::getInstance();
+
+if ($_myRoute->controller == false) {
+    $_myRoute->controller = $_myConfig->engine->defaultController;
+}
+
+$_myRender->monopolyView = (bool) \phpMyEngine\EngineFileSystem\getRealFilePath ( (string) $_myRoute->controller, 'etc/monopolyview' );
+
 if ($_myRender->monopolyView !== true) {
     if (isset ( $_myConfig->view->skin )) {
         $_myRender->setValue ( '__skin', $_myConfig->view->skin );

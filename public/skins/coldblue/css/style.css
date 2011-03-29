@@ -150,7 +150,14 @@ ul.categorylist {
     font-size: 18px;
     line-height: 32px;
     padding: 0 0 0 24px;
-    list-style: decimal;
+    list-style: none;
+}
+ul.categorylist li {
+    margin-left: 0;
+}
+ul.categorylist li span {
+    display: block;
+    font-size: 12px;
 }
 h2.catTitle {
     font-size: 32px;
@@ -226,3 +233,4 @@ fieldset {
 #share {
     margin-top: 24px;
 }
+

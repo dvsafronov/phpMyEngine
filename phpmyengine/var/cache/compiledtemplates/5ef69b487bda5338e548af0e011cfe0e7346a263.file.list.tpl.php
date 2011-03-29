@@ -1,23 +1,24 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-02-14 18:55:42
+<?php /* Smarty version Smarty-3.0.7, created on 2011-03-29 12:48:47
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/category/list.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:18566035534d59507e0edca4-68297457%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14334792584d919cefd09ad0-32808448%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5ef69b487bda5338e548af0e011cfe0e7346a263' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/category/list.tpl',
-      1 => 1287387085,
+      1 => 1301388526,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '18566035534d59507e0edca4-68297457',
+  'nocache_hash' => '14334792584d919cefd09ad0-32808448',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_modifier_sitelink')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/modifier.sitelink.php';
+if (!is_callable('smarty_insert_widget')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/insert.widget.php';
 ?><div class="block">
     <h2>Рубрикатор</h2>
     <ul class="categorylist">
@@ -49,7 +50,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['list']['last']       = ($_sm
             <a href="<?php echo smarty_modifier_sitelink("articles/category/".($_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->_id)."/list");?>
 "><?php echo $_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->mutagenData->title;?>
 </a>
+                <span class="announcement"><?php echo $_smarty_tpl->getVariable('recordsList')->value->records[$_smarty_tpl->getVariable('smarty')->value['section']['list']['index']]->mutagenData->announcement;?>
+</span>
         </li>
 <?php endfor; endif; ?>
     </ul>
+    <?php echo smarty_insert_widget(array('widget' => "pagination", 'pages' => ($_smarty_tpl->getVariable('paginationCountPages')->value)),$_smarty_tpl);?>
+
 </div>

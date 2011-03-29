@@ -67,14 +67,15 @@ class Messages {
     }
 
     public function export () {
-
+        
     }
 
 }
 
 function logError ( $desc, $hold = false ) {
     $e = date ( 'H:i:s' ) . "\t" . $_SERVER ['REQUEST_URI'] . "\t" . $_SERVER ['REMOTE_ADDR'] . "\t" . $desc . PHP_EOL;
-    file_put_contents ( dirname ( __DIR__ ) . '/var/logs/' . date ( 'Ymd' ) . '.log', $e, FILE_APPEND );
+    file_put_contents ( dirname ( __DIR__ ) . '/var/logs/' . date ( 'Ymd' ) . '.log',
+            $e, FILE_APPEND );
     if ($hold == true) {
         if (\DEBUG != 1) {
             $desc = "Fatal Error. Check engine ;)";
@@ -88,7 +89,8 @@ function doRedirect ( $url ) {
 }
 
 function loadModule ( $name ) {
-    if (false !== $rp = EngineFileSystem\getRealFilePath ( $name . '.lib.php', 'usr/lib' )) {
+    if (false !== $rp = EngineFileSystem\getRealFilePath ( $name . '.lib.php',
+            'usr/lib' )) {
         include_once $rp;
     }
     return null;
@@ -134,15 +136,16 @@ function runController () {
         $_myRoute->controller = $_myConfig->engine->defaultController;
     }
     $path = $_myRoute->isControlPanel () ? 'sbin' : 'bin';
-    if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $_myRoute->controller . '.php', 'usr/' . $path )) {
+    if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $_myRoute->controller . '.php',
+            'usr/' . $path )) {
         include_once $rp;
         $func = '\phpMyEngine\\' . $_myRoute->controller . 'Controller\\' . $_myRoute->action . 'Action';
         if (\function_exists ( $func )) {
-            $func();
+            $func ();
         } else {
             $func = '\phpMyEngine\\' . $_myRoute->controller . 'Controller\\' . 'defaultAction';
             if (\function_exists ( $func )) {
-                $func();
+                $func ();
             } else {
                 echo $func;
             }
@@ -187,7 +190,7 @@ class Route {
      * @return NULL
      */
     private function parseRequest () {
-        $_myConfig = \phpMyEngine\Config\Config::getInstance();
+        $_myConfig = \phpMyEngine\Config\Config::getInstance ();
         $seporator = '/';
         $request = \urldecode ( $_SERVER ['REQUEST_URI'] );
         if (isset ( $_myConfig->controlPanel->host )) {
@@ -205,25 +208,27 @@ class Route {
             }
         }
         if ($this->_controlpanel == true) {
-            \phpMyEngine\Config\Config::getInstance()->engine->design = 'controlpanel';
-            $mySt = \phpMyEngine\EngineFileSystem\Structure::getInstance();
-            Render\Render::getInstance()->Smarty ()->template_dir = $mySt['usr/templates/controlpanel'];
-            if (\phpMyEngine\ControlPanel\isAuth() === false && $this->controller != 'cpauth') {
+            \phpMyEngine\Config\Config::getInstance ()->engine->design = 'controlpanel';
+            $mySt = \phpMyEngine\EngineFileSystem\Structure::getInstance ();
+            Render\Render::getInstance ()->Smarty ()->template_dir = $mySt['usr/templates/controlpanel'];
+            if (\phpMyEngine\ControlPanel\isAuth () === false && $this->controller != 'cpauth') {
                 $this->controller = 'cpauth';
                 $this->action = null;
-                \phpMyEngine\Render\Render::getInstance()->monopolyView = true;
                 return null;
             }
         }
 // всё, что до первого сепоратора - есть имя контроллера
         $this->controller = substr ( $request, 1 );
         if (strpos ( $this->controller, $seporator )) {
-            $this->controller = \substr ( $this->controller, 0, strpos ( $this->controller, $seporator ) );
+            $this->controller = \substr ( $this->controller, 0,
+                    strpos ( $this->controller, $seporator ) );
         }
 // всё, что после последнего сепоратора - есть страницы номер.
 // если явно указано page - его трём и оставляем цифрки, всё остальное - нуль
         if (substr ( $request, strrpos ( $request, $seporator ) + 1, 4 ) == 'page') {
-            $this->page = (int) str_replace ( 'page', null, substr ( $request, strrpos ( $request, $seporator, 1 ) + 1 ) );
+            $this->page = (int) str_replace ( 'page', null,
+                            substr ( $request,
+                                    strrpos ( $request, $seporator, 1 ) + 1 ) );
         }
 // убираем уже известные нам данные
         $request = substr ( $request, strlen ( $this->controller ) + 2 );
@@ -231,7 +236,8 @@ class Route {
             $request = \substr ( $request, 0, -1 );
         }
 // подгружаем паттерны
-        if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $this->controller . '.json', 'etc/routerrules' )) {
+        if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $this->controller . '.json',
+                'etc/routerrules' )) {
             $patterns = \json_decode ( \file_get_contents ( $rp ), true );
 // производим проверку на соответствие паттернам
             if (is_array ( $patterns )) {
@@ -239,7 +245,8 @@ class Route {
                 foreach ($patterns as $rule) {
                     if (preg_match ( $rule['pcre'], $request, $matches )) {
                         for ($i = 1, $ca = count ( $matches ); $i < $ca; $i++) {
-                            $rule['result'] = str_replace ( '$' . $i, $matches [$i], $rule['result'] );
+                            $rule['result'] = str_replace ( '$' . $i,
+                                    $matches [$i], $rule['result'] );
                         }
                         $rule['result'] = explode ( ';', $rule['result'] );
                         for ($i = 0, $ca = count ( $rule['result'] ); $i < $ca; $i++) {
@@ -294,7 +301,7 @@ class Structure {
     }
 
     private function __construct () {
-        $_myCache = \phpMyEngine\Cache\Cache::getInstance();
+        $_myCache = \phpMyEngine\Cache\Cache::getInstance ();
         if (false === ($this->structure = $_myCache->getValue ( '__mystructure' ))) {
             $this->getFilesList ( dirname ( __DIR__ ), $this->structure );
             $_myCache->setValue ( '__mystructure', $this->structure, 10 );
@@ -318,7 +325,8 @@ class Structure {
                 if ($iterator->isDir ()) {
                     $func = __FUNCTION__;
                     self::$func ( $iterator->key (), $output );
-                    $key = \str_replace ( dirname ( __DIR__ ) . '/', null, $iterator->getFileInfo () );
+                    $key = \str_replace ( dirname ( __DIR__ ) . '/', null,
+                            $iterator->getFileInfo () );
                     if (substr ( $key, 0, 4 ) == 'opt/') {
                         $key = substr ( $key, \strpos ( $key, '/', 4 ) + 1 );
                     }
@@ -420,12 +428,17 @@ class Config {
 // специальная проверка, на случай загрузки конфига кеша.
 // если убрать - получим вечный цикл
         if ($fromOPT == true) {
-            $configFile = 'opt/' . $configFile;
+            $configCategory = $configFile;
+            $configFile = '/opt/' . $configCategory . '/etc/config/opt/' . $configCategory;
+        } else {
+            $configFile = '/etc/config/' . $configFile;
         }
-        $rp = dirname ( __DIR__ ) . '/etc/config/' . $configFile . '.json';
+        $rp = dirname ( __DIR__ ) . $configFile . '.json';
+
         if (false === \file_exists ( $rp )) {
             $_myStructure = EngineFileSystem\Structure::getInstance ();
-            $rp = EngineFileSystem\getRealFilePath ( $configFile . '.json', 'etc/config' );
+            $rp = EngineFileSystem\getRealFilePath ( $configFile . '.json',
+                    'etc/config' );
         }
         if (false !== $rp) {
             $configContent = json_decode ( \file_get_contents ( $rp ) );
@@ -433,11 +446,10 @@ class Config {
                 die ( 'Config file malformed' );
             } else {
                 if ($fromOPT == true) {
-                    $configFile = \substr ( $configFile, 4 );
                     $curConf = new \stdClass();
-                    $curConf->$configFile = new \stdClass();
+                    $curConf->$configCategory = new \stdClass();
                     foreach ($configContent as $group => $value) {
-                        $curConf->$configFile->$group = $value;
+                        $curConf->$configCategory->$group = $value;
                     }
                     $this->opt = $curConf;
                 } else {
@@ -447,11 +459,17 @@ class Config {
                 }
             }
         }
+        if ($fromOPT == true) {
+            return $this->opt->$configCategory;
+        }
+        return null;
     }
 
     public function saveOPT ( $opt, $data ) {
-        $data = \json_encode ( $data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
-        $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( '', 'etc/config/opt' );
+        $data = \json_encode ( $data,
+                JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+        $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( '',
+                'etc/config/opt' );
         $result = (bool) \file_put_contents ( "{$rp}{$opt}.json", $data );
         if ($result === true) {
             \chmod ( "{$rp}{$opt}.json", 0666 );
@@ -466,14 +484,14 @@ use phpMyEngine\Config\Config;
 
 function isAuth () {
     if (!isset ( $_SESSION['SID'] )) {
-        session_start();
-        $_SESSION['SID'] = session_id();
+        session_start ();
+        $_SESSION['SID'] = session_id ();
     }
     return
     isset ( $_SESSION['_cplogin'] )
     && isset ( $_SESSION['_cppasshash'] )
-    && $_SESSION['_cplogin'] == Config::getInstance()->controlPanel->login
-    && $_SESSION['_cppasshash'] == sha1 ( Config::getInstance()->controlPanel->password );
+    && $_SESSION['_cplogin'] == Config::getInstance ()->controlPanel->login
+    && $_SESSION['_cppasshash'] == sha1 ( Config::getInstance ()->controlPanel->password );
 }
 
 function doQuit () {
@@ -481,13 +499,14 @@ function doQuit () {
 }
 
 function doAuth ( $login, $password ) {
-    $_referenceAuth[] = Config::getInstance()->controlPanel->login;
-    $_referenceAuth[] = sha1 ( Config::getInstance()->controlPanel->password );
+    $_referenceAuth[] = Config::getInstance ()->controlPanel->login;
+    $_referenceAuth[] = sha1 ( Config::getInstance ()->controlPanel->password );
 // have a nice day ;)
-    if ((bool) ((int) array_diff ( array ($login, sha1 ( $password )), $_referenceAuth ) - 1)) {
+    if ((bool) ((int) array_diff ( array ($login, sha1 ( $password )),
+                    $_referenceAuth ) - 1)) {
         if (!isset ( $_SESSION['SID'] )) {
-            session_start();
-            $_SESSION['SID'] = session_id();
+            session_start ();
+            $_SESSION['SID'] = session_id ();
         }
         $_SESSION['_cplogin'] = $login;
         $_SESSION['_cppasshash'] = sha1 ( $password );
@@ -520,7 +539,8 @@ class FormElement {
     }
 
     public function __toString () {
-        if (in_array ( $this->type, array ('text', 'checkbox', 'radio', 'select', 'textarea', 'hidden') )) {
+        if (in_array ( $this->type,
+                        array ('text', 'checkbox', 'radio', 'select', 'textarea', 'hidden') )) {
             $strID = $strType = $strName = $strValue = $strMaxLength =
                     $strSelected = $strReadonly = $strDisabled = $strMultiple = null;
             if (strlen ( $this->id ) > 0) {
@@ -559,10 +579,12 @@ class FormElement {
                     $strMultiple = ' multiple';
                 }
                 if (isset ( $this->options ) && \is_string ( $this->options ) &&
-                        preg_match ( '/^\$\((.*)\)$/i', (string) $this->options, $matches )) {
-                    $callFunc = '\phpMyEngine\Modules\\' . \str_replace ( '/', '\\', $matches[1] );
+                        preg_match ( '/^\$\((.*)\)$/i', (string) $this->options,
+                                $matches )) {
+                    $callFunc = '\phpMyEngine\Modules\\' . \str_replace ( '/',
+                                    '\\', $matches[1] );
                     if (function_exists ( $callFunc )) {
-                        $this->options = $callFunc();
+                        $this->options = $callFunc ();
                     } else {
                         \phpMyEngine\logError ( $callFunc . " doesn't exists!" );
                         $this->options = null;
@@ -596,14 +618,16 @@ class FormElement {
             return $formElement;
         } else {
             /* код ниже ничего не делает */
-            $_myStructure = \phpMyEngine\EngineFileSystem\Structure::getInstance();
+            $_myStructure = \phpMyEngine\EngineFileSystem\Structure::getInstance ();
             if (\phpMyEngine\EngineFileSystem\fileExists ( 'etc/formelements/' . \strtolower ( $this->type ) . '.tpl' )) {
-                \ob_start();
+                \ob_start ();
                 if (isset ( $this->options ) && \is_string ( $this->options ) &&
-                        preg_match ( '/^_\((.*)\)$/i', (string) $this->options, $matches )) {
-                    $callFunc = '\phpMyEngine\\' . \str_replace ( '/', '\\', $matches[1] );
+                        preg_match ( '/^_\((.*)\)$/i', (string) $this->options,
+                                $matches )) {
+                    $callFunc = '\phpMyEngine\\' . \str_replace ( '/', '\\',
+                                    $matches[1] );
                     if (function_exists ( $callFunc )) {
-                        $this->options = $callFunc();
+                        $this->options = $callFunc ();
                     } else {
                         \phpMyEgine\logError ( $callFunc . " doesn't exists!" );
                         $this->options = null;
@@ -612,8 +636,8 @@ class FormElement {
                 if (isset ( $this->options ) && is_array ( $this->options ) === false) {
                     $this->options = null;
                 }
-                $formElement = \ob_get_contents();
-                \ob_end_clean();
+                $formElement = \ob_get_contents ();
+                \ob_end_clean ();
                 return $formElement;
             }
             \phpMyEgine\logError ( "Unknow tag - {$this->type}!" );
@@ -625,7 +649,7 @@ class FormElement {
 namespace phpMyEngine\Render;
 
 function resetOutput () {
-    ob_end_clean();
+    ob_end_clean ();
     return null;
 }
 
@@ -643,8 +667,8 @@ class Render {
         if (self::$instance === null) {
             self::$instance = new self();
         }
-        if (\ob_get_status() == false) {
-            \ob_start();
+        if (\ob_get_status () == false) {
+            \ob_start ();
         }
         return self::$instance;
     }
@@ -658,7 +682,7 @@ class Render {
         $this->_smarty->error_reporting = true;
         $this->_smarty->cache_lifetime = 12;
         $_myConfig = \phpMyEngine\Config\Config::getInstance ();
-        $mySt = \phpMyEngine\EngineFileSystem\Structure::getInstance();
+        $mySt = \phpMyEngine\EngineFileSystem\Structure::getInstance ();
         $this->_smarty->template_dir = $mySt['usr/templates/' . $_myConfig->engine->design];
         $this->_smarty->compile_dir = realpath ( __DIR__ . '/../var/cache/compiledtemplates/' );
         $this->_smarty->cache_dir = realpath ( __DIR__ . '/../var/cache/' );
@@ -671,24 +695,32 @@ class Render {
     }
 
     public function getOutput () {
-        $this->content = \ob_get_clean();
+        $this->content = \ob_get_clean ();
         if (\defined ( 'DEBUG' ) && DEBUG == true) {
             $this->htmlsize = strlen ( $this->content );
         }
         return null;
     }
 
-    public function renderTemplate ( $name, $toVar = false ) {
+    public function renderTemplate ( $name, $toVar = false, $monopoly = false ) {
         try {
             if ($toVar === true) {
-                \ob_start();
+                \ob_start ();
+            }
+            if ($monopoly === true) {
+                \ob_get_clean ();
+                \ob_start ();
             }
             $this->_smarty->display ( $name );
+            if ($monopoly === true) {
+                die ();
+            }
             if ($toVar === true) {
-                return \ob_get_clean();
+                return \ob_get_clean ();
             }
         } catch (\Exception $e) {
-            $file = \str_replace ( dirname ( __DIR__ ) . '/', null, $e->getFile () );
+            $file = \str_replace ( dirname ( __DIR__ ) . '/', null,
+                    $e->getFile () );
             \phpMyEngine\logError ( $e->getMessage () . ' (' . $file . ')' );
         }
         return null;
@@ -699,7 +731,8 @@ class Render {
     }
 
     private function prepareContent () {
-        $this->content = \str_replace ( '<title></title>', "<title>{$this->title}</title>", $this->content );
+        $this->content = \str_replace ( '<title></title>',
+                "<title>{$this->title}</title>", $this->content );
         $this->applyCSS ();
         return null;
     }
@@ -730,7 +763,8 @@ class Render {
     }
 
     public function applyDebugInfo ( $text ) {
-        $this->content = \str_replace ( '<!--phpMyEngine::debugInfo/-->', $text, $this->content );
+        $this->content = \str_replace ( '<!--phpMyEngine::debugInfo/-->', $text,
+                $this->content );
     }
 
     public function addCSS ( $file ) {
@@ -739,7 +773,8 @@ class Render {
     }
 
     private function repairURLs ( $input, $iteration, $domain ) {
-        if (\preg_match_all ( '/url\((\'|")*([a-z0-9\:\.\/\-\_\ ]+)(\'|")*\)/i', $input, $mat )) {
+        if (\preg_match_all ( '/url\((\'|")*([a-z0-9\:\.\/\-\_\ ]+)(\'|")*\)/i',
+                        $input, $mat )) {
             $newURLs = array ();
             for ($i = 0, $ca = count ( $mat[2] ); $i < $ca; $i++) {
                 $lastPos = \strrpos ( $mat[2][$i], './' );
@@ -747,7 +782,10 @@ class Render {
                     $lastPos++;
                 }
                 $newURLs[] = \str_replace ( $_SERVER['DOCUMENT_ROOT'], null,
-                                realpath ( substr ( $domain . $this->_css[$iteration], 0, strrpos ( $domain . $this->_css[$iteration], '/' ) ) . '/' . $mat[2][$i] )
+                        realpath ( substr ( $domain . $this->_css[$iteration],
+                                        0,
+                                        strrpos ( $domain . $this->_css[$iteration],
+                                                '/' ) ) . '/' . $mat[2][$i] )
                 );
             }
             $input = \str_replace ( $mat[2], $newURLs, $input );
@@ -766,22 +804,26 @@ class Render {
                 if (\strpos ( $this->_css[$i], ':' ) == false) {
                     $domain = $_SERVER['DOCUMENT_ROOT'];
                 }
-                $cssContent .= $this->repairURLs ( \file_get_contents ( $domain . $this->_css[$i] ), $i, $domain );
+                $cssContent .= $this->repairURLs ( \file_get_contents ( $domain . $this->_css[$i] ),
+                                $i, $domain );
             }
             $cssContent .= PHP_EOL . "</style>";
         } else {
             if ($_myCSSConfig->uniteFiles == true) {
                 $cssFileContent = null;
-                $cssFile = "/shared/phpmyengine_" . sha1 ( implode ( null, \array_values ( $this->_css ) ) ) . ".css";
+                $cssFile = "/shared/phpmyengine_" . sha1 ( implode ( null,
+                                        \array_values ( $this->_css ) ) ) . ".css";
                 if (false === \file_exists ( $_SERVER['DOCUMENT_ROOT'] . $cssFile )) {
                     for ($i = 0, $ca = count ( $this->_css ); $i < $ca; $i++) {
                         $domain = null;
                         if (\strpos ( $this->_css[$i], ':' ) == false) {
                             $domain = $_SERVER['DOCUMENT_ROOT'];
                         }
-                        $cssFileContent .= $this->repairURLs ( \file_get_contents ( $domain . $this->_css[$i] ), $i, $domain );
+                        $cssFileContent .= $this->repairURLs ( \file_get_contents ( $domain . $this->_css[$i] ),
+                                        $i, $domain );
                     }
-                    \file_put_contents ( $_SERVER['DOCUMENT_ROOT'] . $cssFile, $cssFileContent );
+                    \file_put_contents ( $_SERVER['DOCUMENT_ROOT'] . $cssFile,
+                            $cssFileContent );
                 }
                 $cssContent .= '<link rel="stylesheet" type="text/css" href="' . '//' . $_SERVER['HTTP_HOST'] . $cssFile . '" />' . \PHP_EOL;
             } else {
@@ -790,7 +832,8 @@ class Render {
                 }
             }
         }
-        $this->content = \str_replace ( '</head>', "{$cssContent}\r\n</head>", $this->content );
+        $this->content = \str_replace ( '</head>', "{$cssContent}\r\n</head>",
+                $this->content );
     }
 
 }
@@ -864,7 +907,8 @@ function checkDriver ( $dbType, $ite = 0 ) {
     if (false !== function_exists ( '\phpMyEngine\Database\\' . $dbType . '\generateQuery' )) {
         return true;
     } else {
-        if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( strtolower ( $dbType ) . '.dbdriver.php', 'lib' )) {
+        if (false !== $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( strtolower ( $dbType ) . '.dbdriver.php',
+                'lib' )) {
             $ite++;
             include_once $rp;
             return checkDriver ( $dbType, $ite );
@@ -955,7 +999,8 @@ class Cache {
             switch ($this->type) {
                 case 'Memcached': {
                         $this->_cache = new \Memcache();
-                        $this->_cache->connect ( $_cacheProfile->host, (int) $_cacheProfile->port );
+                        $this->_cache->connect ( $_cacheProfile->host,
+                                (int) $_cacheProfile->port );
                         if (false == $this->_cache->getVersion ()) {
                             $this->_cache = false;
                         }
@@ -992,7 +1037,9 @@ class Cache {
             $this->requests++;
             switch ($this->type) {
                 case 'Memcached': {
-                        $result = $this->_cache->set ( $this->prefix . $valueName, $valueContent, false, $periodMinutes * 60 );
+                        $result = $this->_cache->set ( $this->prefix . $valueName,
+                                        $valueContent, false,
+                                        $periodMinutes * 60 );
                         break;
                     }
                 case 'filesDataStorage': {
@@ -1008,7 +1055,7 @@ class Cache {
                         }
                         $data[$valueName] = $valueContent;
                         $data['_fds_ttl' . $valueName] = $periodMinutes;
-                        $data['_fds_crt' . $valueName] = time();
+                        $data['_fds_crt' . $valueName] = time ();
                         $result = $this->_cache->selectCollection ( '_filesds' )->save ( $data );
                         break;
                     }
@@ -1043,7 +1090,7 @@ class Cache {
                                 isset ( $tmpRes[0][$valueName] )
                                 && isset ( $tmpRes[0]['_fds_ttl' . $valueName] )
                                 && isset ( $tmpRes[0]['_fds_crt' . $valueName] )
-                                && (time() - ($tmpRes[0]['_fds_crt' . $valueName])) < ($tmpRes[0]['_fds_ttl' . $valueName] * 60)) {
+                                && (time () - ($tmpRes[0]['_fds_crt' . $valueName])) < ($tmpRes[0]['_fds_ttl' . $valueName] * 60)) {
                             $result = $tmpRes[0][$valueName];
                         }
                         break;
@@ -1066,7 +1113,8 @@ class Cache {
 namespace phpMyEngine\l10n;
 
 function _ ( $text, $domain = 'default' ) {
-    $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $domain . '.mo', 'usr/locale/ru_RU/LC_MESSAGES' );
+    $rp = \phpMyEngine\EngineFileSystem\getRealFilePath ( $domain . '.mo',
+            'usr/locale/ru_RU/LC_MESSAGES' );
     $locDir = dirname ( dirname ( dirname ( $rp ) ) );
     \bindtextdomain ( $domain, $locDir );
     \bind_textdomain_codeset ( $domain, 'UTF-8' );

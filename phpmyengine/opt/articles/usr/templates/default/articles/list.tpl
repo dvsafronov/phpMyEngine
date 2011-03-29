@@ -1,5 +1,6 @@
 <div class="block">
-<h2 class="catTitle">{$categoryTitle}</h2>
+{if $categoryTitle}<h2 class="catTitle">{$categoryTitle}</h2>{/if}
+
 {section name=list loop=$recordsList->records}
     {include file="articles/preview.tpl" myRecord=$recordsList->records[list]}
 {/section}
