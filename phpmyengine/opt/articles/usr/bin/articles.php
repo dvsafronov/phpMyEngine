@@ -68,6 +68,8 @@ function listAction () {
     $myFilter->mutagenData->category = (double) $_myRoute->id;
     $myFilter->limit = $onPage;
     $myFilter->offset = ($_myRoute->page - 1) * $onPage;
+    $myFilter->orderBy = '_id';
+    $myFilter->order = $myFilter::ORDER_DESC;
 
     $myRecords = $myFilter->getRecords ();
 
@@ -93,6 +95,8 @@ function archiveAction () {
     $myFilter = new \phpMyEngine\Records\Filter();
     $myFilter->mutagenType = 'Article';
     $myFilter->_id = FOP::op ( FOP::FOP_BETWEEN, $min, $max );
+    $myFilter->orderBy = '_id';
+    $myFilter->order = $myFilter::ORDER_ASC;
 
     $myRecords = $myFilter->getRecords ();
 
@@ -116,7 +120,8 @@ function tagsearchAction () {
     $myFilter = new \phpMyEngine\Records\Filter();
     $myFilter->mutagenType = 'Article';
     $myFilter->tags = $_myRoute->tag;
-
+    $myFilter->orderBy = '_id';
+    $myFilter->order = $myFilter::ORDER_DESC;
     $myRecords = $myFilter->getRecords ();
 
     $ids = array ();
@@ -128,7 +133,7 @@ function tagsearchAction () {
 
     $_myRender->setValue ( 'categoryTitles', $categoryTitles );
     $_myRender->setValue ( 'recordsList', $myRecords );
-    $_myRender->setValue ( 'tag', $_myRoute->tag);
+    $_myRender->setValue ( 'tag', $_myRoute->tag );
     $_myRender->renderTemplate ( 'articles/tags/form.tpl' );
     $_myRender->renderTemplate ( 'articles/list.tpl' );
     return null;
@@ -136,6 +141,33 @@ function tagsearchAction () {
 
 function defaultAction () {
     $_myRoute = Route::getInstance ();
-    var_dump ( $_myRoute );
+    $_myRender = Render::getInstance ();
+    $_myConfig = Config::getInstance ();
+
+    $moduleConfig = $_myConfig->load ( 'articles', true );
+    $onPage = $moduleConfig->articlesOnPage ? : 12;
+
+    $myFilter = new Filter();
+    $myFilter->mutagenType = 'Article';
+    $myFilter->limit = $onPage;
+    $myFilter->offset = ($_myRoute->page - 1) * $onPage;
+    $myFilter->orderBy = '_id';
+    $myFilter->order = $myFilter::ORDER_DESC;
+
+    $myRecords = $myFilter->getRecords ();
+
+    $ids = array ();
+    foreach ($myRecords->records as $record) {
+        $ids[] = $record->mutagenData->category;
+    }
+
+    $categoryTitles = \phpMyEngine\Modules\Articles\getCategoryTitles ( $ids );
+
+    $_myRender->setValue ( 'categoryTitles', $categoryTitles );    
+    $_myRender->setValue ( 'recordsList', $myRecords );
+    $_myRender->setValue ( 'paginationCountPages',
+            ceil ( $myRecords->allCount / $onPage ) );
+
+    $_myRender->renderTemplate ( 'articles/list.tpl' );
     return null;
 }
