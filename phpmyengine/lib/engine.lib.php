@@ -354,16 +354,50 @@ class Structure {
  * 
  * @param filename $file, path $path
  */
-function getRealFilePath ( $file, $path ) {
+function getRealFilePath ( $file, $path, $all = false ) {
     $_myStrucutre = Structure::getInstance ();
     if (\key_exists ( $path, $_myStrucutre )) {
+        if (false !== $all) {
+            $result = array ();
+        }
         for ($i = 0, $ca = count ( $_myStrucutre[$path] ); $i < $ca; $i++) {
             if (\file_exists ( $_myStrucutre [$path][$i] . '/' . $file )) {
-                return $_myStrucutre [$path][$i] . '/' . $file;
+                if (false === $all) {
+                    return $_myStrucutre [$path][$i] . '/' . $file;
+                } else {
+                    \array_push ( $result,
+                            $_myStrucutre [$path][$i] . '/' . $file );
+                }
             }
+        }
+        if (false !== $all && count ( $result ) > 0) {
+            return $result;
         }
     }
     return false;
+}
+
+function getFilesList ( $path, $mask = '*' ) {
+    $_myStrucutre = Structure::getInstance ();
+    if (false !== ($rpList = getRealFilePath ( '', $path, true )) && ($ca = count ( $rpList )) > 0) {
+        $files = array ();
+        $oDir = getcwd ();
+        $stickPath = function (&$item, $null, $fullPath) {
+                    $item = $fullPath . $item;
+                };
+        for ($i = 0; $i < $ca; $i++) {
+            chdir ( $rpList[$i] );
+            $list = glob ( $mask );
+            \array_walk ( $list, $stickPath, $rpList[$i] );
+            $files = \array_merge ( $files, $list );
+            unset ( $list );
+        }
+        chdir ( $oDir );
+        return $files;
+    }
+
+
+    return null;
 }
 
 /**

@@ -23,8 +23,14 @@ function viewAction () {
     }
     try {
         $myRecord = $myFilter->getRecords ()->getFirst ();
-        $_myRender->setTitle ( $myRecord->mutagenData->title );
-        $_myRender->Smarty ()->assign ( "myRecord", $myRecord );
+
+        $categoryTitle = \phpMyEngine\Modules\Articles\getCategoryTitles ( array ($myRecord->mutagenData->category) );
+        $categoryTitle = $categoryTitle[(string) $myRecord->mutagenData->category];
+
+        $_myRender->setTitle ( $myRecord->mutagenData->title . ' / ' . $categoryTitle );
+
+        $_myRender->setValue ( 'categoryTitle', $categoryTitle );
+        $_myRender->setValue ( "myRecord", $myRecord );
         $_myRender->renderTemplate ( 'articles/view.tpl' );
     } catch (\phpMyEngine\Exception $e) {
         $_myRender->renderTemplate ( 'errors/404.tpl' );
@@ -163,7 +169,7 @@ function defaultAction () {
 
     $categoryTitles = \phpMyEngine\Modules\Articles\getCategoryTitles ( $ids );
 
-    $_myRender->setValue ( 'categoryTitles', $categoryTitles );    
+    $_myRender->setValue ( 'categoryTitles', $categoryTitles );
     $_myRender->setValue ( 'recordsList', $myRecords );
     $_myRender->setValue ( 'paginationCountPages',
             ceil ( $myRecords->allCount / $onPage ) );

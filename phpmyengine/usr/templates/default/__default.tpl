@@ -4,7 +4,7 @@
 </div>
 <div class="grid_1">&nbsp;</div>
 <div class="grid_8 sidebar">
-                    {include file="sidebar.tpl"}
+                    {insert name="widget" widget="sidebar"}
 </div>
 <div class="clear"></div>
 {include file="_parts/footer.tpl"}
