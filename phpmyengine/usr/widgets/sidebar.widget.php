@@ -1,4 +1,7 @@
 <?php
+/**
+ * 
+ */
 namespace phpMyEngine\Widgets;
 
 function sidebarWidget () {
