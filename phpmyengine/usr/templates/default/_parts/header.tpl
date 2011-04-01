@@ -5,8 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
         {insert name="css" file="/css/960_24_col.css"}
-        {insert name="css" file="/css/reset.css"}
-        {insert name="css" file="/css/text.css"}
+        {insert name="css" file="/css/common.css"}
 
         {insert name="css" file="/skins/{$__skin}/css/{$__skin}.css"}
         {insert name="css" file="/skins/{$__skin}/css/navigation.css"}

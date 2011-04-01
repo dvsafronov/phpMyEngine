@@ -743,7 +743,7 @@ class Picasa {
 		if ($this->auth === null) {
 			$useCache = true;
 		}
-
+        
 		try {
 			Picasa_Logger::getLogger()->logIfEnabled("Fetching album ".$albumid." for user ".$username);
 			$album = new Picasa_Album($query, null, $this->contextArray, $useCache); 

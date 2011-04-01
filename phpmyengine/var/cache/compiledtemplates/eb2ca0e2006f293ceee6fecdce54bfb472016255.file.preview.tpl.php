@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-03-29 16:36:32
+<?php /* Smarty version Smarty-3.0.7, created on 2011-04-02 01:03:48
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/preview.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19319800714d91d250d1a268-66356709%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14069741054d963db43f7c93-79711039%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19319800714d91d250d1a268-66356709',
+  'nocache_hash' => '14069741054d963db43f7c93-79711039',
   'function' => 
   array (
   ),

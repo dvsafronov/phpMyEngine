@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block content">
     {if $categoryTitle}
     <h2 class="catTitle"><a href="/articles/category/{$myRecord->mutagenData->category}/list">{$categoryTitle}</a></h2>
         {/if}

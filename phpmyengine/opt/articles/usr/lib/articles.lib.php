@@ -49,7 +49,8 @@ function prepareAndSave ( $action, $mutagen = 'Article' ) {
         $tags = explode ( ',', filter_input ( INPUT_POST, 'tags' ) );
         foreach ($tags as $key => $value) {
             $value = trim ( $value );
-            if (!is_null ( $value ) && strlen ( $value ) > 0 && !in_array ( $value, $myRecord->tags )) {
+            if (!is_null ( $value ) && strlen ( $value ) > 0 && !in_array ( $value,
+                            $myRecord->tags )) {
                 $myRecord->tags[] = $value;
             }
         }
@@ -91,7 +92,7 @@ function getCategoryTitles ( Array $id ) {
     $myRecords = $myFilter->getRecords ();
     if ($myRecords->count > 0) {
         for ($i = 0; $i < $myRecords->count; $i++) {
-            $myCategories[(string)$myRecords->records[$i]->_id] = $myRecords->records[$i]->mutagenData->title;
+            $myCategories[(string) $myRecords->records[$i]->_id] = $myRecords->records[$i]->mutagenData->title;
         }
     }
     unset ( $myFilter, $myRecords );

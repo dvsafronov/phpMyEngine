@@ -3,6 +3,8 @@ namespace phpMyEngine\Widgets;
 
 use phpMyEngine\Records\Filter;
 
+\phpMyEngine\loadModule ( 'articles' );
+
 function categoryinfoWidget () {
     $_myRoute = \phpMyEngine\Route::getInstance ();
     if ($_myRoute->controller == 'articles' && $_myRoute->action == 'list' && (double) $_myRoute->id > 0) {
@@ -19,4 +21,4 @@ function categoryinfoWidget () {
     return null;
 }
 
-return 100;
+return getWidgetPriorty ( 'articles', 'categoryInfo' );

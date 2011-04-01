@@ -1,24 +1,30 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-02-16 00:10:21
+<?php /* Smarty version Smarty-3.0.7, created on 2011-04-02 01:03:31
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/picasa/usr/templates/default/picasa/images.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:12745076034d5aebbdb5e620-52831616%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7164939704d963da3b23a34-78421078%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e6ed0ad7ffa0fcd85a26c9c7eac2872b84f82bb0' => 
     array (
       0 => '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/picasa/usr/templates/default/picasa/images.tpl',
-      1 => 1297804103,
+      1 => 1301691807,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12745076034d5aebbdb5e620-52831616',
+  'nocache_hash' => '7164939704d963da3b23a34-78421078',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<h2><?php echo $_smarty_tpl->getVariable('album')->value->title;?>
+<?php if (!is_callable('smarty_modifier_sitelink')) include '/home/desigency/web/dev/phpmyengine.dev/phpmyengine/lib/smartyplugins/modifier.sitelink.php';
+?><div class="left">
+    <h2><?php echo $_smarty_tpl->getVariable('album')->value->title;?>
 </h2>
+</div>
+<div class="right">&larr; <a href="<?php echo smarty_modifier_sitelink("picasa");?>
+">к альбомам</a></div>
+<div class="clear"></div>
 <ul class="gallery">
 <?php  $_smarty_tpl->tpl_vars["image"] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('album')->value->images; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

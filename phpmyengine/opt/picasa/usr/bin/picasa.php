@@ -8,7 +8,7 @@ function defaultAction () {
     $_myConfig->load ( 'picasa', true );
 
     if (strlen ( $_myConfig->opt->picasa->user ) > 1) {
-        $_myRender = \phpMyEngine\Render\Render::getInstance();
+        $_myRender = \phpMyEngine\Render\Render::getInstance ();
         $myPicasa = new \phpMyEngine\Picasa\Picasa();
         $myPicasa->user = (string) $_myConfig->opt->picasa->user;
         $myPicasa->thumbWidth = (int) $_myConfig->opt->picasa->width;
@@ -25,7 +25,7 @@ function defaultAction () {
             $_myRender->setValue ( 'albums', $albums );
             $tpl = 'albums';
         }
-        $_myRender->renderTemplate ( 'gallerytemplates/' . $tpl . '.tpl' );
+        $_myRender->renderTemplate ( 'picasa/' . $tpl . '.tpl' );
     } else {
         \phpMyEngine\logError ( 'Picasa module not configured' );
     }
@@ -33,7 +33,7 @@ function defaultAction () {
 
 function viewAction () {
     $_myRoute = \phpMyEngine\Route::getInstance ();
-    $_myRender = \phpMyEngine\Render\Render::getInstance();
+    $_myRender = \phpMyEngine\Render\Render::getInstance ();
     $_myConfig = \phpMyEngine\Config\Config::getInstance ();
     $_myConfig->load ( 'picasa', true );
 
@@ -51,5 +51,5 @@ function viewAction () {
     }
 
     $_myRender->setValue ( 'album', $imgs );
-    $_myRender->renderTemplate ( 'gallerytemplates/images.tpl' );
+    $_myRender->renderTemplate ( 'picasa/images.tpl' );
 }

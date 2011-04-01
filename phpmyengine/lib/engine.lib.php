@@ -1154,3 +1154,9 @@ function _ ( $text, $domain = 'default' ) {
     \bind_textdomain_codeset ( $domain, 'UTF-8' );
     return dgettext ( $domain, $text );
 }
+namespace phpMyEngine\Widgets;
+
+function getWidgetPriorty ( $config, $widget ) {
+    $_myConfig = \phpMyEngine\Config\Config::getInstance ();
+    return $_myConfig->load ( 'articles', true )->widgetPriorty->$widget ? : 1;
+}

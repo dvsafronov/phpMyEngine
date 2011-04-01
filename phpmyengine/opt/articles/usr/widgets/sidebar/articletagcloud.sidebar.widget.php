@@ -15,4 +15,4 @@ function articletagcloudWidget () {
     return null;
 }
 
-return 2;
+return getWidgetPriorty ( 'articles', 'tagCloud' );

@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-03-29 16:49:41
+<?php /* Smarty version Smarty-3.0.7, created on 2011-04-02 01:01:12
          compiled from "/home/desigency/web/dev/phpmyengine.dev/phpmyengine/opt/articles/usr/templates/default/articles/tags/cloud.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6061406514d91d5659133e0-75034833%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:5851859424d963d18ba0b82-63470130%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6061406514d91d5659133e0-75034833',
+  'nocache_hash' => '5851859424d963d18ba0b82-63470130',
   'function' => 
   array (
   ),
