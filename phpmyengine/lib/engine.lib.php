@@ -6,8 +6,8 @@
  * 
  * @package phpMyEngine
  * @author Denis xmcdbx Safonov
- * @copyright Copyright (c) 2010 
- * @version 2010-09-11 15:58 
+ * @copyright Copyright (c) 2010-2011 
+ * @version 2011-04-01 18:38 
  * @license GPL v.3 http://www.gnu.org/licenses/gpl.txt
  *
  */
