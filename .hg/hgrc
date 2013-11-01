@@ -1,0 +1,6 @@
+[paths]
+bitbucket = https://bitbucket.org/32cm/phpmyengine
+
+
+[web]
+name = phpMyEngine

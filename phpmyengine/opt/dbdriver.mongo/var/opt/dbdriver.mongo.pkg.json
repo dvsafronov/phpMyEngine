@@ -1,6 +1,0 @@
-{
-    "extension": "MongoDB Driver",
-    "version": "10.10.17",
-    "description": "Driver for MongoDB",
-    "author": "Denis Safronov"
-}

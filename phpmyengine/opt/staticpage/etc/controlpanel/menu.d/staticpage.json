@@ -1,7 +1,0 @@
-{
-    "Static Pages": {
-        "Add new": "staticpage/add",
-        "List pages": "staticpage/list",
-        "Configure": "staticpage/configure"
-    }
-}

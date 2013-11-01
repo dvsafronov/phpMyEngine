@@ -1,0 +1,19 @@
+<?php
+
+namespace phpMyEngine\Template;
+
+use phpMyEngine\Render\Render;
+
+$_myRender = Render::getInstance();
+$items = $_myRender->getBreadcrumbs();
+$ca = count($items);
+for ($i = 0; $i < $ca; $i++): ?>
+    <?php if ($items[$i]->active): ?>
+        <li class="active"><?= $items[$i]->title ?></li>
+    <?php else: ?>
+        <li><a href="<?= $items[$i]->href ?>"><?= $items[$i]->title ?></a></li>
+    <?php endif; ?>
+    <?php if ($i < $ca - 1): ?>
+        <li><span class="divider">/</span></li>
+    <?php endif; ?>
+<?php endfor; ?>
